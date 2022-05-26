@@ -1,0 +1,13 @@
+{
+  "Core": {
+    "title": "Pavlo`s Page",
+    "desc": "Front-End Developer"
+  },
+  "Nav-menu": {
+    "about": "About",
+    "services": "Services",
+    "resume": "Resume",
+    "portfolio": "Portfolio",
+    "contact-btn": "Contact"
+  }
+}

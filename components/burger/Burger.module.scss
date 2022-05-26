@@ -1,0 +1,55 @@
+@import '~styles/core-variables.scss';
+
+.burger {
+	height: 24px;
+	width: 34px;
+  position: relative;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+
+	&__stripe,
+	&:before,
+	&:after {
+		display: block;
+		position: absolute;
+		height: 3px;
+		width: 100%;
+		background-color: $white;
+		border-radius: 8px;
+		opacity: 1;
+	}
+	&:before, 
+	&:after {
+		content: '';
+		transition: top .35s cubic-bezier(.23,1,.32,1), transform .35s cubic-bezier(.23,1,.32,1);
+	}
+
+	&__stripe {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	&:before {
+		top: 0;
+	}
+	&:after {
+		top: calc(100% - 3px);
+		box-shadow: none;
+	}
+
+	&.isOn {
+		.burger__stripe {
+			opacity: 0;
+		}
+		&:before,
+		&:after  {
+			top: 40%;
+		}
+		&:before {
+			transform: rotate(45deg);
+		}
+		&:after {
+			transform: rotate(-45deg);
+		}
+	}
+}

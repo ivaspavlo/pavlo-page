@@ -1,0 +1,80 @@
+@import '~styles/core-variables.scss';
+@import '~styles/core-mixins.scss';
+
+$bg-color: rgba(192,239,58,.7);
+
+@mixin item {
+	min-width: 40px;
+	height: 40px;
+	font-size: 14px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  text-transform: uppercase;
+	@include md {
+		min-width: 60px;
+		font-size: 16px;
+	}
+}
+
+.menu {
+	position: relative;
+	&:hover {
+		.menu__current {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			color: $white;
+			background-color: $bg-color;
+		}
+		.menu__list {
+			transform: scale(1);
+			opacity: 1;
+		}
+		.menu__item {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+	&__current {
+		@include item;
+		border-radius: 4px;
+    transition: .3s ease;
+		color: $white;
+		cursor: pointer;
+		&--no-items {
+			border-radius: 4px;
+		}
+	}
+	&__list {
+		position: absolute;
+		transition: .3s ease;
+		transform-origin: 0 0;
+		transform: scale(0);
+		opacity: 0;
+		border-radius: 4px;
+		border-top-right-radius: 0;
+		border-top-left-radius: 0;
+		background-color: $bg-color;
+		z-index: 3;
+	}
+	&__item {
+		@include item;
+    white-space: nowrap;
+		transition: .1s;
+		overflow: hidden;
+  	text-overflow: ellipsis;
+    color: $white;
+		font-size: 12px;
+		$delay: 100;
+    cursor: pointer;
+		&:hover {
+			opacity: .5;
+		}
+		@for $i from 1 through 10 {
+			&:nth-child(#{$i}) {
+				transition-delay: #{$delay}ms;
+				$delay: $delay + 50;
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+  "Core": {
+    "title": "Сторінка Павла",
+    "desc": "Front-End Розробник"
+  },
+  "Nav-menu": {
+    "about": "Про мене",
+    "services": "Послуги",
+    "resume": "Резюме",
+    "portfolio": "Портфоліо",
+    "contact-btn": "Контакти"
+  }
+}

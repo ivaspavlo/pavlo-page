@@ -1,0 +1,112 @@
+@import '~styles/core-variables.scss';
+@import '~styles/core-mixins.scss';
+
+.header {
+  width: 100%;
+  height: $mobileHeaderHeight;
+  display: flex;
+  justify-content: center;
+  background-color: $black;
+  position: fixed; top: 0;
+  z-index: $z-header;
+  @include md {
+    height: $desktopHeaderHeight;
+  }
+  &__container {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+  }
+  &__logo {
+    padding: 0 12px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid $green;
+    color: $white;
+    cursor: pointer;
+    @include md {
+      padding: 0 24px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+  &__btnDesktopWrap {
+    height: 52px;
+    display: none;
+    @include md {
+      display: flex;
+    }
+  }
+  &__btnMobileWrap {
+    max-width: 224px;
+    height: 52px;
+  }
+}
+
+.navDesktop {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  &__item {
+    padding: 0 4px;
+    &:hover { .navDesktop__link { color: $green; } }
+    &:nth-of-type(1) { padding: 0 4px 0 0; }
+    &:nth-last-of-type(1) { padding: 0 0 0 4px; }
+  }
+  &__link {
+    padding: 20px 0;
+    transition: .3s;
+    color: $white;
+    cursor: pointer;
+  }
+}
+
+.navMobile {
+  position: absolute; top: 100%; left: 0;
+  width: 100%;
+  min-height: calc(100vh - #{$mobileHeaderHeight});
+  visibility: hidden;
+  transition: .2s;
+  display: flex;
+  overflow: hidden;
+  opacity: 0;
+  &__container {
+    width: 100%;
+    padding: 52px 75px 48px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: $black;
+  }
+  &_expanded {
+    visibility: visible;
+    opacity: 1;
+  }
+  &__list {
+    margin-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
+  }
+  &__item {
+    cursor: pointer;
+    &:hover { .navMobile__link { color: $green; } }
+  }
+  &__link {
+    padding: 12px 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    display: flex;
+    letter-spacing: 0.01em;
+    color: $white;
+  }
+}

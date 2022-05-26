@@ -1,0 +1,55 @@
+@import '~styles/core-variables.scss';
+@import '~styles/core-mixins.scss';
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.screenOne {
+  @include screen;
+  justify-content: center;
+  background: linear-gradient(-45deg, #25263a, #0D0D0D, #0D0D0D, #283F39);
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+  &__container {
+    @include container;
+    max-width: 992px;
+    padding-top: $mobileHeaderHeight;
+    @include md {
+      padding-top: $desktopHeaderHeight;
+    }
+  }
+}
+
+.mainBlock {
+  width: 100%;
+  max-width: 310px;
+  display: flex;
+  flex-direction: column;
+  @include md {
+    max-width: 552px;
+  }
+  @include xl {
+    max-width: 644px;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+    text-align: center;
+    color: $white;
+  }
+  &__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: #E8E8E8;
+  }
+  &__buttonWrap {
+    width: 100%;
+    height: 52px;
+  }
+}
