@@ -64,6 +64,9 @@ $c3: #C0EF3A;
   &.filled {
     background: linear-gradient(90deg, $c2 0%, $c3 100%);
     color: $black;
+    .buttonPrimary__content {
+      font-weight: 600;
+    }
     &:before { background-color: $c1; }
     &:after { background: $black; }
   }

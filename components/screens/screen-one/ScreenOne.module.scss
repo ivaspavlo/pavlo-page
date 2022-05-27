@@ -7,49 +7,115 @@
   100% { background-position: 0% 50%; }
 }
 
+@keyframes decor {
+  50%, 100% { transform: scale(1); opacity: 0; }
+}
+
 .screenOne {
   @include screen;
   justify-content: center;
-  background: linear-gradient(-45deg, #25263a, #0D0D0D, #0D0D0D, #283F39);
+  background: linear-gradient(-45deg, #283F39, #0D0D0D, #25263a);
   background-size: 400% 400%;
   animation: gradient 12s ease infinite;
+  position: relative;
   &__container {
     @include container;
     max-width: 992px;
     padding-top: $mobileHeaderHeight;
+    display: flex;
+    justify-content: center;
     @include md {
       padding-top: $desktopHeaderHeight;
+      align-items: center;
     }
+  }
+  &__decor_1 {
+    position: absolute; top: 25%; left: -60px;
+    width: 25%;
+    height: 25%;
+    background: linear-gradient(180deg, rgba(45, 154, 255, 0.5625) 0%, rgba(6, 244, 16, 0) 100%);
+    opacity: .7;
+    transform: rotate(-42.49deg);
+    filter: blur(100px);
+  }
+  &__decor_2 {
+    position: absolute; top: 55%; right: 15%;
+    width: 27%;
+    height: 27%;
+    background: linear-gradient(151.29deg, rgba(150, 45, 255, 0.5625) 14.08%, rgba(63, 232, 255, 0) 86.64%);
+    opacity: .7;
+    transform: rotate(-180deg);
+    filter: blur(100px);
   }
 }
 
 .mainBlock {
   width: 100%;
   max-width: 310px;
+  margin-top: 68px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   @include md {
-    max-width: 552px;
+    max-width: 600px;
+    margin-top: 0;
+    align-items: flex-start;
   }
   @include xl {
-    max-width: 644px;
+    max-width: 700px;
   }
   &__title {
     font-weight: 600;
     font-size: 28px;
     line-height: 36px;
+    letter-spacing: 0.01em;
     text-align: center;
     color: $white;
+    @include md {
+      font-size: 48px;
+      line-height: 56px;
+      text-align: start;
+    }
+    @include lg {
+      font-size: 48px;
+      line-height: 64px;
+    }
+    @include xl {
+      font-size: 56px;
+      line-height: 72px;
+    }
   }
   &__subtitle {
+    margin: 24px 0 32px;
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
     text-align: center;
-    color: #E8E8E8;
+    color: $grey-1;
+    @include md {
+      margin: 24px 0 48px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      text-align: start;
+    }
+    @include lg {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 32px;
+    }
   }
   &__buttonWrap {
     width: 100%;
-    height: 52px;
+    width: 136px;
+    height: 48px;
+    @include md {
+      width: 152px;
+      height: 52px;
+    }
+    @include lg {
+      width: 172px;
+      height: 64px;
+    }
   }
 }
