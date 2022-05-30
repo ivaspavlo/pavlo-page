@@ -24,11 +24,13 @@ function ScreenOne() {
           </div>
         </div>
 
-        <div className={styles.screenOne__decor_1}></div>
-        <div className={styles.screenOne__decor_2}></div>
-        <div className={styles.screenOne__decor_3}></div>
-
       </div>
+
+      <div className={styles.screenOne__decor_0}></div>
+      <div className={styles.screenOne__decor_1}></div>
+      <div className={styles.screenOne__decor_2}></div>
+      <div className={styles.screenOne__decor_3}></div>
+
     </section>
   );
 }
