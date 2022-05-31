@@ -9,5 +9,25 @@
     "resume": "Резюме",
     "portfolio": "Портфоліо",
     "contact-btn": "Контакти"
+  },
+  "Screen-one": {
+    "greets-1": "Привіт",
+    "greets-2": "це сторінка Павла",
+    "intro-text": "Дякую, що завітали до мене! Як ви, певно, вже здогадались, я - web розробник. Мій улюблений тулбокс - це MEAN стек, але, звісно, цим мій досвід не обмежується, наприклад, для цієї сторнінки використано Next.js :)",
+    "btn-learn-more": "Дізнатись ще"
+  },
+  "Screen-two": {
+    "subtitle": "Хто ж я",
+    "title": "Трохи про мене",
+    "desc": "Seamlessly initiate standardized vortals and visionary catalysts for change. Interactively redefine synergistic supply chains through leading-edge best practices. Professionally architect standards compliant internal or 'organic' sources whereas team building supply chains. Competently drive seamless benefits vis-a-vis optimal platforms.",
+    "name-title": "Ім'я",
+    "age-title": "Вік",
+    "email-title": "Емейл",
+    "location-title": "Локація",
+    "name": "Павло Іващенко",
+    "email": "pavlo.ivashchenko@gmail.com",
+    "location": "Відень, Австрія",
+    "btn-experience": "Експіріенс",
+    "btn-cv": "Моє CV"
   }
 }

@@ -4,7 +4,7 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import Header from "@components/header/Header";
 import Footer from "@components/footer/Footer";
 import ScreenOne from "@components/screens/screen-one/ScreenOne";
-import ScreenTwo from "@components/screens/screen-two/screenTwo";
+import ScreenTwo from "@components/screens/screen-two/ScreenTwo";
 
 import classes from "@components/layout/Layout.module.scss";
 

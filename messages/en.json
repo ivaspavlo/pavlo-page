@@ -9,5 +9,25 @@
     "resume": "Resume",
     "portfolio": "Portfolio",
     "contact-btn": "Contact"
+  },
+  "Screen-one": {
+    "greets-1": "Hey there",
+    "greets-2": "It's Pavlo Ivashchenko",
+    "intro-text": "Thanks for being there and reading my gig details. As the title of the gig suggests I am a Front end Developer & offering my expertise in Angular App Website Development.",
+    "btn-learn-more": "Learn more"
+  },
+  "Screen-two": {
+    "subtitle": "Who am I",
+    "title": "About me",
+    "desc": "Seamlessly initiate standardized vortals and visionary catalysts for change. Interactively redefine synergistic supply chains through leading-edge best practices. Professionally architect standards compliant internal or 'organic' sources whereas team building supply chains. Competently drive seamless benefits vis-a-vis optimal platforms.",
+    "name-title": "Name",
+    "age-title": "Age",
+    "email-title": "Email",
+    "location-title": "Location",
+    "name": "Pavlo Ivashchenko",
+    "email": "pavlo.ivashchenko@gmail.com",
+    "location": "Vienna, Austria",
+    "btn-experience": "Experience",
+    "btn-cv": "Download CV"
   }
 }
