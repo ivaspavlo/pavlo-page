@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useTranslations } from "next-intl";
 
 import ButtonSecondary from "@components/button-secondary/ButtonSecondary";
@@ -21,9 +21,10 @@ function ScreenTwo() {
 
   return (
     <section className={styles.screenTwo}>
+
       <div className={styles.screenTwo__container}>
 
-        <div className={styles.myImage}></div>
+        <div className={styles.myImageDesktop}></div>
 
         <div className={styles.mainBlock}>
           <header className={styles.mainBlock__header}>
@@ -55,6 +56,9 @@ function ScreenTwo() {
         </div>
 
       </div>
+
+      <div className={styles.myImageMobile}></div>
+
     </section>
   );
 }

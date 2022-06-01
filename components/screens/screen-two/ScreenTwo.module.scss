@@ -3,33 +3,73 @@
 
 .screenTwo {
   @include screen;
+  @include bg-img('~public/img/screen-two-texture.png');
   background-color: $grey-2;
   display: flex;
-  align-items: center;
-  padding: 40px 0 50px;
-  @include md {
-    padding: 60px 0;
-  }
+  flex-direction: column;
+  justify-content: center;
   @include lg {
+    padding: 64px 0;
+  }
+  @include xl {
     padding: 100px 0;
   }
   &__container {
     @include container;
+    flex-direction: column;
+    @include lg {
+      flex-direction: row;
+    }
   }
-  
+}
+
+.myImageDesktop {
+  width: 100%;
+  display: none;
+  align-items: stretch;
+  background-color: grey;
+  @include lg {
+    min-width: 476px;
+    margin-right: 48px;
+    display: flex;
+  }
+  @include xl {
+    min-width: 648px;
+    margin-right: 64px;
+  }
+  @include xxl {
+    min-width: 820px;
+    margin-right: 156px;
+  }
+}
+
+.myImageMobile {
+  width: 100%;
+  display: flex;
+  background-color: grey;
+  min-height: 324px;
+  @include sm {
+    min-height: 400px;
+  }
+  @include md {
+    min-height: 500px;
+  }
+  @include lg {
+    display: none;
+  }
 }
 
 .mainBlock {
   width: 100%;
-  max-width: 432px;
+  padding: 40px 0 48px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   @include lg {
     max-width: 600px;
+    padding: 24px 0;
   }
   &__header {
-    padding-top: 24px;
     display: flex;
     flex-direction: column;
   }
@@ -126,15 +166,5 @@
     @include xl {
       margin-top: 64px;
     }
-  }
-}
-
-.myImage {
-  display: none;
-  @include md {
-    width: 45%;
-    max-width: 476px;
-    height: 100%;
-    display: flex;
   }
 }

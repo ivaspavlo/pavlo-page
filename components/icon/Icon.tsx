@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 import styles from "@components/icon/Icon.module.scss";
 
 export interface IIcon {
@@ -9,12 +10,12 @@ export interface IIcon {
 
 function Icon(props: IIcon) {
   const iconName = props.isHovered && props.hoverName ?
-    `icons/${props.hoverName}.svg` :
-    `icons/${props.name}.svg`;
+    `/icons/${props.hoverName}.svg` :
+    `/icons/${props.name}.svg`;
 
   return (
     <figure className={styles.icon}>
-      <img src={iconName}/>
+      <Image src={iconName} width={16} height={16} alt={`Icon ${iconName}`}/>
     </figure>
   );
 }

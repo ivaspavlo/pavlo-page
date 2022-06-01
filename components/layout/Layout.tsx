@@ -1,27 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 import Header from "@components/header/Header";
 import Footer from "@components/footer/Footer";
-import ScreenOne from "@components/screens/screen-one/ScreenOne";
-import ScreenTwo from "@components/screens/screen-two/ScreenTwo";
 
 import classes from "@components/layout/Layout.module.scss";
 
 
-function Layout() {
-  const [state, setState] = useState(false);
-
-  useEffect(() => { }, []);
-
+function Layout({ children }: { children: any; }) {
   return (
     <ParallaxProvider>
 
       <Header />
 
-      <ScreenOne />
-
-      <ScreenTwo />
+      {children}
 
       <Footer />
       

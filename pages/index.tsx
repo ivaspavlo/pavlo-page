@@ -4,7 +4,9 @@ import type { NextPage } from 'next'
 import { useTranslations } from 'next-intl'
 import Head from 'next/head'
 
-import Layout from '../components/layout/Layout'
+import Layout from '@components/layout/Layout'
+import ScreenOne from "@components/screens/screen-one/ScreenOne";
+import ScreenTwo from "@components/screens/screen-two/ScreenTwo";
 
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
@@ -27,7 +29,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout />
+      <Layout>
+
+        <ScreenOne />
+
+        <ScreenTwo />
+
+      </Layout>
 
     </Fragment>
   )

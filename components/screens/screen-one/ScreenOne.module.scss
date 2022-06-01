@@ -22,21 +22,26 @@
 
 .screenOne {
   @include screen;
+  padding: calc(48px + #{$mobileHeaderHeight}) 0 48px;
   justify-content: center;
   background: linear-gradient(-45deg, #25263a, #0D0D0D, #283F39);
   background-size: 400% 400%;
   animation: a7n-gradient 12s ease infinite;
   position: relative;
   overflow: hidden;
+  @include md {
+    padding: calc(48px + #{$desktopHeaderHeight}) 0 48px;
+  }
+  @include lg {
+    padding: $desktopHeaderHeight 0 0;
+  }
   &__container {
     @include container;
     max-width: 992px;
-    padding-top: $mobileHeaderHeight;
     display: flex;
     justify-content: center;
     z-index: 1;
     @include md {
-      padding-top: $desktopHeaderHeight;
       align-items: center;
       justify-content: flex-start;
     }
