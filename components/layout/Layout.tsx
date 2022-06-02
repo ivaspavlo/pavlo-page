@@ -4,18 +4,22 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import Header from "@components/header/Header";
 import Footer from "@components/footer/Footer";
 
-import classes from "@components/layout/Layout.module.scss";
+import styles from "@components/layout/Layout.module.scss";
 
 
 function Layout({ children }: { children: any; }) {
   return (
     <ParallaxProvider>
 
-      <Header />
+      <div className={styles.layoutContainer}>
+        
+        <Header />
 
-      {children}
+        {children}
 
-      <Footer />
+        <Footer />
+
+      </div>
       
     </ParallaxProvider>
   );

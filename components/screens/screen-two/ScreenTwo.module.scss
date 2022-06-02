@@ -4,70 +4,58 @@
 .screenTwo {
   @include screen;
   @include bg-img('~public/img/screen-two-texture.png');
-  background-color: $grey-2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  @include lg {
-    padding: 64px 0;
-  }
-  @include xl {
-    padding: 100px 0;
-  }
   &__container {
-    @include container;
-    flex-direction: column;
-    @include lg {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 0 0;
+    display: flex;
+    flex-direction: column-reverse;
+    @include md {
+      padding: 56px 0;
       flex-direction: row;
+    }
+    @include xl {
+      padding: 100px 0;
     }
   }
 }
 
-.myImageDesktop {
-  width: 100%;
-  display: none;
+.myImage {
+  @include bg-img('~public/img/screen-two-my-photo.png');
+  min-height: 500px;
+  display: flex;
   align-items: stretch;
-  background-color: grey;
-  @include lg {
+  @include md {
+    min-height: auto;
     min-width: 476px;
+    margin-right: 24px;
+  }
+  @include lg {
     margin-right: 48px;
-    display: flex;
   }
   @include xl {
     min-width: 648px;
     margin-right: 64px;
   }
   @include xxl {
-    min-width: 820px;
+    width: 820px;
     margin-right: 156px;
-  }
-}
-
-.myImageMobile {
-  width: 100%;
-  display: flex;
-  background-color: grey;
-  min-height: 324px;
-  @include sm {
-    min-height: 400px;
-  }
-  @include md {
-    min-height: 500px;
-  }
-  @include lg {
-    display: none;
   }
 }
 
 .mainBlock {
   width: 100%;
-  padding: 40px 0 48px;
+  padding: 0 16px 48px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  @include lg {
+  justify-content: center;
+  @include md {
     max-width: 600px;
-    padding: 24px 0;
+    padding: 24px 24px 24px 0;
+  }
+  @include xl {
+    padding: 72px 24px 72px 0;
   }
   &__header {
     display: flex;

@@ -24,7 +24,7 @@ function ScreenTwo() {
 
       <div className={styles.screenTwo__container}>
 
-        <div className={styles.myImageDesktop}></div>
+        <div className={styles.myImage}></div>
 
         <div className={styles.mainBlock}>
           <header className={styles.mainBlock__header}>
@@ -54,10 +54,8 @@ function ScreenTwo() {
             </div>
           </div>
         </div>
-
+        
       </div>
-
-      <div className={styles.myImageMobile}></div>
 
     </section>
   );
