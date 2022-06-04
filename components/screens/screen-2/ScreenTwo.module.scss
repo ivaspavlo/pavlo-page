@@ -4,6 +4,7 @@
 .screenTwo {
   @include screen;
   @include bg-img('~public/img/screen-two-texture.png');
+  padding-top: $mobileHeaderHeight;
   &__container {
     width: 100%;
     min-height: 100vh;

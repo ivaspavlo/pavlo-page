@@ -5,8 +5,9 @@ import { useTranslations } from 'next-intl'
 import Head from 'next/head'
 
 import Layout from '@components/layout/Layout'
-import ScreenOne from "@components/screens/screen-one/ScreenOne";
-import ScreenTwo from "@components/screens/screen-two/ScreenTwo";
+import ScreenOne from "@root/components/screens/screen-1/ScreenOne";
+import ScreenTwo from "@root/components/screens/screen-2/ScreenTwo";
+import ScreenThree from '@root/components/screens/screen-3/screenThree'
 
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
@@ -34,6 +35,8 @@ const Home: NextPage = () => {
         <ScreenOne />
 
         <ScreenTwo />
+
+        <ScreenThree />
 
       </Layout>
 

@@ -40,11 +40,7 @@ $bp: (
 @mixin screen {
   min-height: 100vh;
   width: 100%;
-  // padding-top: $mobileHeaderHeight;
   display: flex;
-  // @include md {
-  //   padding-top: $desktopHeaderHeight;
-  // }
 }
 
 @mixin container {

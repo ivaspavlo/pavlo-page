@@ -9,6 +9,10 @@
   background-color: $black;
   position: fixed; top: 0;
   z-index: $z-header;
+  transition: .3s;
+  &_isShrinked {
+    height: $mobileHeaderHeight !important;
+  }
   @include md {
     height: $desktopHeaderHeight;
   }

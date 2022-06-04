@@ -29,5 +29,16 @@
     "location": "Vienna, Austria",
     "btn-experience": "Experience",
     "btn-cv": "Download CV"
+  },
+  "Screen-three": {
+    "title": "Provide Services",
+    "subtitle": "What I can offer",
+    "desc": "Uniquely e-enable corporate growth strategies with scalable experiences. Rapidiously orchestrate mission-critical channels rather than tactical methodologies.",
+    "service-web-title": "Web development",
+    "service-app-title": "App development",
+    "service-desk-title": "Desktop development",
+    "service-web-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches.",
+    "service-app-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches.",
+    "service-desk-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches."
   }
 }

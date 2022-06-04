@@ -1,8 +1,8 @@
 .layoutContainer {
-  min-height: 100vh;
+  height: 100vh;
   overflow: auto;
   scroll-snap-type: y mandatory;
-  * {
+  section {
     scroll-snap-align: start;
   }
 }

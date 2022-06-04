@@ -29,5 +29,16 @@
     "location": "Відень, Австрія",
     "btn-experience": "Експіріенс",
     "btn-cv": "Моє CV"
+  },
+  "Screen-three": {
+    "title": "Moї сервіси",
+    "subtitle": "Чим я займаюсь",
+    "desc": "Uniquely e-enable corporate growth strategies with scalable experiences. Rapidiously orchestrate mission-critical channels rather than tactical methodologies.",
+    "service-web-title": "Web development",
+    "service-app-title": "App development",
+    "service-desktop-title": "Desktop development",
+    "service-web-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches.",
+    "service-app-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches.",
+    "service-desktop-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches."
   }
 }

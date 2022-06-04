@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, RefObject } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import { fromEvent, Observable } from 'rxjs';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 
 import Burger from '@components/burger/Burger';
 import LanguageBar from '@components/language-bar/LanguageBar';
@@ -16,19 +18,31 @@ const navLinks = [
   { uiName: 'portfolio' }
 ];
 
-function Header() {
+function Header(props: { scrollTarget?: RefObject<any>; }) {
   const t = useTranslations('Nav-menu');
   const [burgerExpandedState, setBurgerExpandedState] = useState(false);
+  const [isShrinked, setIsShrinked] = useState(false);
   const menuRef = useRef(null);
 
-  useEffect(() => { }, []);
+  useEffect(() => {
+    shrinkOnScroll().subscribe((res: boolean) => {
+      setIsShrinked(res);
+    });
+  }, []);
+
+  function shrinkOnScroll(): Observable<boolean> {
+    return fromEvent<MouseEvent>(props.scrollTarget?.current || document.documentElement, 'scroll').pipe(
+      map((event: any) => event.target.scrollTop > 0),
+      distinctUntilChanged()
+    );
+  }
 
   const burgerToggleHandler = (): void => {
     setBurgerExpandedState(!burgerExpandedState);
   }
 
   return (
-    <section className={styles.header}>
+    <section className={`${styles.header} ${isShrinked ? styles.header_isShrinked : ''}`}>
 
       <div className={styles.header__container}>
 
