@@ -1,8 +1,30 @@
 .layoutContainer {
   height: 100vh;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   scroll-snap-type: y mandatory;
   section {
     scroll-snap-align: start;
+  }
+}
+
+// TODO: consider using parallax in the future
+.parallax {
+  perspective: 2px;
+  section {
+    position: relative;
+    min-height: 100vh;
+    transform-style: preserve-3d;
+    &.parallax::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateZ(-1px) scale(1.5);
+      background-size: 100%;
+      z-index: -1;
+    }
   }
 }

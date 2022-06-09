@@ -1,6 +1,6 @@
 import { useEffect, RefObject } from 'react';
 
-function useOutsideAlerter(ref: RefObject<any>, start: boolean, clickOutside: Function) {
+function useOutsideAlerter(ref: RefObject<any>, start: boolean, clickOutside: Function): void {
   useEffect(() => {
     if (!start) {
       return;

@@ -1,30 +1,37 @@
-import React, { MutableRefObject, ReactNode, RefObject, useRef } from "react";
-import { ParallaxProvider } from "react-scroll-parallax";
+import React, { createContext, ReactNode, RefObject, useEffect, useRef, useState } from "react";
 
 import Header from "@components/header/Header";
 import Footer from "@components/footer/Footer";
 
 import styles from "@components/layout/Layout.module.scss";
 
+export const LayoutContext = createContext<RefObject<any> | null>(null);
+
 
 function Layout({ children }: { children: ReactNode; }) {
-  const layoutContainer = useRef<HTMLDivElement>(null);
+  const layoutRef: RefObject<HTMLDivElement> = useRef(null);
+  const [layoutRefState, setLayoutRefState] = useState<any>(null);
+
+  useEffect(() => {
+    if (!layoutRef.current) {
+      return;
+    }
+    setLayoutRefState(layoutRef);
+  }, [layoutRef]);
 
   return (
-    <ParallaxProvider>
+    <div ref={layoutRef} className={styles.layoutContainer}>
+      <LayoutContext.Provider value={layoutRefState}>
 
-      <div ref={layoutContainer} className={styles.layoutContainer}>
-        
-        <Header scrollTarget={layoutContainer} />
+        <Header />
 
         {children}
 
         <Footer />
 
-      </div>
-      
-    </ParallaxProvider>
+      </LayoutContext.Provider>
+    </div>
   );
-}
-    
+};
+
 export default Layout;

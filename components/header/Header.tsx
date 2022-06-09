@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useRef, RefObject } from 'react';
+import React, { useState, useEffect, useRef, RefObject, memo, useContext } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { fromEvent, Observable } from 'rxjs';
-import { distinctUntilChanged, map } from 'rxjs/operators';
+import { fromEvent, Observable, Subject } from 'rxjs';
+import { distinctUntilChanged, map, takeUntil } from 'rxjs/operators';
 
 import Burger from '@components/burger/Burger';
 import LanguageBar from '@components/language-bar/LanguageBar';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
+import { LayoutContext } from '@components/layout/Layout';
 
 import styles from '@components/header/Header.module.scss';
 
@@ -18,22 +19,29 @@ const navLinks = [
   { uiName: 'portfolio' }
 ];
 
-function Header(props: { scrollTarget?: RefObject<any>; }) {
+function Header() {
   const t = useTranslations('Nav-menu');
+  const layoutRef: RefObject<HTMLDivElement> | null = useContext(LayoutContext);
   const [burgerExpandedState, setBurgerExpandedState] = useState(false);
   const [isShrinked, setIsShrinked] = useState(false);
   const menuRef = useRef(null);
+  const destroy$: Subject<void> = new Subject();
 
   useEffect(() => {
     shrinkOnScroll().subscribe((res: boolean) => {
       setIsShrinked(res);
     });
+    return () => {
+      destroy$.next();
+      destroy$.complete();
+    }
   }, []);
 
   function shrinkOnScroll(): Observable<boolean> {
-    return fromEvent<MouseEvent>(props.scrollTarget?.current || document.documentElement, 'scroll').pipe(
+    return fromEvent<MouseEvent>(layoutRef?.current || document.documentElement, 'scroll').pipe(
       map((event: any) => event.target.scrollTop > 0),
-      distinctUntilChanged()
+      distinctUntilChanged(),
+      takeUntil(destroy$)
     );
   }
 
@@ -42,7 +50,7 @@ function Header(props: { scrollTarget?: RefObject<any>; }) {
   }
 
   return (
-    <section className={`${styles.header} ${isShrinked ? styles.header_isShrinked : ''}`}>
+    <div className={`${styles.header} ${isShrinked ? styles.header_isShrinked : ''}`}>
 
       <div className={styles.header__container}>
 
@@ -86,8 +94,8 @@ function Header(props: { scrollTarget?: RefObject<any>; }) {
 
       </div>
       
-    </section>
+    </div>
   );
 }
 
-export default Header;
+export default memo(Header);

@@ -5,9 +5,9 @@ import { useTranslations } from 'next-intl'
 import Head from 'next/head'
 
 import Layout from '@components/layout/Layout'
-import ScreenOne from "@root/components/screens/screen-1/ScreenOne";
-import ScreenTwo from "@root/components/screens/screen-2/ScreenTwo";
-import ScreenThree from '@root/components/screens/screen-3/screenThree'
+import ScreenOne from "@components/screens/screen-1/ScreenOne";
+import ScreenTwo from "@components/screens/screen-2/ScreenTwo";
+import ScreenThree from '@components/screens/screen-3/ScreenThree';
 
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         <meta name="description" content={t('desc')} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      
       <Layout>
 
         <ScreenOne />
