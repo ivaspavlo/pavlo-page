@@ -8,15 +8,15 @@
 }
 
 @keyframes a7n-splash {
-  0% { transform: scale(1) translateX(0); opacity: 1; }
-  50% { transform: scale(0) translateX(100%); opacity: 0; }
-  100% { transform: scale(1) translateX(0); opacity: 1; }
+  0% { transform: scale(1); opacity: .4; }
+  50% { transform: scale(.7); opacity: .1; }
+  100% { transform: scale(1); opacity: .4; }
 }
 
-@mixin splash($duration: 10s, $opacity: .7) {
+@mixin splash($duration: 10s) {
   animation: a7n-splash $duration infinite;
-  opacity: $opacity;
   position: absolute;
+  z-index: -1;
   filter: blur(100px);
 }
 
@@ -24,9 +24,6 @@
   @include screen;
   padding-top: $mobileHeaderHeight;
   justify-content: center;
-  background: linear-gradient(-45deg, #25263a, #0D0D0D, #283F39);
-  background-size: 400% 400%;
-  animation: a7n-gradient 12s ease infinite;
   position: relative;
   overflow: hidden;
   &__container {
@@ -44,30 +41,42 @@
       padding-bottom: 0;
     }
   }
-  &__decor_0 {
+  &__decor_1 {
+    position: absolute; top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #25263a, #0D0D0D, #283F39);
+    background-size: 200% 200%;
+    animation: a7n-gradient 15s ease-out infinite;
+    display: flex;
+    z-index: -3;
+  }
+  &__decor_2 {
     @include bg-img('~public/img/screen-one-texture.png');
     position: absolute; top: 0; left: 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    z-index: -2;
   }
-  &__decor_1 {
+  &__decor_3 {
     @include splash(15s);
-    position: absolute; top: 25%; left: -60px;
-    width: 25%;
-    height: 25%;
+    position: absolute; bottom: 0; left: 10%;
+    width: 50%;
+    height: 70%;
     background: linear-gradient(180deg, rgba(45, 154, 255, 0.5625) 0%, rgba(6, 244, 16, 0) 100%);
     transform: rotate(-42.49deg);
   }
-  &__decor_2 {
-    @include splash(30s, .5);
-    position: absolute; top: 20%; right: 15%;
-    width: 30%;
-    height: 30%;
+  &__decor_4 {
+    @include splash(15s);
+    position: absolute; top: 0; right: 10%;
+    width: 50%;
+    height: 70%;
     background: linear-gradient(151.29deg, rgba(150, 45, 255, 0.5625) 14.08%, rgba(63, 232, 255, 0) 86.64%);
     transform: rotate(-180deg);
   }
-  &__decor_3 {
-    @include splash(25s, .5);
+  &__decor_5 {
+    @include splash(25s);
     position: absolute; bottom: -25%; right: 30%;
     width: 40%;
     height: 40%;
@@ -98,6 +107,7 @@
     letter-spacing: 0.01em;
     text-align: center;
     color: $white;
+    
     @include md {
       font-size: 48px;
       line-height: 56px;

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, RefObject, memo, useContext } from 
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { fromEvent, Observable, Subject } from 'rxjs';
-import { distinctUntilChanged, map, takeUntil } from 'rxjs/operators';
+import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
 
 import Burger from '@components/burger/Burger';
 import LanguageBar from '@components/language-bar/LanguageBar';
@@ -28,9 +28,7 @@ function Header() {
   const destroy$: Subject<void> = new Subject();
 
   useEffect(() => {
-    shrinkOnScroll().subscribe((res: boolean) => {
-      setIsShrinked(res);
-    });
+    shrinkOnScroll();
     return () => {
       destroy$.next();
       destroy$.complete();
@@ -38,11 +36,15 @@ function Header() {
   }, []);
 
   function shrinkOnScroll(): Observable<boolean> {
-    return fromEvent<MouseEvent>(layoutRef?.current || document.documentElement, 'scroll').pipe(
+    if (!layoutRef?.current) {
+      return;
+    }
+    return fromEvent<MouseEvent>(layoutRef.current, 'scroll').pipe(
       map((event: any) => event.target.scrollTop > 0),
       distinctUntilChanged(),
-      takeUntil(destroy$)
-    );
+      takeUntil(destroy$),
+      tap((event: any) => setIsShrinked(event))
+    ).subscribe();
   }
 
   const burgerToggleHandler = (): void => {
