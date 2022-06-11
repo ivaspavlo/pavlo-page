@@ -12,7 +12,7 @@ const serviceCards = [
   { iconName: 'service-desk-dev', title: 'service-desk-title', desc: 'service-desk-desc' }
 ];
 
-function screenThree() {
+function ScreenThree() {
   const t = useTranslations('Screen-three');
   const animateVariants = {
     open: { translateY: 0, opacity: 1 },
@@ -74,5 +74,5 @@ function screenThree() {
   );
 }
     
-export default screenThree;
+export default ScreenThree;
     

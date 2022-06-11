@@ -7,7 +7,7 @@ import Head from 'next/head'
 import Layout from '@components/layout/Layout'
 import ScreenOne from "@components/screens/screen-1/ScreenOne";
 import ScreenTwo from "@components/screens/screen-2/ScreenTwo";
-import ScreenThree from '@components/screens/screen-3/ScreenThree';
+import ScreenThree from '@components/screens/screen-3/screenThree';
 
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {

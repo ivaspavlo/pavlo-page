@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, RefObject, memo, useContext } from 'react';
+import React, { useState, useEffect, useRef, RefObject, memo } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { fromEvent, Subject } from 'rxjs';
@@ -7,7 +7,6 @@ import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
 import Burger from '@components/burger/Burger';
 import LanguageBar from '@components/language-bar/LanguageBar';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
-import { LayoutContext } from '@components/layout/Layout';
 
 import styles from '@components/header/Header.module.scss';
 
