@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, RefObject, memo, useContext } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { fromEvent, Observable, Subject } from 'rxjs';
+import { fromEvent, Subject } from 'rxjs';
 import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
 
 import Burger from '@components/burger/Burger';
@@ -19,9 +19,8 @@ const navLinks = [
   { uiName: 'portfolio' }
 ];
 
-function Header() {
+function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
   const t = useTranslations('Nav-menu');
-  const layoutRef: RefObject<HTMLDivElement> | null = useContext(LayoutContext);
   const [burgerExpandedState, setBurgerExpandedState] = useState(false);
   const [isShrinked, setIsShrinked] = useState(false);
   const menuRef = useRef(null);
@@ -35,11 +34,11 @@ function Header() {
     }
   }, []);
 
-  function shrinkOnScroll(): Observable<boolean> {
-    if (!layoutRef?.current) {
+  function shrinkOnScroll(): void {
+    if (!props.scrollOrigin?.current) {
       return;
     }
-    return fromEvent<MouseEvent>(layoutRef.current, 'scroll').pipe(
+    fromEvent<MouseEvent>(props.scrollOrigin.current, 'scroll').pipe(
       map((event: any) => event.target.scrollTop > 0),
       distinctUntilChanged(),
       takeUntil(destroy$),
