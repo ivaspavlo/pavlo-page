@@ -3,8 +3,8 @@
 
 .screenThree {
   @include screen;
+  @include bg-img('~public/img/screen-three-bg.png');
   justify-content: center;
-  padding-top: $mobileHeaderHeight;
   background-color: #000000;
   &__container {
     @include container;
@@ -110,7 +110,30 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background: rgba(255,255,255,.05);
+  position: relative;
+  overflow: hidden;
+  transition: .5s;
+  
+  &:after {
+    position: absolute; top: -100%;
+    background: #fff;
+    height: 300%;
+    left: -200%;
+    opacity: .2;
+    transform: rotate(35deg);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    transition-delay: 0s;
+    width: 50%;
+    filter: blur(20px);
+    content: "";
+  }
+  &_inView {
+    background: rgba(255,255,255,.05);
+    &:after {
+      left: 200%;
+      transition-delay: 1.5s;
+    }
+  }
   @include sm {
     min-height: 200px;
   }

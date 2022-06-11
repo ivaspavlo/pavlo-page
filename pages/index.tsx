@@ -34,9 +34,13 @@ const Home: NextPage = () => {
 
         <ScreenOne />
 
-        <ScreenTwo />
+        <section>
+          
+          <ScreenTwo />
 
-        <ScreenThree />
+          <ScreenThree />
+
+        </section>
 
       </Layout>
 
