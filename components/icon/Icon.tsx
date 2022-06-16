@@ -6,6 +6,8 @@ export interface IIcon {
   name: string;
   hoverName?: string;
   isHovered?: boolean;
+  width?: number;
+  height?: number;
 }
 
 function Icon(props: IIcon) {
@@ -15,7 +17,7 @@ function Icon(props: IIcon) {
 
   return (
     <figure className={styles.icon}>
-      <Image src={iconName} width={16} height={16} alt={`Icon ${iconName}`}/>
+      <Image src={iconName} width={props.width || 16} height={props.height || 16} alt={`Icon ${iconName}`}/>
     </figure>
   );
 }

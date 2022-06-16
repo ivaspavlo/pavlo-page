@@ -1,16 +1,16 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { InView } from "react-intersection-observer";
 
 import ButtonSecondary from "@components/button-secondary/ButtonSecondary";
 import ButtonPrimary from "@components/button-primary/ButtonPrimary";
 
 import styles from "./ScreenTwo.module.scss";
-import { InView } from "react-intersection-observer";
 
 
 function ScreenTwo() {
-  const t = useTranslations('Screen-two');
+  const t = useTranslations('screen-two');
   const age = getCurrentAge();
   const animate = {
     open: { translateY: 0, opacity: 1 },
@@ -45,7 +45,7 @@ function ScreenTwo() {
                 variants={animate}
                 transition={{ duration: .8, ease: "easeOut", delay: .2 }}
                 className={styles.mainBlock}>
-                  <header className={styles.mainBlock__header}>
+                  <header className="d-flex flex-column">
                     <h5 className={styles.mainBlock__subtitle}>{t('subtitle')}</h5>
                     <h3 className={styles.mainBlock__title}>
                       <span>{t('title')}</span>

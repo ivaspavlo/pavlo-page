@@ -8,6 +8,7 @@ import Layout from '@components/layout/Layout'
 import ScreenOne from "@components/screens/screen-1/ScreenOne";
 import ScreenTwo from "@components/screens/screen-2/ScreenTwo";
 import ScreenThree from '@components/screens/screen-3/screenThree';
+import ScreenFour from '@root/components/screens/screen-4/ScreenFour';
 
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
@@ -19,7 +20,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
 }
 
 const Home: NextPage = () => {
-  const t = useTranslations("Core");
+  const t = useTranslations("core");
 
   return (
     <Fragment>
@@ -42,6 +43,8 @@ const Home: NextPage = () => {
 
         </section>
 
+        <ScreenFour />
+        
       </Layout>
 
     </Fragment>

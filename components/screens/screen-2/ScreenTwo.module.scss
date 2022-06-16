@@ -58,10 +58,6 @@
   @include xl {
     padding: 72px 24px 72px 0;
   }
-  &__header {
-    display: flex;
-    flex-direction: column;
-  }
   &__title {
     margin: 8px 0 16px;
     font-size: 28px;
