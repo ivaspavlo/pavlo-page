@@ -19,7 +19,7 @@ const navLinks = [
 ];
 
 function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
-  const t = useTranslations('Nav-menu');
+  const t = useTranslations('nav-menu');
   const [burgerExpandedState, setBurgerExpandedState] = useState(false);
   const [isShrinked, setIsShrinked] = useState(false);
   const menuRef = useRef(null);

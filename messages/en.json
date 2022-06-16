@@ -1,22 +1,22 @@
 {
-  "Core": {
+  "core": {
     "title": "Pavlo`s Page",
     "desc": "Front-End Developer"
   },
-  "Nav-menu": {
+  "nav-menu": {
     "about": "About",
     "services": "Services",
     "resume": "Resume",
     "portfolio": "Portfolio",
     "contact-btn": "Contact"
   },
-  "Screen-one": {
+  "screen-one": {
     "greets-1": "Hey there",
     "greets-2": "It's Pavlo Ivashchenko",
     "intro-text": "Thanks for being there and reading my gig details. As the title of the gig suggests I am a Front end Developer & offering my expertise in Angular App Website Development.",
     "btn-learn-more": "Learn more"
   },
-  "Screen-two": {
+  "screen-two": {
     "subtitle": "Who am I",
     "title": "About me",
     "desc": "Seamlessly initiate standardized vortals and visionary catalysts for change. Interactively redefine synergistic supply chains through leading-edge best practices. Professionally architect standards compliant internal or 'organic' sources whereas team building supply chains. Competently drive seamless benefits vis-a-vis optimal platforms.",
@@ -30,7 +30,7 @@
     "btn-experience": "Experience",
     "btn-cv": "Download CV"
   },
-  "Screen-three": {
+  "screen-three": {
     "title": "Provide Services",
     "subtitle": "What I can offer",
     "desc": "Uniquely e-enable corporate growth strategies with scalable experiences. Rapidiously orchestrate mission-critical channels rather than tactical methodologies.",
@@ -40,5 +40,27 @@
     "service-web-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches.",
     "service-app-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches.",
     "service-desk-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches."
+  },
+  "screen-four": {
+    "title": "Outstanding Resume",
+    "subtitle": "resume",
+    "desc": "Collaboratively communicate technically sound metrics vis-a-vis virtual human capital. Seamlessly conceptualize 24/365 potentialities via distinctive leadership.",
+    "desc-temp": "Intrinsicly harness best-of-breed systems before sustainable services. Distinctively aggregate an expanded array of applications with enterprise-wide opportunities. Monotonectally strategize frictionless relationships rather than ubiquitous metrics.",
+    "location-kyiv": "Kyiv, Ukraine",
+    "location-vienna": "Vienna, Austria",
+    "position-angular": "Angular developer",
+    "position-node": "Node.js developer",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "tools": "Key tools",
+    "politech-title": "Bachelor's degree, Computer systems and networks",
+    "politech-school": "Vinnytsia National Technical University",
+    "pedagogic-title": "Master's degree, English language and literature",
+    "pedagogic-school": "Vinnic'kij Deržavnij Pedagogicnij Universitet im. M. Kocubinski",
+    "economic-title": "Master's degree, Logistics, material supply and supply chain management",
+    "economic-school": "Kyiv National Economics University",
+    "btn-contact": "Contact me",
+    "btn-cv": "Download CV"
   }
 }

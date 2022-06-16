@@ -9,7 +9,7 @@ import styles from "./ScreenOne.module.scss";
 
 
 function ScreenOne() {
-  const t = useTranslations('Screen-one');
+  const t = useTranslations('screen-one');
   const animateMainBlock = {
     open: { translateY: 0, opacity: 1 },
     closed: { translateY: '-20%', opacity: 0 }

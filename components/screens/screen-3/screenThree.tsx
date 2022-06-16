@@ -13,7 +13,7 @@ const serviceCards = [
 ];
 
 function ScreenThree() {
-  const t = useTranslations('Screen-three');
+  const t = useTranslations('screen-three');
   const animateVariants = {
     open: { translateY: 0, opacity: 1 },
     closed: { translateY: '-20%', opacity: 0 }
@@ -30,23 +30,22 @@ function ScreenThree() {
               animate={inView ? "open" : "closed"}
               variants={animateVariants}
               transition={{ duration: .8, ease: "easeOut" }}
-              className="d-flex flex-column align-items-start align-items-md-center"
-            >
-              <h5 className={styles.screenThree__subtitle}>{t("subtitle")}</h5>
-              <h3 className={styles.screenThree__title}>
-                <span>{t("title")}</span>
-                <motion.div
-                  initial={false}
-                  animate={inView ? "open" : "closed"}
-                  variants={{
-                    open: { scale: 1, opacity: 1 },
-                    closed: { scale: 3, opacity: 0 }
-                  }}
-                  transition={{ duration: .2, ease: "easeOut", delay: 1.7 }}
-                  className="ml-2 d-inline-flex"
-                >🛠</motion.div>
-              </h3>
-              <p className={styles.screenThree__desc}>{t("desc")}</p>
+              className="d-flex flex-column align-items-start align-items-md-center">
+                <h5 className={styles.screenThree__subtitle}>{t("subtitle")}</h5>
+                <h3 className={styles.screenThree__title}>
+                  <span>{t("title")}</span>
+                  <motion.div
+                    initial={false}
+                    animate={inView ? "open" : "closed"}
+                    variants={{
+                      open: { scale: 1, opacity: 1 },
+                      closed: { scale: 3, opacity: 0 }
+                    }}
+                    transition={{ duration: .2, ease: "easeOut", delay: 1.7 }}
+                    className="ml-2 d-inline-flex"
+                  >🛠</motion.div>
+                </h3>
+                <p className={styles.screenThree__desc}>{t("desc")}</p>
             </motion.div>
 
             <ul className={styles.screenThree__cards}>
