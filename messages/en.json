@@ -62,5 +62,14 @@
     "economic-school": "Kyiv National Economics University",
     "btn-contact": "Contact me",
     "btn-cv": "Download CV"
+  },
+  "footer": {
+    "contact": "Contact",
+    "me": "With Me Now",
+    "desc": "Credibly foster client-centric initiatives and 24/365 sources. Intrinsicly provide access to goal-oriented 'outside the box' thinking without progressive  vectors.",
+    "bottom-line-title": "Let`s create something!",
+    "anchor-about": "About me",
+    "anchor-resume": "Resume",
+    "anchor-portfolio": "Portfolio"
   }
 }

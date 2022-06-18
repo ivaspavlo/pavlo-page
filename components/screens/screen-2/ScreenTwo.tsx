@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 
+import { CONSTANTS } from "@root/constants";
 import ButtonSecondary from "@components/button-secondary/ButtonSecondary";
 import ButtonPrimary from "@components/button-primary/ButtonPrimary";
 
@@ -30,7 +31,7 @@ function ScreenTwo() {
 
         <InView threshold={0.25}>
           {({ref, inView}) => (
-            <div ref={ref} className={styles.screenTwo__container}>
+            <div id={CONSTANTS.sectionIds.sectionTwo} ref={ref} className={styles.screenTwo__container}>
 
               <motion.div
                 initial={false}

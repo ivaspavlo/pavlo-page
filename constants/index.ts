@@ -1,3 +1,9 @@
 export const CONSTANTS = {
-  lang: ['en', 'ua']
+  lang: ['en', 'ua'],
+  sectionIds: {
+    sectionOne: 'sectionOneId',
+    sectionTwo: 'sectionTwoId',
+    sectionThree: 'sectionThreeId',
+    sectionFour: 'sectionFourId'
+  }
 };
