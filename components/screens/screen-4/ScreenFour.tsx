@@ -3,6 +3,7 @@ import { InView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
+import { CONSTANTS } from "@root/constants";
 import ButtonPrimary from "@components/button-primary/ButtonPrimary";
 import ButtonSecondary from "@components/button-secondary/ButtonSecondary";
 import Icon from "@components/icon/Icon";
@@ -56,9 +57,9 @@ function screenFour() {
   const t = useTranslations('screen-four');
 
   return (
-    <InView threshold={0.25}>
+    <InView threshold={0.10}>
       {({ref, inView}) => (
-        <section ref={ref} className={styles.screenFour}>
+        <section id={CONSTANTS.sectionIds.sectionFour} ref={ref} className={styles.screenFour}>
           <div className={styles.screenFour__container}>
 
             <motion.header

@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { InView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
+import { CONSTANTS } from "@root/constants";
 import styles from "./ScreenThree.module.scss";
 
 
@@ -22,7 +23,7 @@ function ScreenThree() {
   return (
     <InView threshold={0.25}>
       {({ref, inView}) => (
-        <section ref={ref} className={styles.screenThree}>
+        <section id={CONSTANTS.sectionIds.sectionThree} ref={ref} className={styles.screenThree}>
           <div className={styles.screenThree__container}>
 
             <motion.div

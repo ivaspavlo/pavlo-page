@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 
+import { CONSTANTS } from "@root/constants";
 import ButtonPrimary from "@components/button-primary/ButtonPrimary";
 
 import styles from "./ScreenOne.module.scss";
@@ -18,7 +19,7 @@ function ScreenOne() {
   return (
     <InView threshold={0.25}>
       {({ref, inView}) => (
-        <section ref={ref} className={styles.screenOne}>
+        <section id={CONSTANTS.sectionIds.sectionOne} ref={ref} className={styles.screenOne}>
 
           <div className={styles.screenOne__container}>
             <div className={styles.mainBlock}>
