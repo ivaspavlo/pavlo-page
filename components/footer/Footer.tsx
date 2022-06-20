@@ -49,7 +49,7 @@ function Footer() {
               <p className={styles.footerContent__desc}>{t('desc')}</p>
               <ul className="d-flex flex-column">
                 {contacts.map(item =>
-                  <li className={styles.contactItem}>
+                  <li key={item.uiName} className={styles.contactItem}>
                     <div className={styles.contactItem__icon}>
                       <Icon name={item.iconName}></Icon>
                     </div>
@@ -58,8 +58,11 @@ function Footer() {
                 )}
               </ul>
             </div>
-
-            <form className={styles.footerContent__column}></form>
+  
+            <form className={styles.footerContent__column}>
+              <h4>{t('form-header')}</h4>
+              
+            </form>
 
           </div>
 
@@ -71,14 +74,14 @@ function Footer() {
               <div className="d-flex flex-column flex-md-row">
                 <ul className="mt-3 mt-md-0 d-flex justify-content-center align-items-center">
                   {anchorLinks.map((item, index) =>
-                    <li className="mx-3">
+                    <li key={item.uiName} className="mx-3">
                       <a className={styles.bottomLine__anchorLink} onClick={() => onClickAnchor(item.scrollToId)}>{t(item.uiName)}</a>
                     </li>
                   )}
                 </ul>
                 <ul className="mt-3 mt-md-0 d-flex justify-content-center align-items-center">
                   {socialLinks.map((item, index) =>
-                    <li className={`${index ? 'ml-2': ''}`}>
+                    <li key={item.link} className={`${index ? 'ml-2': ''}`}>
                       <a className={styles.bottomLine__socialLink} href={item.link} target="_blank">
                         <Icon name={item.iconName}></Icon>
                       </a>
