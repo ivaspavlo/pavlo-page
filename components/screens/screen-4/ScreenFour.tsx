@@ -132,7 +132,7 @@ function screenFour() {
                 <h4 className={styles.screenFour__columnTitle}>{t("education")}</h4>
                 <ul>
                   {educationCards.map(card => 
-                    <motion.li className={styles.edCard}>
+                    <motion.li key={card.title} className={styles.edCard}>
                       <h6 className={styles.edCard__title}>
                         <span className={styles.edCard__bullet}></span>
                         <span>{t(card.title)}</span>
@@ -145,13 +145,13 @@ function screenFour() {
                 <h4 className={styles.screenFour__skillsTitle}>{t("skills")}</h4>
                 <ul className="d-flex flex-wrap">
                   {skillCards.map(card =>
-                    <motion.li className={styles.skillCard}>{card}</motion.li>
+                    <motion.li key={card} className={styles.skillCard}>{card}</motion.li>
                   )}
                 </ul>
                 <h4 className={styles.screenFour__toolsTitle}>{t("tools")}</h4>
                 <ul className="d-flex flex-wrap">
                   {toolCards.map(card =>
-                    <motion.li className={styles.toolCard}>
+                    <motion.li key={card} className={styles.toolCard}>
                       <Icon name={card} width={20} height={20}></Icon>
                     </motion.li>
                   )}
