@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { CONSTANTS } from "@root/constants";
 import styles from "@components/footer/Footer.module.scss";
 import Icon from "@components/icon/Icon";
+import Input from "@components/input/Input";
 
 
 const socialLinks = [
@@ -61,7 +62,7 @@ function Footer() {
   
             <form className={styles.footerContent__column}>
               <h4>{t('form-header')}</h4>
-              
+              <Input controlName="test" label="test" />
             </form>
 
           </div>

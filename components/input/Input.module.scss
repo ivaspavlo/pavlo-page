@@ -1,74 +1,24 @@
+@import '~styles/core-variables.scss';
+@import '~styles/core-mixins.scss';
+
 $accent-color: #7d6caf;
 $warn-color: #ff6363;
 $text-color: #656565;
-$border-radius: 4px;
+$border-radius: 2px;
 
 .input {
   width: 100%;
   position: relative;
   text-align: left;
+  margin: 20px 0;
 
-  &--invalid {
-    .input__field, .input__textArea { border-color: $warn-color !important; }
-    .input__label { color: $warn-color !important; }
-    .input__error { opacity: 1; }
+  &.invalid {
+    input, textarea { border-color: $warn-color !important; }
+    label { color: $warn-color !important; }
+    .error { opacity: 1; }
   }
 
-  &__field, &__textArea {
-    width: 100%;
-    padding: 18px 45px 18px 12px;
-    font-size: 16px;
-    border: 1px solid;
-    border-color: $accent-color;
-    border-radius: $border-radius;
-    font-family: inherit;
-    display: block;
-    color: $text-color;
-    background-color: transparent;
-    transition: border-color .2s;
-    outline: 0;
-    &:required,
-    &:invalid {
-      box-shadow: none;
-    }
-    &::placeholder {
-      color: transparent;
-      transition: .3s;
-    }
-    &:placeholder-shown ~ label {
-      font-size: 16px;
-      transform: translateY(19px);
-      padding: 0px 0px;
-      cursor: text;
-    }
-    &:focus, &--has-value {
-      border-width: 1px;
-      border-color: $accent-color;
-      ~ label {
-        transform: translateY(-15px);
-        color: $accent-color;
-        font-size: 12px;
-      }
-      &::placeholder {
-        color: $text-color;
-      }
-    }
-  }
-
-  &__textArea {
-    resize: none;
-  }
-
-  &__label {
-    position: absolute; left: 12px; top: 0;
-    transform: translatey(-15px);
-    font-size: 12px;
-    display: block;
-    transition: .3s;
-    color: $text-color;
-  }
-
-  &__error {
+  &.error {
     width: 100%;
     position: absolute; bottom: -15px;
     padding: 5px 5px 0 12px;
@@ -78,6 +28,59 @@ $border-radius: 4px;
     color: $warn-color;
     opacity: 0;
     transition: opacity .3s;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 14px 45px 14px 12px;
+    font-size: 16px;
+    border: 0;
+    border-radius: $border-radius;
+    font-family: inherit;
+    display: block;
+    color: $text-color;
+    background-color: transparent;
+    transition: border-color .2s;
+    outline: 0;
+    color: $white;
+    background: rgba(255,255,255,.05);
+    &:required,
+    &:invalid {
+      box-shadow: none;
+    }
+    &::placeholder {
+      color: transparent;
+      transition: .3s;
+    }
+    &:placeholder-shown
+    ~ label {
+      font-size: 16px;
+      transform: translateY(19px);
+      padding: 0px 0px;
+      cursor: text;
+    }
+    &:focus, &.has-value {
+      border-width: 1px;
+      border-color: $accent-color;
+      ~ label {
+        color: $green;
+      }
+      &::placeholder {
+        color: $text-color;
+      }
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  label {
+    position: absolute; left: 0; top: -20px;
+    font-size: 14px;
+    display: block;
+    transition: .3s;
+    color: #C6C6C6;
   }
 
 }
