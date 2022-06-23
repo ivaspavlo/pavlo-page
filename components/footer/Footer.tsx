@@ -3,9 +3,12 @@ import { InView } from "react-intersection-observer";
 import { useTranslations } from "next-intl";
 
 import { CONSTANTS } from "@root/constants";
-import styles from "@components/footer/Footer.module.scss";
+import { Validators } from "@root/validators";
 import Icon from "@components/icon/Icon";
 import Input from "@components/input/Input";
+import ButtonPrimary from "@components/button-primary/ButtonPrimary";
+
+import styles from "./Footer.module.scss";
 
 
 const socialLinks = [
@@ -40,7 +43,7 @@ function Footer() {
 
           <div className={styles.footerContent}>
 
-            <div className={styles.footerContent__column}>
+            <div className={`${styles.footerContent__column} ${styles.footerContent__column_first}`}>
               <h3 className={styles.footerContent__title}>
                 <span>{t('contact')}</span>
                 <br />
@@ -59,11 +62,18 @@ function Footer() {
                 )}
               </ul>
             </div>
-  
-            <form className={styles.footerContent__column}>
-              <h4>{t('form-header')}</h4>
-              <Input controlName="test" label="test" />
-            </form>
+            
+            <div className={`${styles.footerContent__column} ${styles.footerContent__column_second}`}>
+              <form className={styles.form}>
+                <h4 className={styles.form__header}>{t('form-header')}</h4>
+                <Input controlName="name" label={t("form-name")} validators={[Validators.minChar(3)]} />
+                <Input controlName="email" label={t("form-email")} validators={[Validators.email]} />
+                <Input controlName="message" label={t("form-message")} type="textarea" validators={[Validators.minChar(3)]} />
+                <div className={styles.form__button}>
+                  <ButtonPrimary title={t('form-button')} link="/" filled={true} />
+                </div>
+              </form>
+            </div>
 
           </div>
 

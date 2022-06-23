@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { first, map, Observable, zip } from 'rxjs';
 import Icon from '@components/icon/Icon';
 import styles from './Input.module.scss';
-// import { Observable } from 'rxjs';
 
 
 type Validator = {[key:string]: (value: any) => boolean};
-type AsyncValidator = {[key:string]: (value: any) => any};
+type AsyncValidator = {[key:string]: (value: any) => Observable<boolean>};
 
 export interface IInput {
   controlName: string;
@@ -21,13 +21,21 @@ export interface IInput {
 function Input(props: IInput) {
   const [errors, setErrors] = useState<string[]>([]);
 
-  const validators: Validator[] = props.validators || [ { testError: (value) => value !== 'test' } ];
+  const validators: Validator[] = props.validators || [];
+  const asyncValidators: AsyncValidator[] = props.asyncValidators || [];
+  
   const type = props.type || 'text';
   const errorsMap = props.errorsMap || {};
 
-  const onInputHandler = (event: any) => {
-    setErrors(
-      runValidation(event.target.value)
+  const onInputHandler = async (event: any) => {
+    const value = event.target.value;
+    const errors = runValidation(value);
+    setErrors(errors);
+    if (errors.length) {
+      return;
+    }
+    runAsyncValidation(value).subscribe(
+      (errors: string[]) => setErrors(errors)
     );
   }
 
@@ -43,8 +51,21 @@ function Input(props: IInput) {
     }, []);
   }
 
+  function runAsyncValidation(value: any): Observable<any> {
+    const validatorObservables = asyncValidators.map((validator: AsyncValidator) => {
+      const errorKey = Object.keys(validator)[0];
+      return validator[errorKey](value).pipe(
+        first(),
+        map(res => res ? errorsMap[errorKey] || errorKey : null)
+      );
+    });
+    return zip(...validatorObservables).pipe(
+      map((errors: (string | null)[]) => errors.filter(item => item !== null))
+    );
+  }
+
   return (
-    <div className={styles.input}>
+    <div className={`${styles.input} ${errors.length ? styles.invalid : ''}`}>
 
       {
         props.type === 'textarea' ?
@@ -54,7 +75,7 @@ function Input(props: IInput) {
 
       <label htmlFor={props.controlName}>{props.label}</label>
 
-      {errors ? errors.map(e => <p className={styles.error}>{'error'}</p>) : ''}
+      {errors ? errors.map(error => <p className={styles.error}>{error}</p>) : ''}
 
       {props.iconName ? <Icon name={props.iconName} /> : ''}
 
