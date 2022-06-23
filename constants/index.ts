@@ -5,5 +5,9 @@ export const CONSTANTS = {
     sectionTwo: 'sectionTwoId',
     sectionThree: 'sectionThreeId',
     sectionFour: 'sectionFourId'
+  },
+  errorMessages: {
+    email: 'error-email',
+    minChar: 'error-min-char'
   }
 };

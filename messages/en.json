@@ -70,6 +70,11 @@
     "bottom-line-title": "Let`s create something!",
     "anchor-about": "About me",
     "anchor-resume": "Resume",
-    "anchor-portfolio": "Portfolio"
+    "anchor-portfolio": "Portfolio",
+    "form-header": "Get in touch",
+    "form-button": "Submit now",
+    "form-name": "Your name",
+    "form-email": "Your email",
+    "form-message": "Message"
   }
 }
