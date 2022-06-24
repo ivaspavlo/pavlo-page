@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import React, { useState } from 'react';
+import Link from 'next/link';
 
-import styles from "@components/button-primary/ButtonPrimary.module.scss";
-import Icon from "../icon/Icon";
+import styles from '@components/button-primary/ButtonPrimary.module.scss';
+import Icon from '../icon/Icon';
 
 export interface IButtonPrimary {
+  onClick?: () => any;
   title: string;
   link: string;
   iconName?: string;
@@ -16,38 +17,40 @@ export interface IButtonPrimary {
 
 function ButtonPrimary(props: IButtonPrimary) {
   const [isHovered, setHoverState] = useState(false);
-  const [isInvalid, setInvalidState] = useState(false);
-
-  useEffect(() => {
-    setInvalidState(props.invalid || false);
-  }, []);
+  const [startAnimate, setStartAnimate] = useState(false);
 
   const animate = (): void => {
-    if (!isInvalid) {
-      setInvalidState(true);
-      setTimeout(() => {
-        setInvalidState(false);
-      }, 1000);
-    }
+    setStartAnimate(true);
+    setTimeout(() => {
+      setStartAnimate(false);
+    }, 1000);
   };
+
+  const onClickHandler = (): void => {
+    debugger;
+    if (props.invalid) {
+      animate();
+    }
+    props.onClick && props.onClick();
+  }
 
   const icon = props.iconName ?
     <Icon
       name={`${props.iconName}`}
       hoverName={`${props.iconNameHover}`}
       isHovered={isHovered}
-    /> : "";
+    /> : '';
 
   return (
     <Link href={props.link}>
       <div
-        onClick={() => animate()}
-        onMouseEnter={() => { setHoverState(true); }}
-        onMouseLeave={() => { setHoverState(false); }}
+        onClick={onClickHandler}
+        onMouseEnter={() => setHoverState(true)}
+        onMouseLeave={() => setHoverState(false)}
         className={`
           ${styles.buttonPrimary}
-          ${props.filled ? styles.filled : ""}
-          ${props.invalid ? styles.isInvalid : ""}
+          ${props.filled ? styles.filled : ''}
+          ${startAnimate ? styles.invalid : ''}
         `}>
           {!props.iconRight ?? icon}
           <span className={styles.buttonPrimary__content}>{props.title}</span>

@@ -3,6 +3,10 @@
     "title": "Pavlo`s Page",
     "desc": "Front-End Developer"
   },
+  "errors": {
+    "errorMinChar": "Please enter a longer value",
+    "errorEmail": "Please enter email in correct format"
+  },
   "nav-menu": {
     "about": "About",
     "services": "Services",
