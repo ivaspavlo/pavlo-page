@@ -1,14 +1,16 @@
-import React from "react";
-import { InView } from "react-intersection-observer";
-import { useTranslations } from "next-intl";
+import React, { useState } from 'react';
+import { InView } from 'react-intersection-observer';
+import { useTranslations } from 'next-intl';
 
-import { CONSTANTS } from "@root/constants";
-import { Validators } from "@root/validators";
-import Icon from "@components/icon/Icon";
-import Input from "@components/input/Input";
-import ButtonPrimary from "@components/button-primary/ButtonPrimary";
+import { CONSTANTS } from '@root/constants';
+import { Validators } from '@root/validators';
 
-import styles from "./Footer.module.scss";
+import Icon from '@components/icon/Icon';
+import Input, { IInputEvent } from '@components/input/Input';
+import ButtonPrimary from '@components/button-primary/ButtonPrimary';
+
+import styles from './Footer.module.scss';
+import { stringify } from 'querystring';
 
 
 const socialLinks = [
@@ -29,11 +31,43 @@ const anchorLinks = [
   { uiName: 'anchor-portfolio', scrollToId: CONSTANTS.sectionIds.sectionOne }
 ];
 
+const initFormState = {
+  name: {},
+  email: {},
+  message: {}
+}
+
+interface IFormState {
+  [key:string]: { value?: any; isValid?: boolean; }
+}
+
 function Footer() {
   const t = useTranslations('footer');
+  const tErrors = useTranslations('errors');
 
-  const onClickAnchor = (scrollToId: string) => {
-    console.log(scrollToId);
+  const [formState, setFormState] = useState<IFormState>(initFormState);
+  const [formValidity, setFormValidity] = useState<boolean>(false);
+
+  const errorsMap = {
+    email: tErrors('errorEmail'),
+    minChar: tErrors('errorMinChar')
+  };
+
+  const onClickAnchorHandler = (scrollToId: string) => {
+    
+  }
+
+  const onFormSubmitHandler = () => {
+    debugger;
+  }
+
+  const onInputHandler = (res: IInputEvent) => {
+    setFormState({
+      ...formState,
+      [res.controlName]: { value: res.value, isValid: res.isValid }
+    });
+    const isFormValid = !Object.keys(formState).some(key => !formState[key].isValid);
+    setFormValidity(isFormValid);
   }
 
   return (
@@ -48,10 +82,10 @@ function Footer() {
                 <span>{t('contact')}</span>
                 <br />
                 <span>{t('me')}</span>
-                <div className="d-inline-flex ml-2">👋</div>
+                <div className='d-inline-flex ml-2'>👋</div>
               </h3>
               <p className={styles.footerContent__desc}>{t('desc')}</p>
-              <ul className="d-flex flex-column">
+              <ul className='d-flex flex-column'>
                 {contacts.map(item =>
                   <li key={item.uiName} className={styles.contactItem}>
                     <div className={styles.contactItem__icon}>
@@ -65,13 +99,17 @@ function Footer() {
             
             <div className={`${styles.footerContent__column} ${styles.footerContent__column_second}`}>
               <form className={styles.form}>
+
                 <h4 className={styles.form__header}>{t('form-header')}</h4>
-                <Input controlName="name" label={t("form-name")} validators={[Validators.minChar(3)]} />
-                <Input controlName="email" label={t("form-email")} validators={[Validators.email]} />
-                <Input controlName="message" label={t("form-message")} type="textarea" validators={[Validators.minChar(3)]} />
+
+                <Input onInput={onInputHandler} controlName='name' label={t('form-name')} validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
+                <Input onInput={onInputHandler} controlName='email' label={t('form-email')} validators={[Validators.email]} errorsMap={errorsMap} />
+                <Input onInput={onInputHandler} controlName='message' label={t('form-message')} type='textarea' validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
+                
                 <div className={styles.form__button}>
-                  <ButtonPrimary title={t('form-button')} link="/" filled={true} />
+                  <ButtonPrimary onClick={onFormSubmitHandler} invalid={!formValidity} title={t('form-button')} link='/' filled={true} />
                 </div>
+
               </form>
             </div>
 
@@ -82,18 +120,18 @@ function Footer() {
 
               <h5 className={styles.bottomLine__title}>{t('bottom-line-title')}</h5>
 
-              <div className="d-flex flex-column flex-md-row">
-                <ul className="mt-3 mt-md-0 d-flex justify-content-center align-items-center">
+              <div className='d-flex flex-column flex-md-row'>
+                <ul className='mt-3 mt-md-0 d-flex justify-content-center align-items-center'>
                   {anchorLinks.map((item, index) =>
-                    <li key={item.uiName} className="mx-3">
-                      <a className={styles.bottomLine__anchorLink} onClick={() => onClickAnchor(item.scrollToId)}>{t(item.uiName)}</a>
+                    <li key={item.uiName} className='mx-3'>
+                      <a className={styles.bottomLine__anchorLink} onClick={() => onClickAnchorHandler(item.scrollToId)}>{t(item.uiName)}</a>
                     </li>
                   )}
                 </ul>
-                <ul className="mt-3 mt-md-0 d-flex justify-content-center align-items-center">
+                <ul className='mt-3 mt-md-0 d-flex justify-content-center align-items-center'>
                   {socialLinks.map((item, index) =>
                     <li key={item.link} className={`${index ? 'ml-2': ''}`}>
-                      <a className={styles.bottomLine__socialLink} href={item.link} target="_blank">
+                      <a className={styles.bottomLine__socialLink} href={item.link} target='_blank'>
                         <Icon name={item.iconName}></Icon>
                       </a>
                     </li>

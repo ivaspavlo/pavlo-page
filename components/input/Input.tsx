@@ -7,15 +7,24 @@ import styles from './Input.module.scss';
 type Validator = {[key:string]: (value: any) => boolean};
 type AsyncValidator = {[key:string]: (value: any) => Observable<boolean>};
 
-export interface IInput {
+export interface IInputEvent {
   controlName: string;
+  value: string;
+  isValid: boolean;
+}
+
+export interface IInput {
+  onInput: (res: IInputEvent) => any;
+  onMarkDirty?: () => any;
+  controlName: string;
+  value?: string | number;
   placeholder?: string;
   type?: string;
   label?: string;
   validators?: Validator[];
-  asyncValidators?: AsyncValidator[],
+  asyncValidators?: AsyncValidator[];
   iconName?: string;
-  errorsMap?: {[key:string]: string}
+  errorsMap?: {[key:string]: string};
 }
 
 function Input(props: IInput) {
@@ -27,15 +36,22 @@ function Input(props: IInput) {
   const type = props.type || 'text';
   const errorsMap = props.errorsMap || {};
 
-  const onInputHandler = async (event: any) => {
+  const onInputHandler = (event: any) => {
     const value = event.target.value;
     const errors = runValidation(value);
     setErrors(errors);
     if (errors.length) {
+      props.onInput({ controlName: props.controlName, value, isValid: false });
       return;
     }
+    if (!errors.length && !asyncValidators.length) {
+      props.onInput({ controlName: props.controlName, value, isValid: true });
+    }
     runAsyncValidation(value).subscribe(
-      (errors: string[]) => setErrors(errors)
+      (errors: string[]) => {
+        setErrors(errors);
+        props.onInput({ controlName: props.controlName, value, isValid: !!errors.length });
+      }
     );
   }
 
@@ -69,8 +85,8 @@ function Input(props: IInput) {
 
       {
         props.type === 'textarea' ?
-          <textarea onInput={onInputHandler} placeholder={props.placeholder} name={props.controlName} /> :
-          <input onInput={onInputHandler} placeholder={props.placeholder} name={props.controlName} type={type} />
+          <textarea value={props.value} onInput={onInputHandler} placeholder={props.placeholder} name={props.controlName} /> :
+          <input value={props.value} onInput={onInputHandler} placeholder={props.placeholder} name={props.controlName} type={type} />
       }
 
       <label htmlFor={props.controlName}>{props.label}</label>
