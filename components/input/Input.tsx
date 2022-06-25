@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React, { forwardRef, MutableRefObject, useImperativeHandle, useRef, useState } from 'react';
 import { first, map, Observable, zip } from 'rxjs';
+import { AsyncValidator, Validator } from '@root/validators';
 import Icon from '@components/icon/Icon';
 import styles from './Input.module.scss';
-
-
-type Validator = {[key:string]: (value: any) => boolean};
-type AsyncValidator = {[key:string]: (value: any) => Observable<boolean>};
 
 export interface IInputEvent {
   controlName: string;
@@ -15,7 +12,6 @@ export interface IInputEvent {
 
 export interface IInput {
   onInput: (res: IInputEvent) => any;
-  onMarkDirty?: () => any;
   controlName: string;
   value?: string | number;
   placeholder?: string;
@@ -27,8 +23,16 @@ export interface IInput {
   errorsMap?: {[key:string]: string};
 }
 
-function Input(props: IInput) {
+const Input = forwardRef((props: IInput, ref) => {
   const [errors, setErrors] = useState<string[]>([]);
+  const inputEl = useRef() as MutableRefObject<any>;
+
+  useImperativeHandle(ref, () => ({
+    markAsDirty: () => onInputHandler(),
+    value: () => inputEl.current.value,
+    isValid: () => !!errors.length,
+    resetValue: () => inputEl.current.value = ''
+  }));
 
   const validators: Validator[] = props.validators || [];
   const asyncValidators: AsyncValidator[] = props.asyncValidators || [];
@@ -36,8 +40,8 @@ function Input(props: IInput) {
   const type = props.type || 'text';
   const errorsMap = props.errorsMap || {};
 
-  const onInputHandler = (event: any) => {
-    const value = event.target.value;
+  const onInputHandler = () => {
+    const value = inputEl.current?.value || '';
     const errors = runValidation(value);
     setErrors(errors);
     if (errors.length) {
@@ -85,18 +89,18 @@ function Input(props: IInput) {
 
       {
         props.type === 'textarea' ?
-          <textarea value={props.value} onInput={onInputHandler} placeholder={props.placeholder} name={props.controlName} /> :
-          <input value={props.value} onInput={onInputHandler} placeholder={props.placeholder} name={props.controlName} type={type} />
+          <textarea ref={inputEl} value={props.value} onInput={onInputHandler} placeholder={props.placeholder} name={props.controlName} /> :
+          <input ref={inputEl} value={props.value} onInput={onInputHandler} placeholder={props.placeholder} name={props.controlName} type={type} />
       }
 
       <label htmlFor={props.controlName}>{props.label}</label>
 
-      {errors ? errors.map(error => <p className={styles.error}>{error}</p>) : ''}
+      {errors.length ? <p className={styles.error}>{errors[0]}</p> : ''}
 
       {props.iconName ? <Icon name={props.iconName} /> : ''}
 
     </div>
   );
-}
+});
 
 export default Input;

@@ -1,6 +1,7 @@
 export const CONSTANTS = {
   lang: ['en', 'ua'],
   sectionIds: {
+    scrollOrigin: 'scrollOrigin',
     sectionOne: 'sectionOneId',
     sectionTwo: 'sectionTwoId',
     sectionThree: 'sectionThreeId',

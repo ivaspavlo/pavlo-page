@@ -1,5 +1,7 @@
 import React, { ReactNode, RefObject, useRef } from "react";
 
+import { CONSTANTS } from '@root/constants';
+
 import Header from "@components/header/Header";
 import Footer from "@components/footer/Footer";
 
@@ -10,7 +12,7 @@ function Layout({ children }: { children: ReactNode; }) {
   const layoutRef: RefObject<HTMLDivElement> = useRef(null);
 
   return (
-    <div ref={layoutRef} className={styles.layoutContainer}>
+    <div id={CONSTANTS.sectionIds.scrollOrigin} ref={layoutRef} className={styles.layoutContainer}>
 
       <Header scrollOrigin={layoutRef} />
 
