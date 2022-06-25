@@ -27,7 +27,6 @@ function ButtonPrimary(props: IButtonPrimary) {
   };
 
   const onClickHandler = (): void => {
-    debugger;
     if (props.invalid) {
       animate();
     }
