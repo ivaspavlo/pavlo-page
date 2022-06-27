@@ -5,7 +5,8 @@ export const CONSTANTS = {
     sectionOne: 'sectionOneId',
     sectionTwo: 'sectionTwoId',
     sectionThree: 'sectionThreeId',
-    sectionFour: 'sectionFourId'
+    sectionFour: 'sectionFourId',
+    sectionFive: 'sectionFiveId'
   },
   errorMessages: {
     email: 'error-email',
