@@ -55,3 +55,15 @@
     }
   }
 }
+
+.sidebar {
+  width: 100%;
+  padding: 20px 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @include md {
+    max-width: 204px;
+    padding: 24px;
+  }
+}
