@@ -71,6 +71,10 @@
     "title": "Latest projects",
     "subtitle": "portfolio"
   },
+  "portfolio": {
+    "code": "Code",
+    "live-project": "Live project"
+  },
   "footer": {
     "contact": "Contact",
     "me": "With Me Now",

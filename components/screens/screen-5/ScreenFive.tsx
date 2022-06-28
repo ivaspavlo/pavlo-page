@@ -4,6 +4,7 @@ import { InView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
 import { CONSTANTS } from '@root/constants';
+import Project from '@components/project/Project';
 
 import styles from './ScreenFive.module.scss';
 
@@ -13,32 +14,32 @@ const projects = [
     title: 'Jewelry Website',
     desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
     codeLink: '/',
+    bgColor: '#A8AAFF',
     projectImg: '~/img/project-mock-img.png',
-    projectType: 'Movie Time IOS App Development',
+    sidebarTitle: 'Movie Time IOS App Development',
     sidebarBg: '~/img/project-mock-img.png',
-    mainBgColor: '#A8AAFF',
-    liveLink: '/',
-    sidebarLeft: true
+    sidebarLeft: true,
+    liveLink: '/'
   }, {
     title: 'Jewelry Website',
     desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
     codeLink: '/',
+    bgColor: '#A8AAFF',
     projectImg: '~/img/project-mock-img.png',
-    projectType: 'Movie Time IOS App Development',
+    sidebarTitle: 'Movie Time IOS App Development',
     sidebarBg: '~/img/project-mock-img.png',
-    mainBgColor: '#A8AAFF',
-    liveLink: '/',
-    sidebarLeft: true
+    sidebarLeft: false,
+    liveLink: '/'
   }, {
     title: 'Jewelry Website',
     desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
     codeLink: '/',
+    bgColor: '#A8AAFF',
     projectImg: '~/img/project-mock-img.png',
-    projectType: 'Movie Time IOS App Development',
+    sidebarTitle: 'Movie Time IOS App Development',
     sidebarBg: '~/img/project-mock-img.png',
-    mainBgColor: '#A8AAFF',
-    liveLink: '/',
-    sidebarLeft: true
+    sidebarLeft: true,
+    liveLink: '/'
   }
 ];
   
@@ -73,7 +74,11 @@ function ScreenFive() {
             </motion.header>
 
             <ul>
-              
+              {projects.map(projectConfig =>
+                <li>
+                  <Project config={projectConfig} />
+                </li>
+              )}
             </ul>
 
           </div>
