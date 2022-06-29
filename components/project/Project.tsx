@@ -20,20 +20,16 @@ function Project(props: { config: IProject }) {
   const t = useTranslations('portfolio');
   const config = props.config;
 
-  const sidebar = (
-    <div style={{ 'backgroundImage': config.sidebarBg }} className={styles.sidebar}>
-      <h5 className={styles.sidebar__title}>{config.sidebarTitle}</h5>
-      <button className={styles.sidebar__button}>
-        <Icon name='github' />
-        <span>{t('code')}</span>
-      </button>
-    </div>
-  );
-
   return (
-    <div className='w-100 d-flex flex-column flex-md-row'>
+    <div className={`${styles.projectContainer} ${styles.projectContainer_sidebarLeft ? config.sidebarLeft : ''}`}>
 
-      {!config.sidebarLeft ? sidebar : ''}
+      <aside style={{ 'backgroundImage': `url(${config.sidebarBg})` }} className={`${styles.projectSidebar} ${config.sidebarLeft ? styles.projectSidebar_sidebarLeft : ''}`}>
+        <h5 className={styles.projectSidebar__title}>{config.sidebarTitle}</h5>
+        <button className={styles.projectSidebar__button}>
+          <Icon name='github' />
+          <span className='ml-2'>{t('code')}</span>
+        </button>
+      </aside>
 
       <div style={{ 'backgroundColor': config.bgColor }} className={styles.project}>
 
@@ -49,11 +45,11 @@ function Project(props: { config: IProject }) {
           </div>
         </div>
 
-        <img src={config.projectImg} alt={config.title + ' Image'} className={styles.project__image} />
+        <div className={styles.project__imageContainer}>
+          <div style={{ 'backgroundImage': `url(${config.projectImg})` }} className={styles.project__image} />
+        </div>
 
       </div>
-
-      {config.sidebarLeft ? sidebar : ''}
 
     </div>
   );

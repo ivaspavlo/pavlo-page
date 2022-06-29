@@ -15,9 +15,9 @@ const projects = [
     desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
     codeLink: '/',
     bgColor: '#A8AAFF',
-    projectImg: '~/img/project-mock-img.png',
+    projectImg: 'img/project-mock-img.png',
     sidebarTitle: 'Movie Time IOS App Development',
-    sidebarBg: '~/img/project-mock-img.png',
+    sidebarBg: 'img/project-sidebar-bg.png',
     sidebarLeft: true,
     liveLink: '/'
   }, {
@@ -25,9 +25,9 @@ const projects = [
     desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
     codeLink: '/',
     bgColor: '#A8AAFF',
-    projectImg: '~/img/project-mock-img.png',
+    projectImg: 'img/project-mock-img.png',
     sidebarTitle: 'Movie Time IOS App Development',
-    sidebarBg: '~/img/project-mock-img.png',
+    sidebarBg: 'img/project-sidebar-bg.png',
     sidebarLeft: false,
     liveLink: '/'
   }, {
@@ -35,9 +35,9 @@ const projects = [
     desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
     codeLink: '/',
     bgColor: '#A8AAFF',
-    projectImg: '~/img/project-mock-img.png',
+    projectImg: 'img/project-mock-img.png',
     sidebarTitle: 'Movie Time IOS App Development',
-    sidebarBg: '~/img/project-mock-img.png',
+    sidebarBg: 'img/project-sidebar-bg.png',
     sidebarLeft: true,
     liveLink: '/'
   }
@@ -59,18 +59,16 @@ function ScreenFive() {
               transition={{ duration: .8, ease: "easeOut", delay: .2 }}
               className="w-100 d-flex flex-column">
                 <h5 className={styles.screenFive__subtitle}>{t("subtitle")}</h5>
-                <div className="w-100 mt-2 d-flex flex-column flex-md-row justify-content-md-between">
-                  <h3 className={styles.screenFive__title}>
-                    <span>{t("title")}</span>
-                    <motion.div
-                      initial={false}
-                      animate={inView ? "open" : "closed"}
-                      variants={{ open: { translateX: 0, opacity: 1 }, closed: { translateX: '-40%', opacity: 0 } }}
-                      transition={{ duration: .5, delay: 1 }}
-                      className="ml-2 d-inline-flex"
-                    >🚀</motion.div>
-                  </h3>
-                </div>
+                <h3 className={styles.screenFive__title}>
+                  <span>{t("title")}</span>
+                  <motion.div
+                    initial={false}
+                    animate={inView ? "open" : "closed"}
+                    variants={{ open: { translateX: 0, opacity: 1 }, closed: { translateX: '-40%', opacity: 0 } }}
+                    transition={{ duration: .5, delay: 1 }}
+                    className="ml-2 d-inline-flex"
+                  >🚀</motion.div>
+                </h3>
             </motion.header>
 
             <ul>

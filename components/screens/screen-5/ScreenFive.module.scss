@@ -5,7 +5,7 @@
   @include screen;
   padding-top: $mobileHeaderHeight;
   justify-content: center;
-  background-color: $grey-1;
+  background-color: #d7d7d7;
   &__container {
     width: 100%;
     max-width: 1200px;
@@ -35,13 +35,13 @@
   }
   &__title {
     width: 100%;
-    margin-bottom: 16px;
+    margin: 8px 0 32px;
     font-weight: 600;
     font-size: 28px;
     line-height: 40px;
     color: $black;
     @include md {
-      margin-bottom: 0;
+      margin: 8px 0 48px;
       font-size: 32px;
       line-height: 48px;
     }
@@ -53,17 +53,5 @@
       font-size: 48px;
       line-height: 64px;
     }
-  }
-}
-
-.sidebar {
-  width: 100%;
-  padding: 20px 32px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  @include md {
-    max-width: 204px;
-    padding: 24px;
   }
 }
