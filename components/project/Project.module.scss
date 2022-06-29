@@ -1,17 +1,36 @@
 @import '~styles/core-variables.scss';
 @import '~styles/core-mixins.scss';
 
-.project {
+.projectContainer {
   width: 100%;
   margin-bottom: 8px;
   display: flex;
   flex-direction: column;
+  &_sidebarLeft {
+    flex-direction: column-reverse;
+    @include md {
+      flex-direction: row-reverse;
+    }
+  }
   @include md {
+    height: 316px;
     margin-bottom: 24px;
     flex-direction: row;
   }
   @include lg {
+    height: 336px;
     margin-bottom: 32px;
+  }
+}
+
+.project {
+  width: 100%;
+  margin: 0 0 8px 0;
+  display: flex;
+  flex-direction: column;
+  @include md {
+    margin: 0;
+    flex-direction: row;
   }
   &__content {
     width: 100%;
@@ -74,9 +93,9 @@
       background-color: transparent;
     }
   }
-  &__image {
+  &__imageContainer {
     width: 100%;
-    height: 145px;
+    height: 200px;
     margin-top: 32px;
     padding: 0 20px;
     @include md {
@@ -85,8 +104,76 @@
       padding: 24px 0 0 0;
     }
   }
+  &__image {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    @include md {
+      border-top-right-radius: 0;
+    }
+  }
 }
 
-.sidebar {
-
+.projectSidebar {
+  width: 100%;
+  height: 220px;
+  padding: 20px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @include md {
+    max-width: 200px;
+    height: 100%;
+    margin: 0 0 0 24px;
+    padding: 24px;
+  }
+  @include lg {
+    max-width: 400px;
+    margin: 0 0 0 32px;
+    padding: 32px;
+  }
+  @include xl {
+    max-width: 340px;
+  }
+  &_sidebarLeft {
+    @include md {
+      margin: 0 24px 0 0;
+    }
+    @include lg {
+      margin: 0 32px 0 0;
+    }
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    color: $white;
+    @include lg {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+  &__button {
+    width: 136px;
+    height: 52px;
+    padding: 0 10px;
+    border: 1px solid $white;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: $white;
+    &:hover { opacity: .7; }
+  }
 }
