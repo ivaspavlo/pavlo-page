@@ -12,7 +12,7 @@ export interface IProject {
   projectImg: string;
   sidebarBg: string;
   sidebarTitle: string;
-  sidebarLeft?: boolean;
+  sidebarRight?: boolean;
   liveLink?: string;
 }
 
@@ -21,9 +21,9 @@ function Project(props: { config: IProject }) {
   const config = props.config;
 
   return (
-    <div className={`${styles.projectContainer} ${styles.projectContainer_sidebarLeft ? config.sidebarLeft : ''}`}>
+    <div className={`${styles.projectContainer} ${config.sidebarRight ? styles.projectContainer_sidebarRight : ''}`}>
 
-      <aside style={{ 'backgroundImage': `url(${config.sidebarBg})` }} className={`${styles.projectSidebar} ${config.sidebarLeft ? styles.projectSidebar_sidebarLeft : ''}`}>
+      <aside style={{ 'backgroundImage': `url(${config.sidebarBg})` }} className={`${styles.projectSidebar} ${config.sidebarRight ? styles.projectSidebar_sidebarRight : ''}`}>
         <h5 className={styles.projectSidebar__title}>{config.sidebarTitle}</h5>
         <button className={styles.projectSidebar__button}>
           <Icon name='github' />

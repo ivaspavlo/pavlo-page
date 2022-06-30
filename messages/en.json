@@ -69,7 +69,8 @@
   },
   "screen-five": {
     "title": "Latest projects",
-    "subtitle": "portfolio"
+    "subtitle": "portfolio",
+    "see-more": "See more"
   },
   "portfolio": {
     "code": "Code",
