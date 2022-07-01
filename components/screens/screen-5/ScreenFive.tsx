@@ -9,59 +9,73 @@ import Project, { IProject } from '@components/project/Project';
 import styles from './ScreenFive.module.scss';
 
 
-const projects = [
+const projects: { page: number; items: IProject[] }[] = [
   {
-    title: 'Jewelry Website',
-    desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
-    codeLink: '/',
-    bgColor: '#A8AAFF',
-    projectImg: 'img/project-mock-img.png',
-    sidebarTitle: 'Movie Time IOS App Development',
-    sidebarBg: 'img/sidebar-1-bg.png',
-    sidebarRight: true,
-    liveLink: '/'
+    page: 0,
+    items: [
+      {
+        id: 'project_1',
+        title: 'Jewelry Website',
+        desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
+        codeLink: '/',
+        bgColor: '#A8AAFF',
+        projectImg: 'img/project-mock-img.png',
+        sidebarTitle: 'Movie Time IOS App Development',
+        sidebarBg: 'img/sidebar-1-bg.png',
+        sidebarRight: true,
+        liveLink: '/'
+      }, {
+        id: 'project_2',
+        title: 'Jewelry Website',
+        desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
+        codeLink: '/',
+        bgColor: '#FBFFD0',
+        projectImg: 'img/project-mock-img.png',
+        sidebarTitle: 'Movie Time IOS App Development',
+        sidebarBg: 'img/sidebar-2-bg.png',
+        sidebarRight: false,
+        liveLink: '/'
+      }
+    ]
   }, {
-    title: 'Jewelry Website',
-    desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
-    codeLink: '/',
-    bgColor: '#FBFFD0',
-    projectImg: 'img/project-mock-img.png',
-    sidebarTitle: 'Movie Time IOS App Development',
-    sidebarBg: 'img/sidebar-2-bg.png',
-    sidebarRight: false,
-    liveLink: '/'
-  }, {
-    title: 'Jewelry Website',
-    desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
-    codeLink: '/',
-    bgColor: '#8CB6FF',
-    projectImg: 'img/project-mock-img.png',
-    sidebarTitle: 'Movie Time IOS App Development',
-    sidebarBg: 'img/sidebar-3-bg.png',
-    sidebarRight: true,
-    liveLink: '/'
+    page: 1,
+    items: [
+      {
+        id: 'project_3',
+        title: 'Jewelry Website',
+        desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
+        codeLink: '/',
+        bgColor: '#8CB6FF',
+        projectImg: 'img/project-mock-img.png',
+        sidebarTitle: 'Movie Time IOS App Development',
+        sidebarBg: 'img/sidebar-3-bg.png',
+        sidebarRight: true,
+        liveLink: '/'
+      }
+    ]
   }
 ];
   
 function ScreenFive() {
-  const projectsQtyPerPage = 2;
-  let visibleProjects: IProject[] = [];
-
   const t = useTranslations('screen-five');
-  const [currentProjectQty, setProjectQty] = useState(projectsQtyPerPage);
+
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [visibleProjects, setVisibleProjects] = useState<IProject[]>([]);
+
   useEffect(() => {
-    getVisibleProjects(currentProjectQty);
-  }, [currentProjectQty]);
+    setVisibleProjects(projects[currentPage].items);
+  }, []);
 
   const evenVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '-5%', opacity: 0 } };
   const oddVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '5%', opacity: 0 } };
 
-  function getVisibleProjects(value: number) {
-    visibleProjects = projects.filter((p, i) => i <= value - 1);
-  }
-
   function onClickHandler() {
-    setProjectQty(currentProjectQty + projectsQtyPerPage);
+    const nextPage = currentPage + 1;
+    if (nextPage > projects.length - 1) {
+      return;
+    }
+    setCurrentPage(nextPage);
+    setVisibleProjects([ ...visibleProjects, ...projects[nextPage].items ]);
   };
 
   return (
@@ -90,9 +104,9 @@ function ScreenFive() {
             </motion.header>
 
             <ul>
-              {visibleProjects.map((projectConfig, index) =>
+              {visibleProjects.map((projectConfig: IProject, index: number) =>
                 <motion.li
-                  key={projectConfig.title}
+                  key={projectConfig.id}
                   initial={false}
                   animate={inView ? 'open' : 'closed'}
                   variants={index/2 > 0 ? oddVariants : evenVariants}

@@ -18,8 +18,6 @@ function Layout({ children }: { children: ReactNode; }) {
 
       {children}
 
-      <Footer />
-      
     </div>
   );
 };
