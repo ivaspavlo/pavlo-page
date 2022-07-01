@@ -5,6 +5,7 @@ import styles from './Project.module.scss';
 
 
 export interface IProject {
+  id: string;
   title: string;
   desc: string;
   codeLink: string;
