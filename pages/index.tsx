@@ -49,7 +49,13 @@ const Home: NextPage = () => {
 
         <ScreenFive />
 
-        <Footer />
+        {/* <section>
+
+          
+
+          <Footer />
+
+        </section> */}
         
       </Layout>
 

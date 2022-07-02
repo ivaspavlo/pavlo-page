@@ -6,6 +6,9 @@
   padding-top: $mobileHeaderHeight;
   justify-content: center;
   background-color: #d7d7d7;
+  &_snapAlignEnd {
+    scroll-snap-align: end !important;
+  }
   &__container {
     width: 100%;
     max-width: 1200px;
@@ -58,6 +61,7 @@
     width: 148px;
     height: 52px;
     border: 0;
+    border-radius: 2px;
     font-weight: 600;
     font-size: 14px;
     line-height: 24px;
@@ -71,6 +75,15 @@
       height: 65px;
       font-size: 16px;
       line-height: 28px;
+    }
+  }
+  &__projectItem {
+    position: relative;
+    &:before {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      content: '';
     }
   }
 }
