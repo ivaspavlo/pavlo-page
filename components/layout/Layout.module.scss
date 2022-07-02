@@ -5,9 +5,6 @@
   scroll-snap-type: y mandatory;
   section {
     scroll-snap-align: start;
-    &_snapAlignEnd {
-      scroll-snap-align: end;
-    }
   }
 }
 
