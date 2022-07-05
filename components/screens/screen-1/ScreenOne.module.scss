@@ -20,6 +20,8 @@
   filter: blur(100px);
 }
 
+
+
 .screenOne {
   @include screen;
   padding-top: $mobileHeaderHeight;
@@ -40,48 +42,6 @@
     @include lg {
       padding-bottom: 0;
     }
-  }
-  &__decor_1 {
-    position: absolute; top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(-45deg, #25263a, #0D0D0D, #283F39);
-    background-size: 200% 200%;
-    animation: a7n-gradient 15s ease-out infinite;
-    display: flex;
-    z-index: -3;
-  }
-  &__decor_2 {
-    @include bg-img('~public/img/screen-one-texture.png');
-    position: absolute; top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    z-index: -2;
-  }
-  &__decor_3 {
-    @include splash(15s);
-    position: absolute; bottom: 0; left: 10%;
-    width: 50%;
-    height: 70%;
-    background: linear-gradient(180deg, rgba(45, 154, 255, 0.5625) 0%, rgba(6, 244, 16, 0) 100%);
-    transform: rotate(-42.49deg);
-  }
-  &__decor_4 {
-    @include splash(15s);
-    position: absolute; top: 0; right: 10%;
-    width: 50%;
-    height: 70%;
-    background: linear-gradient(151.29deg, rgba(150, 45, 255, 0.5625) 14.08%, rgba(63, 232, 255, 0) 86.64%);
-    transform: rotate(-180deg);
-  }
-  &__decor_5 {
-    @include splash(25s);
-    position: absolute; bottom: -25%; right: 30%;
-    width: 40%;
-    height: 40%;
-    background: linear-gradient(167.96deg, rgba(45, 154, 255, 0.75) 10.68%, rgba(192, 239, 58, 0.5) 104.04%);
-    transform: rotate(-180deg);
   }
 }
 

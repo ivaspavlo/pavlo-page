@@ -1,10 +1,100 @@
-.layoutContainer {
+@import '~styles/core-variables.scss';
+@import '~styles/core-mixins.scss';
+
+@mixin dots($count) {
+  opacity: .2;
+  $text-shadow: ();
+  @for $i from 0 through $count {
+    $text-shadow: $text-shadow,
+                 (-.5+(random()) * 3) + em
+                 (-.5+(random()) * 3) + em
+                 7px
+                 hsla(random() * 360, 100%, 50%,.9);
+  }
+  text-shadow: $text-shadow;
+}
+
+@keyframes move {
+  from { transform: rotate(0deg) scale(12) translateX(-20px); }
+  to { transform: rotate(360deg) scale(18) translateX(20px); }
+}
+
+.layout {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   section {
     scroll-snap-align: start;
+  }
+}
+
+.layoutBackground {
+  position: fixed; top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  &__decor_1 {
+    position: absolute; top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #25263a, #0D0D0D, #283F39);
+    background-size: 200% 200%;
+    animation: a7n-gradient 15s ease-out infinite;
+    display: flex;
+    z-index: -3;
+  }
+  &__decor_2 {
+    display: block;
+    font-size: 82px;
+    &:before, &:after {
+      position: absolute; top: 50%; left: 50%;
+      width: 3em;
+      height: 3em;
+      mix-blend-mode: screen;
+      animation: 44s -27s move infinite ease-in-out alternate;
+      content: '.';
+    }
+    &:before {
+      @include dots(40);
+      animation-duration: 42s;
+      animation-delay: -32s;
+    }
+    &:after {
+      @include dots(40);
+      animation-duration: 43s;
+      animation-delay: -27s;
+    }
+  }
+  &__decor_3 {
+    display: block;
+    font-size: 82px;
+    &:before, &:after {
+      position: fixed; top: 50%; left: 50%;
+      width: 3em;
+      height: 3em;
+      mix-blend-mode: screen;
+      animation: 44s -27s move infinite ease-in-out alternate;
+      content: '.';
+    }
+    &:before {
+      @include dots(40);
+      animation-duration: 42s;
+      animation-delay: -23s;
+    }
+    &:after {
+      @include dots(40);
+      animation-duration: 43s;
+      animation-delay: -19s;
+    }
+  }
+  &__decor_4 {
+    @include bg-img('~public/img/screen-one-texture.png');
+    position: absolute; top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
   }
 }
 

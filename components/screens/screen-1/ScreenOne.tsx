@@ -55,12 +55,6 @@ function ScreenOne() {
     
           </div>
 
-          <div className={styles.screenOne__decor_1}></div>
-          <div className={styles.screenOne__decor_2}></div>
-          <div className={styles.screenOne__decor_3}></div>
-          <div className={styles.screenOne__decor_4}></div>
-          <div className={styles.screenOne__decor_5}></div>
-
         </section>
       )}
     </InView>
