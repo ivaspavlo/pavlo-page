@@ -3,9 +3,7 @@
 
 .screenThree {
   @include screen;
-  @include bg-img('~public/img/screen-three-bg.png');
   justify-content: center;
-  background-color: #000000;
   &__container {
     @include container;
     padding-top: 40px;
