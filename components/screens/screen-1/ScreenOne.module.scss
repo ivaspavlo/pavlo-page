@@ -1,26 +1,13 @@
 @import '~styles/core-variables.scss';
 @import '~styles/core-mixins.scss';
 
-@keyframes a7n-gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes cursor {
+  0% { opacity: 0; }
+  40% { opacity: 0; }
+  50% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
 }
-
-@keyframes a7n-splash {
-  0% { transform: scale(1); opacity: .4; }
-  50% { transform: scale(.7); opacity: .1; }
-  100% { transform: scale(1); opacity: .4; }
-}
-
-@mixin splash($duration: 10s) {
-  animation: a7n-splash $duration infinite;
-  position: absolute;
-  z-index: -1;
-  filter: blur(100px);
-}
-
-
 
 .screenOne {
   @include screen;
@@ -67,7 +54,11 @@
     letter-spacing: 0.01em;
     text-align: center;
     color: $white;
-    
+    &:after {
+      content: '|';
+      opacity: 1;
+      animation: cursor 1s infinite;
+    }
     @include md {
       font-size: 48px;
       line-height: 56px;

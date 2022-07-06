@@ -1,8 +1,14 @@
 @import '~styles/core-variables.scss';
 @import '~styles/core-mixins.scss';
 
+@keyframes a7n-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @mixin dots($count) {
-  opacity: .2;
+  opacity: .3;
   $text-shadow: ();
   @for $i from 0 through $count {
     $text-shadow: $text-shadow,
@@ -15,8 +21,8 @@
 }
 
 @keyframes move {
-  from { transform: rotate(0deg) scale(12) translateX(-20px); }
-  to { transform: rotate(360deg) scale(18) translateX(20px); }
+  from { transform: rotate(0deg) scale(18) translateX(-20px); }
+  to { transform: rotate(360deg) scale(30) translateX(20px); }
 }
 
 .layout {
@@ -39,7 +45,7 @@
     position: absolute; top: 0; left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(-45deg, #25263a, #0D0D0D, #283F39);
+    background: linear-gradient(-45deg, #303251, #0D0D0D, #3d5543);
     background-size: 200% 200%;
     animation: a7n-gradient 15s ease-out infinite;
     display: flex;
@@ -95,4 +101,18 @@
       z-index: -1;
     }
   }
+}
+
+// Not used by now
+@keyframes a7n-splash {
+  0% { transform: scale(1); opacity: .4; }
+  50% { transform: scale(.7); opacity: .1; }
+  100% { transform: scale(1); opacity: .4; }
+}
+
+@mixin splash($duration: 10s) {
+  animation: a7n-splash $duration infinite;
+  position: absolute;
+  z-index: -1;
+  filter: blur(100px);
 }
