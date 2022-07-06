@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createElement, RefObject, useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { InView } from 'react-intersection-observer';
@@ -11,9 +11,41 @@ import styles from './ScreenOne.module.scss';
 
 function ScreenOne() {
   const t = useTranslations('screen-one');
+  const titleRef: RefObject<HTMLDivElement> = useRef(null);
+  const subtitleRef: RefObject<HTMLDivElement> = useRef(null);
+
+  useEffect(() => {
+    cursorRunner(
+      titleRef.current as HTMLElement,
+      t('greets-1')
+    );
+    cursorRunner(
+      titleRef.current as HTMLElement,
+      t('greets-2')
+    );
+  }, []);
+
   const animateMainBlock = {
     open: { translateY: 0, opacity: 1 },
     closed: { translateY: '-20%', opacity: 0 }
+  };
+
+  let i = 0;
+
+  function cursorRunner(elem: HTMLElement, text: string): void {
+    elem.append(text.charAt(i));
+    i++;
+    setTimeout(
+      function() {
+        if (i < text.length) {
+          cursorRunner(elem, text);
+        } else {
+          const brElem = document.createElement('br');
+          brElem.classList.add('d-none', 'd-md-inline-flex');
+          elem.append(brElem);
+          return;
+        }
+      }, Math.floor(Math.random() * 220) + 50);
   }
 
   return (
@@ -25,15 +57,17 @@ function ScreenOne() {
             <div className={styles.mainBlock}>
 
               <motion.h1
+                ref={titleRef}
                 initial={false}
                 animate={inView ? 'open' : 'closed'}
                 variants={animateMainBlock}
                 transition={{ duration: .8, ease: 'easeOut' }}
                 className={styles.mainBlock__title}>
-                  {t('greets-1')}, <br className='d-none d-md-inline-flex' />{t('greets-2')}
+                  {/* {t('greets-1')}, <br className='d-none d-md-inline-flex' />{t('greets-2')} */}
               </motion.h1>
 
               <motion.h4
+                ref={subtitleRef}
                 initial={false}
                 animate={inView ? 'open' : 'closed'}
                 variants={animateMainBlock}
