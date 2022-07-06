@@ -18,7 +18,6 @@ function Layout({ children }: { children: ReactNode; }) {
         <div className={styles.layoutBackground__decor_1}></div>
         <div className={styles.layoutBackground__decor_2}></div>
         <div className={styles.layoutBackground__decor_3}></div>
-        <div className={styles.layoutBackground__decor_4}></div>
       </div>
 
     </div>
