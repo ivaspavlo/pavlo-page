@@ -1,9 +1,10 @@
-import React, { createElement, RefObject, useEffect, useRef } from 'react';
+import React, { memo, RefObject, useContext, useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { InView } from 'react-intersection-observer';
 
 import { CONSTANTS } from '@root/constants';
+import { LanguageContext } from '@root/pages';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
 
 import styles from './ScreenOne.module.scss';
@@ -12,40 +13,52 @@ import styles from './ScreenOne.module.scss';
 function ScreenOne() {
   const t = useTranslations('screen-one');
   const titleRef: RefObject<HTMLDivElement> = useRef(null);
-  const subtitleRef: RefObject<HTMLDivElement> = useRef(null);
+  const currentLang: string | null = useContext(LanguageContext);
 
   useEffect(() => {
-    cursorRunner(
+    startCursorAnimation(
       titleRef.current as HTMLElement,
-      t('greets-1')
+      [t('greets-1'), t('greets-2')]
     );
-    cursorRunner(
-      titleRef.current as HTMLElement,
-      t('greets-2')
-    );
-  }, []);
+  }, [currentLang]);
 
   const animateMainBlock = {
     open: { translateY: 0, opacity: 1 },
     closed: { translateY: '-20%', opacity: 0 }
   };
 
-  let i = 0;
+  function startCursorAnimation(target: HTMLElement, texts: string[], delimeter?: string | HTMLElement): void {
+    target.textContent = '';
 
-  function cursorRunner(elem: HTMLElement, text: string): void {
-    elem.append(text.charAt(i));
-    i++;
+    const _delimenter = delimeter || getBrElement();
+
+    const elements = texts.reduce((acc: any[], curr, i, arr) => {
+      const isLastElem = i === arr.length - 1;
+      const res = [ ...acc, ...curr.split('') ];
+      return isLastElem ? res : [ ...res, _delimenter ];
+    }, []);
+
+    cursorRunner(0, target, elements);
+  }
+
+  function getBrElement(): HTMLElement {
+    const brElem = document.createElement('br');
+    brElem.classList.add('d-inline-flex');
+    return brElem;
+  }
+
+  function cursorRunner(index: number, target: HTMLElement, elements: string | HTMLElement[]): void {
+    target.append(elements[index]);
+    index++;
     setTimeout(
       function() {
-        if (i < text.length) {
-          cursorRunner(elem, text);
+        if (index < elements.length) {
+          cursorRunner(index, target, elements);
         } else {
-          const brElem = document.createElement('br');
-          brElem.classList.add('d-none', 'd-md-inline-flex');
-          elem.append(brElem);
           return;
         }
-      }, Math.floor(Math.random() * 220) + 50);
+      }, Math.floor(Math.random() * 220) + 50
+    );
   }
 
   return (
@@ -62,12 +75,10 @@ function ScreenOne() {
                 animate={inView ? 'open' : 'closed'}
                 variants={animateMainBlock}
                 transition={{ duration: .8, ease: 'easeOut' }}
-                className={styles.mainBlock__title}>
-                  {/* {t('greets-1')}, <br className='d-none d-md-inline-flex' />{t('greets-2')} */}
-              </motion.h1>
+                className={styles.mainBlock__title}
+              ></motion.h1>
 
               <motion.h4
-                ref={subtitleRef}
                 initial={false}
                 animate={inView ? 'open' : 'closed'}
                 variants={animateMainBlock}
@@ -95,4 +106,4 @@ function ScreenOne() {
     )
 }
 
-export default ScreenOne;
+export default memo(ScreenOne);

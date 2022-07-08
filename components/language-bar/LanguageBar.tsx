@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useTranslations } from 'next-intl';
 
 import { CONSTANTS } from '@constants/index';
 import classes from '@components/language-bar/LanguageBar.module.scss';
 
 
 function LanguageBar() {
-  const t = useTranslations();
-  
   const languages = CONSTANTS.lang;
 
   const { locale } = useRouter();

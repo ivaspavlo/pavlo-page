@@ -2,13 +2,11 @@
 @import '~styles/core-mixins.scss';
 
 .footer {
-  @include bg-img('~public/img/footer-bg.png');
   padding-top: $mobileHeaderHeight;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $black;
   @include md {
     padding-top: 0;
   }

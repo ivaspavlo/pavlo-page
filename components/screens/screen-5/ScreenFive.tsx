@@ -61,7 +61,7 @@ function ScreenFive() {
 
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [visibleProjects, setVisibleProjects] = useState<IProject[]>([]);
-  const [showMoreButtonClicked, setShowMoreButtonClicked] = useState<boolean>(false);
+  const [snapAlignBottom, setSnapAlignBottom] = useState<boolean>(false);
 
   useEffect(() => {
     setVisibleProjects(projects[currentPage].items);
@@ -75,9 +75,7 @@ function ScreenFive() {
     if (nextPage > projects.length - 1) {
       return;
     }
-    if (!showMoreButtonClicked) {
-      setShowMoreButtonClicked(true);
-    }
+    setSnapAlignBottom(true);
     setCurrentPage(nextPage);
     setVisibleProjects([ ...visibleProjects, ...projects[nextPage].items ]);
   };
@@ -85,7 +83,7 @@ function ScreenFive() {
   return (
     <InView threshold={0.25}>
       {({ref, inView}) => (
-        <section id={CONSTANTS.sectionIds.sectionFive} ref={ref} className={`${styles.screenFive} ${showMoreButtonClicked ? styles.screenFive_snapAlignEnd : ''}`}>
+        <section id={CONSTANTS.sectionIds.sectionFive} ref={ref} className={`${styles.screenFive} ${snapAlignBottom ? styles.screenFive_snapAlignEnd : ''}`}>
           <div className={styles.screenFive__container}>
 
             <motion.header
