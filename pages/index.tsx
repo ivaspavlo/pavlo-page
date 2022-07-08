@@ -1,16 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { createContext, Fragment, StrictMode } from 'react';
 import { GetStaticPropsContext } from 'next';
 import type { NextPage } from 'next';
-import { useTranslations } from 'next-intl';
 import Head from 'next/head';
+import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/router';
 
 import Layout from '@components/layout/Layout';
-import ScreenOne from "@components/screens/screen-1/ScreenOne";
-import ScreenTwo from "@components/screens/screen-2/ScreenTwo";
+import ScreenOne from '@components/screens/screen-1/ScreenOne';
+import ScreenTwo from '@components/screens/screen-2/ScreenTwo';
 import ScreenThree from '@components/screens/screen-3/screenThree';
 import ScreenFour from '@components/screens/screen-4/ScreenFour';
 import ScreenFive from '@components/screens/screen-5/ScreenFive';
-import Footer from '@components/footer/Footer';
 
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
@@ -21,45 +21,37 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   };
 }
 
+export const LanguageContext = createContext('');
+
 const Home: NextPage = () => {
-  const t = useTranslations("core");
+  const t = useTranslations('core');
+  const { locale } = useRouter();
 
   return (
-    <Fragment>
+    <LanguageContext.Provider value={locale || ''}>
 
       <Head>
         <title>{t('title')}</title>
-        <meta name="description" content={t('desc')} />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content={t('desc')} />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       
       <Layout>
 
         <ScreenOne />
 
-        <section>
-          
+        <StrictMode>
+
           <ScreenTwo />
-
           <ScreenThree />
+          <ScreenFour />
+          <ScreenFive />
 
-        </section>
-
-        <ScreenFour />
-
-        <ScreenFive />
-
-        {/* <section>
-
-          
-
-          <Footer />
-
-        </section> */}
+        </StrictMode>
         
       </Layout>
 
-    </Fragment>
+    </LanguageContext.Provider>
   )
 }
 

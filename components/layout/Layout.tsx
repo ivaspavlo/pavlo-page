@@ -1,6 +1,7 @@
 import React, { ReactNode, RefObject, useRef } from "react";
 import { CONSTANTS } from '@root/constants';
 import Header from "@components/header/Header";
+import Footer from "@components/footer/Footer";
 import styles from "@components/layout/Layout.module.scss";
 
 
@@ -19,6 +20,8 @@ function Layout({ children }: { children: ReactNode; }) {
         <div className={styles.layoutBackground__decor_2}></div>
         <div className={styles.layoutBackground__decor_3}></div>
       </div>
+
+      <Footer />
 
     </div>
   );
