@@ -7,6 +7,11 @@
   100% { background-position: 0% 50%; }
 }
 
+@keyframes move {
+  from { transform: rotate(0deg) scale(18) translateX(-20px); }
+  to { transform: rotate(360deg) scale(30) translateX(20px); }
+}
+
 @mixin dots($count) {
   opacity: .3;
   $text-shadow: ();
@@ -18,11 +23,6 @@
                  hsla(random() * 360, 100%, 50%,.9);
   }
   text-shadow: $text-shadow;
-}
-
-@keyframes move {
-  from { transform: rotate(0deg) scale(18) translateX(-20px); }
-  to { transform: rotate(360deg) scale(30) translateX(20px); }
 }
 
 .layout {
