@@ -4,20 +4,14 @@
 .screenTwo {
   @include screen;
   @include bg-img('~public/img/screen-two-texture.png');
-  padding-top: $mobileHeaderHeight;
   background-color: $grey-2;
   &__container {
     width: 100%;
     min-height: 100vh;
-    padding: 40px 0 0;
     display: flex;
     flex-direction: column-reverse;
     @include md {
-      padding: 56px 0;
       flex-direction: row;
-    }
-    @include xl {
-      padding: 100px 0;
     }
   }
 }
@@ -47,17 +41,17 @@
 
 .mainBlock {
   width: 100%;
-  padding: 0 16px 48px;
+  padding: $mobileHeaderHeight 16px 48px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   @include md {
     max-width: 600px;
-    padding: 24px 24px 24px 0;
+    padding: $mobileHeaderHeight 24px 24px 0;
   }
   @include xl {
-    padding: 72px 24px 72px 0;
+    padding: $mobileHeaderHeight 24px 72px 0;
   }
   &__title {
     margin: 8px 0 16px;

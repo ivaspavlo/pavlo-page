@@ -4,6 +4,7 @@
 .screenThree {
   @include screen;
   justify-content: center;
+  padding-top: $mobileHeaderHeight;
   &__container {
     @include container;
     padding-top: 40px;
