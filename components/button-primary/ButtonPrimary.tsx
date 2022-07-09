@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
 
 import styles from '@components/button-primary/ButtonPrimary.module.scss';
 import Icon from '../icon/Icon';
@@ -7,12 +6,13 @@ import Icon from '../icon/Icon';
 export interface IButtonPrimary {
   onClick?: () => any;
   title: string;
-  link: string;
+  link?: string;
   iconName?: string;
   iconNameHover?: string;
   filled?: boolean;
   invalid?: boolean;
   iconRight?: boolean;
+  disabled?: boolean;
 }
 
 function ButtonPrimary(props: IButtonPrimary) {
@@ -27,6 +27,9 @@ function ButtonPrimary(props: IButtonPrimary) {
   };
 
   const onClickHandler = (): void => {
+    if (props.disabled) {
+      return;
+    }
     if (props.invalid) {
       animate();
     }
@@ -41,22 +44,23 @@ function ButtonPrimary(props: IButtonPrimary) {
     /> : '';
 
   return (
-    <Link href={props.link}>
-      <div
-        onClick={onClickHandler}
-        onMouseEnter={() => setHoverState(true)}
-        onMouseLeave={() => setHoverState(false)}
-        className={`
-          ${styles.buttonPrimary}
-          ${props.filled ? styles.filled : ''}
-          ${startAnimate ? styles.invalid : ''}
-        `}>
-          {!props.iconRight ?? icon}
-          <span className={styles.buttonPrimary__content}>{props.title}</span>
-          {props.iconRight ?? icon}
-      </div>
-    </Link>
+    <div
+      onClick={onClickHandler}
+      onMouseEnter={() => setHoverState(true)}
+      onMouseLeave={() => setHoverState(false)}
+      className={`
+        ${styles.buttonPrimary}
+        ${startAnimate ? styles.invalid : ''}
+        ${props.filled ? styles.filled : ''}
+        ${props.disabled ? styles.disabled : ''}
+      `}>
+        {!props.iconRight ?? icon}
+        <span className={styles.buttonPrimary__content}>{props.title}</span>
+        {props.iconRight ?? icon}
+    </div>
   );
 }
 
-export default ButtonPrimary; // TODO: add animation to the icon on hover.
+// TODO: add animation to the icon on hover.
+
+export default ButtonPrimary; 

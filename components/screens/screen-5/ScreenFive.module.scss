@@ -13,6 +13,9 @@
     width: 100%;
     max-width: 1200px;
     padding: 40px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     @include md {
       padding: 56px 24px;
     }
@@ -60,21 +63,9 @@
   &__button {
     width: 148px;
     height: 52px;
-    border: 0;
-    border-radius: 2px;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0.01em;
-    color: $black;
-    background-color: $grey-4;
-    cursor: pointer;
-    &:hover { opacity: .7; }
     @include lg {
       width: 188px;
       height: 65px;
-      font-size: 16px;
-      line-height: 28px;
     }
   }
   &__projectItem {
