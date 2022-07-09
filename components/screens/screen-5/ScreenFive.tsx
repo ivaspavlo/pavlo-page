@@ -24,17 +24,6 @@ const projects: { page: number; items: IProject[] }[] = [
         sidebarBg: 'img/sidebar-1-bg.png',
         sidebarRight: true,
         liveLink: '/'
-      }, {
-        id: 'project_2',
-        title: 'Jewelry Website',
-        desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
-        codeLink: '/',
-        bgColor: '#FBFFD0',
-        projectImg: 'img/project-mock-img.png',
-        sidebarTitle: 'Movie Time IOS App Development',
-        sidebarBg: 'img/sidebar-2-bg.png',
-        sidebarRight: false,
-        liveLink: '/'
       }
     ]
   }, {
@@ -50,6 +39,22 @@ const projects: { page: number; items: IProject[] }[] = [
         sidebarTitle: 'Movie Time IOS App Development',
         sidebarBg: 'img/sidebar-3-bg.png',
         sidebarRight: true,
+        liveLink: '/'
+      }
+    ]
+  }, {
+    page: 2,
+    items: [
+      {
+        id: 'project_2',
+        title: 'Jewelry Website',
+        desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
+        codeLink: '/',
+        bgColor: '#FBFFD0',
+        projectImg: 'img/project-mock-img.png',
+        sidebarTitle: 'Movie Time IOS App Development',
+        sidebarBg: 'img/sidebar-2-bg.png',
+        sidebarRight: false,
         liveLink: '/'
       }
     ]
