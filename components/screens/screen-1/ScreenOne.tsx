@@ -87,14 +87,16 @@ function ScreenOne() {
                   {t('intro-text')}
               </motion.h4>
 
-              <motion.div
-                initial={false}
-                animate={inView ? 'open' : 'closed'}
-                variants={animateMainBlock}
-                transition={{ duration: .8, ease: 'easeOut', delay: 1 }}
-                className={styles.mainBlock__buttonWrap}>
+              <div className='d-flex flex-grow-1 align-items-end'>
+                <motion.div
+                  initial={false}
+                  animate={inView ? 'open' : 'closed'}
+                  variants={animateMainBlock}
+                  transition={{ duration: .8, ease: 'easeOut', delay: 1 }}
+                  className={styles.mainBlock__buttonWrap}>
                   <ButtonPrimary title={t('btn-learn-more')} link='/' filled={true}/>
-              </motion.div>
+                </motion.div>
+              </div>
 
             </div>
     

@@ -7,6 +7,7 @@ import { CONSTANTS } from '@root/constants';
 import Project, { IProject } from '@components/project/Project';
 
 import styles from './ScreenFive.module.scss';
+import ButtonPrimary from '@root/components/button-primary/ButtonPrimary';
 
 
 const projects: { page: number; items: IProject[] }[] = [
@@ -40,12 +41,7 @@ const projects: { page: number; items: IProject[] }[] = [
         sidebarBg: 'img/sidebar-3-bg.png',
         sidebarRight: true,
         liveLink: '/'
-      }
-    ]
-  }, {
-    page: 2,
-    items: [
-      {
+      }, {
         id: 'project_2',
         title: 'Jewelry Website',
         desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
@@ -67,6 +63,7 @@ function ScreenFive() {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [visibleProjects, setVisibleProjects] = useState<IProject[]>([]);
   const [snapAlignBottom, setSnapAlignBottom] = useState<boolean>(false);
+  const [isLastPage, setIsLastPage] = useState<boolean>(false);
 
   useEffect(() => {
     setVisibleProjects(projects[currentPage].items);
@@ -77,8 +74,11 @@ function ScreenFive() {
 
   function onClickHandler() {
     const nextPage = currentPage + 1;
-    if (nextPage > projects.length - 1) {
+    if (isLastPage) {
       return;
+    }
+    if (nextPage === projects.length - 1) {
+      setIsLastPage(true);
     }
     setSnapAlignBottom(true);
     setCurrentPage(nextPage);
@@ -110,7 +110,7 @@ function ScreenFive() {
                 </h3>
             </motion.header>
 
-            <ul>
+            <ul className='w-100'>
               {visibleProjects.map((projectConfig: IProject, index: number) =>
                 <motion.li
                   key={projectConfig.id}
@@ -123,8 +123,8 @@ function ScreenFive() {
               )}
             </ul>
             
-            <div className='w-100 d-flex justify-content-center'>
-              <button onClick={onClickHandler} className={styles.screenFive__button}>{t('see-more')}</button>
+            <div className={styles.screenFive__button}>
+              <ButtonPrimary onClick={onClickHandler} title={t('see-more')} filled={true} disabled={isLastPage}/>
             </div>
 
           </div>

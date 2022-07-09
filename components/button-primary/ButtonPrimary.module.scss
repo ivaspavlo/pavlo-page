@@ -65,21 +65,7 @@ $c3: #C0EF3A;
     background: $c1;
   }
 
-  &.filled {
-    background: linear-gradient(90deg, $c2 0%, $c3 100%);
-    color: $black;
-    .buttonPrimary__content {
-      font-weight: 600;
-    }
-    &:before { background-color: $c1; }
-    &:after { background: $black; }
-  }
-
-  &.invalid {
-    animation: shake .5s linear;
-  }
-
-  &:hover {
+  &:hover:not(.disabled) {
     color: $black;
     &.filled {
       color: $c2;
@@ -96,5 +82,25 @@ $c3: #C0EF3A;
     &:before {
       transition: all .5s ease-in;
     }
+  }
+
+  &.filled:not(.disabled) {
+    background: linear-gradient(90deg, $c2 0%, $c3 100%);
+    color: $black;
+    .buttonPrimary__content {
+      font-weight: 600;
+    }
+    &:before { background-color: $c1; }
+    &:after { background: $black; }
+  }
+
+  &.invalid:not(.disabled) {
+    animation: shake .5s linear;
+  }
+
+  &.disabled {
+    background-color: $grey-1;
+    color: $grey-5;
+    border-color: transparent;
   }
 }
