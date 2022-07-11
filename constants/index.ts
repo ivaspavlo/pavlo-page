@@ -6,7 +6,8 @@ export const CONSTANTS = {
     sectionTwo: 'sectionTwoId',
     sectionThree: 'sectionThreeId',
     sectionFour: 'sectionFourId',
-    sectionFive: 'sectionFiveId'
+    sectionFive: 'sectionFiveId',
+    coreFooter: 'coreFooterId'
   },
   errorMessages: {
     email: 'error-email',

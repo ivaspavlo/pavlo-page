@@ -84,7 +84,7 @@ function Footer() {
   return (
     <InView threshold={0.25}>
       {({ref, inView}) => (
-        <footer ref={ref} className={styles.footer}>
+        <footer id={CONSTANTS.sectionIds.coreFooter} ref={ref} className={styles.footer}>
 
           <div className={styles.footerContent}>
 
