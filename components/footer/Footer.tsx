@@ -47,11 +47,11 @@ function Footer() {
   const [formState, setFormState] = useState<IFormState>(initFormState);
   const [formValidity, setFormValidity] = useState<boolean>(false);
 
-  const nameInput = useRef() as MutableRefObject<any>;
-  const emailInput = useRef() as MutableRefObject<any>;
-  const messageInput = useRef() as MutableRefObject<any>;
-
-  const formInputs = [ nameInput, emailInput, messageInput ];
+  const form: {[key:string]: MutableRefObject<any>} = {
+    name: useRef() as MutableRefObject<any>,
+    email: useRef() as MutableRefObject<any>,
+    message: useRef() as MutableRefObject<any>
+  };
 
   const errorsMap = {
     email: tErrors('errorEmail'),
@@ -63,12 +63,29 @@ function Footer() {
   }
 
   const onFormSubmitHandler = () => {
-    // TODO: back end logic required
-    formInputs.forEach(fi => {
-      if (!formValidity) {
-        fi.current.markAsDirty();
-      }
-      fi.current.resetValue();
+    if (!formValidity) {
+      Object.keys(form).forEach(key => {
+        const inputElem = form[key].current;
+        inputElem.markAsDirty();
+      });
+      return;
+    }
+
+    const formValue = Object.keys(form).reduce((acc, key) => {
+      const inputElem = form[key].current;
+      const value = inputElem.value();
+      debugger;
+      inputElem.resetValue();
+      return { ...acc, [key]: value };
+    }, {});
+
+    fetch(`${CONSTANTS.api.base}/${CONSTANTS.api.contact}`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formValue)
     });
   }
 
@@ -113,9 +130,9 @@ function Footer() {
 
                 <h4 className={styles.form__header}>{t('form-header')}</h4>
 
-                <Input ref={nameInput} onInput={onInputHandler} controlName='name' label={t('form-name')} validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
-                <Input ref={emailInput} onInput={onInputHandler} controlName='email' label={t('form-email')} validators={[Validators.email]} errorsMap={errorsMap} />
-                <Input ref={messageInput} onInput={onInputHandler} controlName='message' label={t('form-message')} type='textarea' validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
+                <Input ref={form.name} onInput={onInputHandler} controlName='name' label={t('form-name')} validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
+                <Input ref={form.email} onInput={onInputHandler} controlName='email' label={t('form-email')} validators={[Validators.email]} errorsMap={errorsMap} />
+                <Input ref={form.message} onInput={onInputHandler} controlName='message' label={t('form-message')} type='textarea' validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
                 
                 <div className={styles.form__button}>
                   <ButtonPrimary onClick={onFormSubmitHandler} invalid={!formValidity} title={t('form-button')} link='/' filled={true} />

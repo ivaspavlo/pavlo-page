@@ -12,5 +12,9 @@ export const CONSTANTS = {
   errorMessages: {
     email: 'error-email',
     minChar: 'error-min-char'
+  },
+  api: {
+    base: '/api',
+    contact: 'contact'
   }
 };
