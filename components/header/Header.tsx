@@ -94,6 +94,10 @@ function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
           </div>
         </div>
 
+        {/* <div className={styles.error}>
+          <p></p>
+        </div> */}
+
       </div>
       
     </div>
