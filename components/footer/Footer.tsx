@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useRef, useState } from 'react';
+import React, { MutableRefObject, useRef, useState, MouseEvent } from 'react';
 import { InView } from 'react-intersection-observer';
 import { useTranslations } from 'next-intl';
 
@@ -62,7 +62,9 @@ function Footer() {
     document.getElementById(scrollToId)?.scrollIntoView();
   }
 
-  const onFormSubmitHandler = () => {
+  const onFormSubmitHandler = (event: React.MouseEvent<any>): void => {
+    event.preventDefault();
+
     if (!formValidity) {
       Object.keys(form).forEach(key => {
         const inputElem = form[key].current;
@@ -72,11 +74,7 @@ function Footer() {
     }
 
     const formValue = Object.keys(form).reduce((acc, key) => {
-      const inputElem = form[key].current;
-      const value = inputElem.value();
-      debugger;
-      inputElem.resetValue();
-      return { ...acc, [key]: value };
+      return { ...acc, [key]: form[key].current.value() };
     }, {});
 
     fetch(`${CONSTANTS.api.base}/${CONSTANTS.api.contact}`, {
@@ -86,6 +84,13 @@ function Footer() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(formValue)
+    }).then((res: { status: number; [key:string]: any; }) => {
+      console.log(res);
+      if (res.status === 200) {
+        Object.keys(form).forEach((key: string) => {
+          form[key].current.resetValue();
+        });
+      }
     });
   }
 
@@ -135,7 +140,7 @@ function Footer() {
                 <Input ref={form.message} onInput={onInputHandler} controlName='message' label={t('form-message')} type='textarea' validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
                 
                 <div className={styles.form__button}>
-                  <ButtonPrimary onClick={onFormSubmitHandler} invalid={!formValidity} title={t('form-button')} link='/' filled={true} />
+                  <ButtonPrimary onClick={(event: MouseEvent<any>) => onFormSubmitHandler(event)} invalid={!formValidity} title={t('form-button')} filled={true} />
                 </div>
 
               </form>

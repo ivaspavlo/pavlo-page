@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, MouseEvent } from 'react';
 
 import styles from '@components/button-primary/ButtonPrimary.module.scss';
 import Icon from '../icon/Icon';
 
 export interface IButtonPrimary {
-  onClick?: () => any;
+  onClick?: (event: MouseEvent<any>) => any;
   title: string;
   link?: string;
   iconName?: string;
@@ -26,14 +26,14 @@ function ButtonPrimary(props: IButtonPrimary) {
     }, 1000);
   };
 
-  const onClickHandler = (): void => {
+  const onClickHandler = (event: MouseEvent<any>): void => {
     if (props.disabled) {
       return;
     }
     if (props.invalid) {
       animate();
     }
-    props.onClick && props.onClick();
+    props.onClick && props.onClick(event);
   }
 
   const icon = props.iconName ?
@@ -45,7 +45,7 @@ function ButtonPrimary(props: IButtonPrimary) {
 
   return (
     <div
-      onClick={onClickHandler}
+      onClick={(event: MouseEvent<any>) => onClickHandler(event)}
       onMouseEnter={() => setHoverState(true)}
       onMouseLeave={() => setHoverState(false)}
       className={`
