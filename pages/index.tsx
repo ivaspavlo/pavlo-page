@@ -1,4 +1,4 @@
-import React, { createContext, Fragment, StrictMode } from 'react';
+import React, { createContext, StrictMode, useState } from 'react';
 import { GetStaticPropsContext } from 'next';
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -13,6 +13,14 @@ import ScreenFour from '@components/screens/screen-4/ScreenFour';
 import ScreenFive from '@components/screens/screen-5/ScreenFive';
 
 
+interface ICoreContext {
+  language: string;
+  message: {
+    current: string;
+    setCurrent: (value: string) => void
+  }
+}
+
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
@@ -21,14 +29,27 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   };
 }
 
-export const LanguageContext = createContext('');
+export const CoreContext = createContext<ICoreContext>({
+  language: '',
+  message: {
+    current: '',
+    setCurrent: (value: string) => {}
+  }
+});
 
 const Home: NextPage = () => {
   const t = useTranslations('core');
   const { locale } = useRouter();
+  const [message, setMessage] = useState('');
 
   return (
-    <LanguageContext.Provider value={locale || ''}>
+    <CoreContext.Provider value={{
+      language: locale || '',
+      message: {
+        current: message,
+        setCurrent: setMessage
+      }
+    }}>
 
       <Head>
         <title>{t('title')}</title>
@@ -51,8 +72,8 @@ const Home: NextPage = () => {
         
       </Layout>
 
-    </LanguageContext.Provider>
-  )
+    </CoreContext.Provider>
+  );
 }
 
 export default Home;

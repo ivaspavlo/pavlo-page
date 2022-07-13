@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { InView } from 'react-intersection-observer';
 
 import { CONSTANTS } from '@root/constants';
-import { LanguageContext } from '@root/pages';
+import { CoreContext } from '@root/pages';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
 
 import styles from './ScreenOne.module.scss';
@@ -13,14 +13,14 @@ import styles from './ScreenOne.module.scss';
 function ScreenOne() {
   const t = useTranslations('screen-one');
   const titleRef: RefObject<HTMLDivElement> = useRef(null);
-  const currentLang: string | null = useContext(LanguageContext);
+  const { language } = useContext(CoreContext);
 
   useEffect(() => {
     startCursorAnimation(
       titleRef.current as HTMLElement,
       [t('greets-1'), t('greets-2')]
     );
-  }, [currentLang]);
+  }, [language]);
 
   const animateMainBlock = {
     open: { translateY: 0, opacity: 1 },

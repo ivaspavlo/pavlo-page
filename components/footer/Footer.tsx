@@ -1,9 +1,10 @@
-import React, { MutableRefObject, useRef, useState, MouseEvent } from 'react';
+import React, { MutableRefObject, useRef, useState, MouseEvent, useContext } from 'react';
 import { InView } from 'react-intersection-observer';
 import { useTranslations } from 'next-intl';
 
 import { CONSTANTS } from '@root/constants';
 import { Validators } from '@root/validators';
+import { CoreContext } from '@root/pages';
 
 import Icon from '@components/icon/Icon';
 import Input, { IInputEvent } from '@components/input/Input';
@@ -44,8 +45,11 @@ function Footer() {
   const t = useTranslations('footer');
   const tErrors = useTranslations('errors');
 
+  const { message } = useContext(CoreContext);
+
   const [formState, setFormState] = useState<IFormState>(initFormState);
-  const [formValidity, setFormValidity] = useState<boolean>(false);
+  const [formIsValid, setFormIsValid] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const form: {[key:string]: MutableRefObject<any>} = {
     name: useRef() as MutableRefObject<any>,
@@ -65,13 +69,15 @@ function Footer() {
   const onFormSubmitHandler = (event: React.MouseEvent<any>): void => {
     event.preventDefault();
 
-    if (!formValidity) {
+    if (!formIsValid) {
       Object.keys(form).forEach(key => {
         const inputElem = form[key].current;
         inputElem.markAsDirty();
       });
       return;
     }
+
+    setIsLoading(true);
 
     const formValue = Object.keys(form).reduce((acc, key) => {
       return { ...acc, [key]: form[key].current.value() };
@@ -85,12 +91,17 @@ function Footer() {
       },
       body: JSON.stringify(formValue)
     }).then((res: { status: number; [key:string]: any; }) => {
-      console.log(res);
-      if (res.status === 200) {
+      return res.json();
+    }).then(({ success }: { success: true; }) => {
+      if (success) {
         Object.keys(form).forEach((key: string) => {
           form[key].current.resetValue();
         });
+        message.setCurrent(CONSTANTS.coreMessages.emailSentSuccess);
+      } else {
+        message.setCurrent(CONSTANTS.coreMessages.emailSentFail);
       }
+      setIsLoading(false);
     });
   }
 
@@ -100,7 +111,7 @@ function Footer() {
       [res.controlName]: { value: res.value, isValid: res.isValid }
     });
     const isFormValid = !Object.keys(formState).some(key => !formState[key].isValid);
-    setFormValidity(isFormValid);
+    setFormIsValid(isFormValid);
   }
 
   return (
@@ -140,7 +151,7 @@ function Footer() {
                 <Input ref={form.message} onInput={onInputHandler} controlName='message' label={t('form-message')} type='textarea' validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
                 
                 <div className={styles.form__button}>
-                  <ButtonPrimary onClick={(event: MouseEvent<any>) => onFormSubmitHandler(event)} invalid={!formValidity} title={t('form-button')} filled={true} />
+                  <ButtonPrimary onClick={(event: MouseEvent<any>) => onFormSubmitHandler(event)} invalid={!formIsValid} title={t('form-button')} filled={true} loading={isLoading} />
                 </div>
 
               </form>

@@ -19,6 +19,7 @@
     "react": "^18.1.0",
     "react-dom": "18.1.0",
     "react-intersection-observer": "^9.2.2",
+    "react-spinners": "^0.13.3",
     "react-transition-group": "^4.4.2",
     "rxjs": "^7.5.5"
   },
