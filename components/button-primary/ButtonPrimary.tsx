@@ -1,4 +1,5 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState, MouseEvent, CSSProperties, Fragment } from 'react';
+import { PulseLoader } from 'react-spinners';
 
 import styles from '@components/button-primary/ButtonPrimary.module.scss';
 import Icon from '../icon/Icon';
@@ -13,6 +14,7 @@ export interface IButtonPrimary {
   invalid?: boolean;
   iconRight?: boolean;
   disabled?: boolean;
+  loading?: boolean;
 }
 
 function ButtonPrimary(props: IButtonPrimary) {
@@ -24,6 +26,11 @@ function ButtonPrimary(props: IButtonPrimary) {
     setTimeout(() => {
       setStartAnimate(false);
     }, 1000);
+  };
+
+  const override: CSSProperties = {
+    display: 'flex',
+    zIndex: 1
   };
 
   const onClickHandler = (event: MouseEvent<any>): void => {
@@ -53,10 +60,17 @@ function ButtonPrimary(props: IButtonPrimary) {
         ${startAnimate ? styles.invalid : ''}
         ${props.filled ? styles.filled : ''}
         ${props.disabled ? styles.disabled : ''}
+        ${props.loading ? styles.loading : ''}
       `}>
-        {!props.iconRight ?? icon}
-        <span className={styles.buttonPrimary__content}>{props.title}</span>
-        {props.iconRight ?? icon}
+        {
+          props.loading ?
+            <PulseLoader color={props.filled ? '#000' : '#fff'} loading={props.loading} cssOverride={override} size={10} /> :
+            <Fragment>
+              {!props.iconRight ?? icon}
+              <span className={styles.buttonPrimary__content}>{props.title}</span>
+              {props.iconRight ?? icon}
+            </Fragment>
+        }
     </div>
   );
 }

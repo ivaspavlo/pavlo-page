@@ -5,12 +5,12 @@ require('dotenv').config();
 const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   port: 465,
-    host: 'smtp.gmail.com',
-    auth: {
-      user: `${process.env.emailFrom}`,
-      pass: `${process.env.password}`
-    },
-    secure: true
+  host: 'smtp.gmail.com',
+  auth: {
+    user: `${process.env.emailFrom}`,
+    pass: `${process.env.password}`
+  },
+  secure: true
 });
 
 interface IEmail {
@@ -21,7 +21,7 @@ interface IEmail {
 
 export default async function(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse<{success: boolean}>
 ) {
   const body: IEmail = req.body;
   const mailData = {
@@ -30,12 +30,19 @@ export default async function(
     text: `${body.message} | Sent from: ${body.email}`,
     html: `<p>${body.message}</p><p>Sent from: ${body.email}</p>`
   }
-  const request = new Promise((resolve) => {
+  const request = new Promise<boolean>((resolve) => {
     transporter.sendMail(mailData, (err: object) => {
       resolve(err ? false : true);
     });
-  })
-  const isSuccessful = await request;
-  res.status(isSuccessful ? 200 : 400);
-  res.json({ success: isSuccessful });
+  });
+
+  let success = false;
+
+  try {
+    success = await request;
+  } catch(err: unknown) {
+    success = false;
+  }
+
+  res.status(success ? 200 : 400).json({ success });
 }

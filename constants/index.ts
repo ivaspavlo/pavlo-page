@@ -9,6 +9,10 @@ export const CONSTANTS = {
     sectionFive: 'sectionFiveId',
     coreFooter: 'coreFooterId'
   },
+  coreMessages: {
+    emailSentSuccess: 'core.email-sent-success',
+    emailSentFail: 'core.email-sent-fail'
+  },
   errorMessages: {
     email: 'error-email',
     minChar: 'error-min-char'

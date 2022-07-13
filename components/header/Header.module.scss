@@ -120,3 +120,40 @@
     color: $white;
   }
 }
+
+.alert {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 30px;
+  position: absolute; bottom: 0; left: 0;
+  transform: translateY(100%) scale(0);
+  font-weight: 300;
+  font-size: 12px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  color: $black;
+  background-color: #FFF385;
+  transition: .3s;
+  &_visible {
+    transform: translateY(100%) scale(1);
+  }
+  &__close {
+    // @include bg-img('~public/icons/close-black.svg');
+    position: absolute; top: 8px; right: 8px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    &:hover { opacity: .7; }
+  }
+  @include sm {
+    text-align: center;
+    &__close {
+      position: relative; top: auto; right: auto;
+      width: 24px;
+      height: 24px;
+      margin-left: 4px;
+    }
+  }
+}

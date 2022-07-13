@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef, RefObject, memo } from 'react';
+import React, { useState, useEffect, useRef, RefObject, memo, useContext } from 'react';
 import { useTranslations } from 'next-intl';
 import { fromEvent, Subject } from 'rxjs';
 import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
 
 import { CONSTANTS } from '@root/constants';
+import { CoreContext } from '@root/pages';
 import Burger from '@components/burger/Burger';
 import LanguageBar from '@components/language-bar/LanguageBar';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
@@ -20,6 +21,7 @@ const navLinks = [
 
 function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
   const t = useTranslations('nav-menu');
+  const { message } = useContext(CoreContext);
   const [burgerExpandedState, setBurgerExpandedState] = useState(false);
   const [isShrinked, setIsShrinked] = useState(false);
   const menuRef = useRef(null);
@@ -32,6 +34,19 @@ function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
       destroy$.complete();
     }
   }, []);
+
+  useEffect(() => {
+    if (message.current) {
+      toggleMessagePanel(message.current);
+    }
+  }, [message.current]);
+
+  function toggleMessagePanel(value: string): void {
+    message.setCurrent(value);
+    setTimeout(() => {
+      message.setCurrent('');
+    }, 3000);
+  }
 
   function shrinkOnScroll(): void {
     if (!props.scrollOrigin?.current) {
@@ -93,11 +108,12 @@ function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
             </div>
           </div>
         </div>
-
-        {/* <div className={styles.error}>
-          <p></p>
-        </div> */}
-
+        
+        <div className={`${styles.alert} ${message.current ? styles.alert_visible : ''}`}>
+          <p>{message.current}</p>
+          <i className={styles.alert__close}></i>
+        </div>
+        
       </div>
       
     </div>

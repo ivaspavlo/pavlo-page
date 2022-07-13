@@ -65,7 +65,7 @@ $c3: #C0EF3A;
     background: $c1;
   }
 
-  &:hover:not(.disabled) {
+  &:hover:not(.disabled):not(.loading) {
     color: $black;
     &.filled {
       color: $c2;
