@@ -126,21 +126,20 @@
   min-height: 40px;
   padding: 8px 30px;
   position: absolute; bottom: 0; left: 0;
-  transform: translateY(100%) scale(0);
+  transform: translateY(100%) scale(1);
   font-weight: 300;
   font-size: 12px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   text-align: start;
-  color: $black;
-  background-color: #FFF385;
+  color: $white;
   transition: .3s;
-  &_visible {
-    transform: translateY(100%) scale(1);
-  }
+  &.hidden { transform: translateY(100%) scale(0); }
+  &.error { background-color: $red; }
+  &.success { background-color: $blue; }
   &__close {
-    // @include bg-img('~public/icons/close-black.svg');
+    @include bg-img('~public/icons/close.svg');
     position: absolute; top: 8px; right: 8px;
     width: 16px;
     height: 16px;
