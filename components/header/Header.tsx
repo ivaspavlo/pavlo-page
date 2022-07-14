@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef, RefObject, memo, useContext } from 'react';
+import React, { useState, useEffect, useRef, RefObject, useContext, memo } from 'react';
 import { useTranslations } from 'next-intl';
 import { fromEvent, Subject } from 'rxjs';
 import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
 
 import { CONSTANTS } from '@root/constants';
-import { CoreContext } from '@root/pages';
+import { CoreContext, ICoreContext, IMessage } from '@root/pages';
 import Burger from '@components/burger/Burger';
 import LanguageBar from '@components/language-bar/LanguageBar';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
@@ -21,7 +21,7 @@ const navLinks = [
 
 function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
   const t = useTranslations('nav-menu');
-  const { message } = useContext(CoreContext);
+  const { message } = useContext<ICoreContext>(CoreContext);
   const [burgerExpandedState, setBurgerExpandedState] = useState(false);
   const [isShrinked, setIsShrinked] = useState(false);
   const menuRef = useRef(null);
@@ -36,16 +36,20 @@ function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
   }, []);
 
   useEffect(() => {
-    if (message.current) {
-      toggleMessagePanel(message.current);
+    if (message.current.value) {
+      showMessagePanel(message.current);
     }
   }, [message.current]);
 
-  function toggleMessagePanel(value: string): void {
+  function showMessagePanel(value: IMessage): void {
     message.setCurrent(value);
     setTimeout(() => {
-      message.setCurrent('');
-    }, 3000);
+      hideMessagePanel();
+    }, 100000);
+  }
+
+  function hideMessagePanel(): void {
+    message.setCurrent({ value: '', type: 'hidden' });
   }
 
   function shrinkOnScroll(): void {
@@ -108,14 +112,14 @@ function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
             </div>
           </div>
         </div>
-        
-        <div className={`${styles.alert} ${message.current ? styles.alert_visible : ''}`}>
-          <p>{message.current}</p>
-          <i className={styles.alert__close}></i>
+
+        <div className={`${styles.alert} ${styles[message.current.type]}`}>
+          <p>{message.current.value}</p>
+          <i onClick={hideMessagePanel} className={styles.alert__close}></i>
         </div>
-        
+
       </div>
-      
+
     </div>
   );
 }

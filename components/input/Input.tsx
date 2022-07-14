@@ -1,4 +1,4 @@
-import React, { forwardRef, MutableRefObject, useImperativeHandle, useRef, useState } from 'react';
+import React, { forwardRef, MutableRefObject, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { first, map, Observable, zip } from 'rxjs';
 import { AsyncValidator, Validator } from '@root/validators';
 import Icon from '@components/icon/Icon';
@@ -11,7 +11,6 @@ export interface IInputEvent {
 }
 
 export interface IInput {
-  onInput: (res: IInputEvent) => any;
   controlName: string;
   value?: string | number;
   placeholder?: string;
@@ -21,17 +20,29 @@ export interface IInput {
   asyncValidators?: AsyncValidator[];
   iconName?: string;
   errorsMap?: {[key:string]: string};
+  onInput?: (res: IInputEvent) => any;
 }
 
 const Input = forwardRef((props: IInput, ref) => {
   const [errors, setErrors] = useState<string[]>([]);
+  const [isDirty, setIsDirty] = useState<boolean>(false);
   const inputEl = useRef() as MutableRefObject<any>;
+  useEffect(() => {
+    onInputHandler();
+  }, []);
 
   useImperativeHandle(ref, () => ({
-    markAsDirty: () => onInputHandler(),
+    markAsDirty: () => {
+      setIsDirty(true);
+      onInputHandler();
+    },
     value: () => inputEl.current.value,
     isValid: () => !!errors.length,
-    resetValue: () => inputEl.current.value = ''
+    resetValue: () => {
+      inputEl.current.value = '';
+      setIsDirty(false);
+      onInputHandler();
+    }
   }));
 
   const validators: Validator[] = props.validators || [];
@@ -40,21 +51,21 @@ const Input = forwardRef((props: IInput, ref) => {
   const type = props.type || 'text';
   const errorsMap = props.errorsMap || {};
 
-  const onInputHandler = () => {
+  function onInputHandler(): void {
     const value = inputEl.current?.value || '';
     const errors = runValidation(value);
     setErrors(errors);
     if (errors.length) {
-      props.onInput({ controlName: props.controlName, value, isValid: false });
+      props.onInput && props.onInput({ controlName: props.controlName, value, isValid: false });
       return;
     }
     if (!errors.length && !asyncValidators.length) {
-      props.onInput({ controlName: props.controlName, value, isValid: true });
+      props.onInput && props.onInput({ controlName: props.controlName, value, isValid: true });
     }
     runAsyncValidation(value).subscribe(
       (errors: string[]) => {
         setErrors(errors);
-        props.onInput({ controlName: props.controlName, value, isValid: !!errors.length });
+        props.onInput && props.onInput({ controlName: props.controlName, value, isValid: !!errors.length });
       }
     );
   }
@@ -85,7 +96,10 @@ const Input = forwardRef((props: IInput, ref) => {
   }
 
   return (
-    <div className={`${styles.input} ${errors.length ? styles.invalid : ''}`}>
+    <div className={`
+      ${styles.input}
+      ${errors.length && isDirty ? styles.invalid : ''}
+    `}>
 
       {
         props.type === 'textarea' ?
@@ -95,7 +109,7 @@ const Input = forwardRef((props: IInput, ref) => {
 
       <label htmlFor={props.controlName}>{props.label}</label>
 
-      {errors.length ? <p className={styles.error}>{errors[0]}</p> : ''}
+      {errors.length && isDirty ? <p className={styles.error}>{errors[0]}</p> : ''}
 
       {props.iconName ? <Icon name={props.iconName} /> : ''}
 

@@ -12,12 +12,16 @@ import ScreenThree from '@components/screens/screen-3/screenThree';
 import ScreenFour from '@components/screens/screen-4/ScreenFour';
 import ScreenFive from '@components/screens/screen-5/ScreenFive';
 
+export interface IMessage {
+  value: string;
+  type: 'error' | 'success' | 'hidden';
+}
 
-interface ICoreContext {
+export interface ICoreContext {
   language: string;
   message: {
-    current: string;
-    setCurrent: (value: string) => void
+    current: IMessage;
+    setCurrent: (value: IMessage) => void
   }
 }
 
@@ -32,15 +36,15 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
 export const CoreContext = createContext<ICoreContext>({
   language: '',
   message: {
-    current: '',
-    setCurrent: (value: string) => {}
+    current: { value: '', type: 'hidden' },
+    setCurrent: (value: IMessage) => {}
   }
 });
 
 const Home: NextPage = () => {
   const t = useTranslations('core');
   const { locale } = useRouter();
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState<IMessage>({value: '', type: 'hidden'});
 
   return (
     <CoreContext.Provider value={{

@@ -7,7 +7,7 @@ import { Validators } from '@root/validators';
 import { CoreContext } from '@root/pages';
 
 import Icon from '@components/icon/Icon';
-import Input, { IInputEvent } from '@components/input/Input';
+import Input from '@components/input/Input';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
 
 import styles from './Footer.module.scss';
@@ -31,25 +31,12 @@ const anchorLinks = [
   { uiName: 'anchor-portfolio', scrollToId: CONSTANTS.sectionIds.sectionFour }
 ];
 
-const initFormState = {
-  name: {},
-  email: {},
-  message: {}
-}
-
-interface IFormState {
-  [key:string]: { value?: any; isValid?: boolean; }
-}
-
 function Footer() {
   const t = useTranslations('footer');
   const tErrors = useTranslations('errors');
-
   const { message } = useContext(CoreContext);
-
-  const [formState, setFormState] = useState<IFormState>(initFormState);
-  const [formIsValid, setFormIsValid] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
   const form: {[key:string]: MutableRefObject<any>} = {
     name: useRef() as MutableRefObject<any>,
@@ -66,10 +53,16 @@ function Footer() {
     document.getElementById(scrollToId)?.scrollIntoView();
   }
 
-  const onFormSubmitHandler = (event: React.MouseEvent<any>): void => {
+  const onFormSubmitHandler = (event: MouseEvent<any>): void => {
+    setIsFormValid(false);
+
     event.preventDefault();
 
-    if (!formIsValid) {
+    if (isLoading) {
+      return;
+    }
+
+    if (!checkFormValidity(form)) {
       Object.keys(form).forEach(key => {
         const inputElem = form[key].current;
         inputElem.markAsDirty();
@@ -97,25 +90,23 @@ function Footer() {
         Object.keys(form).forEach((key: string) => {
           form[key].current.resetValue();
         });
-        message.setCurrent(CONSTANTS.coreMessages.emailSentSuccess);
+        message.setCurrent({value: CONSTANTS.coreMessages.emailSentSuccess, type: 'success'});
       } else {
-        message.setCurrent(CONSTANTS.coreMessages.emailSentFail);
+        message.setCurrent({value: CONSTANTS.coreMessages.emailSentFail, type: 'error'});
       }
       setIsLoading(false);
     });
   }
 
-  const onInputHandler = (res: IInputEvent) => {
-    setFormState({
-      ...formState,
-      [res.controlName]: { value: res.value, isValid: res.isValid }
+  const checkFormValidity = (form: {[key:string]: MutableRefObject<any>}): boolean => {
+    const hasErrors = !Object.keys(form).some((key: string) => {
+      return !form[key].current.isValid();
     });
-    const isFormValid = !Object.keys(formState).some(key => !formState[key].isValid);
-    setFormIsValid(isFormValid);
+    return !hasErrors;
   }
 
   return (
-    <InView threshold={0.25}>
+    <InView threshold={.25}>
       {({ref, inView}) => (
         <footer id={CONSTANTS.sectionIds.coreFooter} ref={ref} className={styles.footer}>
 
@@ -146,12 +137,12 @@ function Footer() {
 
                 <h4 className={styles.form__header}>{t('form-header')}</h4>
 
-                <Input ref={form.name} onInput={onInputHandler} controlName='name' label={t('form-name')} validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
-                <Input ref={form.email} onInput={onInputHandler} controlName='email' label={t('form-email')} validators={[Validators.email]} errorsMap={errorsMap} />
-                <Input ref={form.message} onInput={onInputHandler} controlName='message' label={t('form-message')} type='textarea' validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
+                <Input ref={form.name} controlName='name' label={t('form-name')} validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
+                <Input ref={form.email} controlName='email' label={t('form-email')} validators={[Validators.email]} errorsMap={errorsMap} />
+                <Input ref={form.message} controlName='message' label={t('form-message')} type='textarea' validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
                 
                 <div className={styles.form__button}>
-                  <ButtonPrimary onClick={(event: MouseEvent<any>) => onFormSubmitHandler(event)} invalid={!formIsValid} title={t('form-button')} filled={true} loading={isLoading} />
+                  <ButtonPrimary onClick={(event: MouseEvent<any>) => onFormSubmitHandler(event)} invalid={isFormValid} title={t('form-button')} filled={true} loading={isLoading} />
                 </div>
 
               </form>
