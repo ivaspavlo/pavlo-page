@@ -11,6 +11,7 @@ import Input from '@components/input/Input';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
 
 import styles from './Footer.module.scss';
+import { motion } from 'framer-motion';
 
 
 const socialLinks = [
@@ -38,6 +39,11 @@ function Footer() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
+  const animation = {
+    open: { translateY: 0, opacity: 1 },
+    closed: { translateY: '-20%', opacity: 0 }
+  };
+
   const form: {[key:string]: MutableRefObject<any>} = {
     name: useRef() as MutableRefObject<any>,
     email: useRef() as MutableRefObject<any>,
@@ -54,15 +60,13 @@ function Footer() {
   }
 
   const onFormSubmitHandler = (event: MouseEvent<any>): void => {
-    setIsFormValid(false);
-
     event.preventDefault();
 
     if (isLoading) {
       return;
     }
 
-    if (!checkFormValidity(form)) {
+    if (!isFormValid) {
       Object.keys(form).forEach(key => {
         const inputElem = form[key].current;
         inputElem.markAsDirty();
@@ -99,10 +103,16 @@ function Footer() {
   }
 
   const checkFormValidity = (form: {[key:string]: MutableRefObject<any>}): boolean => {
-    const hasErrors = !Object.keys(form).some((key: string) => {
+    const hasErrors = Object.keys(form).find((key: string) => {
       return !form[key].current.isValid();
     });
     return !hasErrors;
+  }
+
+  const onInputHandler = () => {
+    setIsFormValid(
+      checkFormValidity(form)
+    );
   }
 
   return (
@@ -132,21 +142,26 @@ function Footer() {
               </ul>
             </div>
             
-            <div className={`${styles.footerContent__column} ${styles.footerContent__column_second}`}>
-              <form className={styles.form}>
+            <motion.div
+              initial={false}
+              animate={inView ? 'open' : 'closed'}
+              variants={animation}
+              transition={{ duration: .8, ease: 'easeOut'}}
+              className={`${styles.footerContent__column} ${styles.footerContent__column_second}`}>
+                <form className={styles.form}>
 
-                <h4 className={styles.form__header}>{t('form-header')}</h4>
+                  <h4 className={styles.form__header}>{t('form-header')}</h4>
 
-                <Input ref={form.name} controlName='name' label={t('form-name')} validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
-                <Input ref={form.email} controlName='email' label={t('form-email')} validators={[Validators.email]} errorsMap={errorsMap} />
-                <Input ref={form.message} controlName='message' label={t('form-message')} type='textarea' validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
-                
-                <div className={styles.form__button}>
-                  <ButtonPrimary onClick={(event: MouseEvent<any>) => onFormSubmitHandler(event)} invalid={isFormValid} title={t('form-button')} filled={true} loading={isLoading} />
-                </div>
+                  <Input ref={form.name} controlName='name' onInput={onInputHandler} label={t('form-name')} validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
+                  <Input ref={form.email} controlName='email' onInput={onInputHandler} label={t('form-email')} validators={[Validators.email]} errorsMap={errorsMap} />
+                  <Input ref={form.message} controlName='message' onInput={onInputHandler} label={t('form-message')} type='textarea' validators={[Validators.minChar(3)]} errorsMap={errorsMap} />
+                  
+                  <div className={styles.form__button}>
+                    <ButtonPrimary onClick={(event: MouseEvent<any>) => onFormSubmitHandler(event)} invalid={!isFormValid} title={t('form-button')} filled={true} loading={isLoading} />
+                  </div>
 
-              </form>
-            </div>
+                </form>
+            </motion.div>
 
           </div>
 

@@ -27,21 +27,30 @@ const Input = forwardRef((props: IInput, ref) => {
   const [errors, setErrors] = useState<string[]>([]);
   const [isDirty, setIsDirty] = useState<boolean>(false);
   const inputEl = useRef() as MutableRefObject<any>;
+
   useEffect(() => {
-    onInputHandler();
+    validateInputValue();
   }, []);
+
+  useEffect(() => {
+    const event = {
+      controlName: props.controlName,
+      value: inputEl.current.value,
+      isValid: !errors.length
+    }
+    props.onInput && props.onInput(event);
+  }, [errors]);
 
   useImperativeHandle(ref, () => ({
     markAsDirty: () => {
       setIsDirty(true);
-      onInputHandler();
     },
     value: () => inputEl.current.value,
-    isValid: () => !!errors.length,
+    isValid: () => !errors.length,
     resetValue: () => {
-      inputEl.current.value = '';
       setIsDirty(false);
-      onInputHandler();
+      inputEl.current.value = '';
+      validateInputValue();
     }
   }));
 
@@ -52,25 +61,29 @@ const Input = forwardRef((props: IInput, ref) => {
   const errorsMap = props.errorsMap || {};
 
   function onInputHandler(): void {
+    setIsDirty(true);
+    validateInputValue();
+  }
+
+  function validateInputValue(): void {
     const value = inputEl.current?.value || '';
-    const errors = runValidation(value);
-    setErrors(errors);
-    if (errors.length) {
-      props.onInput && props.onInput({ controlName: props.controlName, value, isValid: false });
+    const currentErrors = runSyncValidation(value);
+    if (currentErrors.length) {
+      setErrors(currentErrors);
       return;
     }
-    if (!errors.length && !asyncValidators.length) {
-      props.onInput && props.onInput({ controlName: props.controlName, value, isValid: true });
+    if (!asyncValidators.length) {
+      setErrors(currentErrors);
+      return;
     }
     runAsyncValidation(value).subscribe(
       (errors: string[]) => {
         setErrors(errors);
-        props.onInput && props.onInput({ controlName: props.controlName, value, isValid: !!errors.length });
       }
     );
   }
 
-  function runValidation(value: any): string[] {
+  function runSyncValidation(value: any): string[] {
     if (!validators.length) {
       return [];
     }

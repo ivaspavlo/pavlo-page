@@ -45,7 +45,7 @@ function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
     message.setCurrent(value);
     setTimeout(() => {
       hideMessagePanel();
-    }, 100000);
+    }, 3000);
   }
 
   function hideMessagePanel(): void {

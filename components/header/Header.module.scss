@@ -137,7 +137,7 @@
   transition: .3s;
   &.hidden { transform: translateY(100%) scale(0); }
   &.error { background-color: $red; }
-  &.success { background-color: $blue; }
+  &.success { background-color: $green; }
   &__close {
     @include bg-img('~public/icons/close.svg');
     position: absolute; top: 8px; right: 8px;
