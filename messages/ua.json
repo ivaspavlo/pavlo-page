@@ -42,8 +42,48 @@
     "service-desktop-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches."
   },
   "screen-four": {
-    "title": "resume",
-    "subtitle": "Outstanding Resume",
-    "desc": "Collaboratively communicate technically sound metrics vis-a-vis virtual human capital. Seamlessly conceptualize 24/365 potentialities via distinctive leadership."
+    "title": "Outstanding Resume",
+    "subtitle": "resume",
+    "desc": "Collaboratively communicate technically sound metrics vis-a-vis virtual human capital. Seamlessly conceptualize 24/365 potentialities via distinctive leadership.",
+    "desc-temp": "Intrinsicly harness best-of-breed systems before sustainable services. Distinctively aggregate an expanded array of applications with enterprise-wide opportunities. Monotonectally strategize frictionless relationships rather than ubiquitous metrics.",
+    "location-kyiv": "Kyiv, Ukraine",
+    "location-vienna": "Vienna, Austria",
+    "position-angular": "Angular developer",
+    "position-node": "Node.js developer",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "tools": "Key tools",
+    "politech-title": "Bachelor's degree, Computer systems and networks",
+    "politech-school": "Vinnytsia National Technical University",
+    "pedagogic-title": "Master's degree, English language and literature",
+    "pedagogic-school": "Vinnic'kij Deržavnij Pedagogicnij Universitet im. M. Kocubinski",
+    "economic-title": "Master's degree, Logistics, material supply and supply chain management",
+    "economic-school": "Kyiv National Economics University",
+    "btn-contact": "Contact me",
+    "btn-cv": "Download CV"
+  },
+  "screen-five": {
+    "title": "Latest projects",
+    "subtitle": "portfolio",
+    "see-more": "See more"
+  },
+  "portfolio": {
+    "code": "Code",
+    "live-project": "Live project"
+  },
+  "footer": {
+    "contact": "Зв'язатись",
+    "me": "дуже просто",
+    "desc": "Я присутній майже у всіх соціальних мережах, але швидше за все можеш мене знайти в LinkedIn та Telegram, або за допомогою форми зворотнього зв'язку праворуч. Завжди радий новим знайомствам!",
+    "bottom-line-title": "Створімо щось разом!",
+    "anchor-about": "Хто я",
+    "anchor-resume": "Резюме",
+    "anchor-portfolio": "Портфоліо",
+    "form-header": "Зворотній зв'язок",
+    "form-button": "Відправити",
+    "form-name": "Твоє ім'я",
+    "form-email": "Твій мейл",
+    "form-message": "Повідомлення"
   }
 }
