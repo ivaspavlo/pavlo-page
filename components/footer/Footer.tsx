@@ -1,6 +1,7 @@
 import React, { MutableRefObject, useRef, useState, MouseEvent, useContext } from 'react';
 import { InView } from 'react-intersection-observer';
 import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
 
 import { CONSTANTS } from '@root/constants';
 import { Validators } from '@root/validators';
@@ -11,7 +12,6 @@ import Input from '@components/input/Input';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
 
 import styles from './Footer.module.scss';
-import { motion } from 'framer-motion';
 
 
 const socialLinks = [
@@ -21,9 +21,9 @@ const socialLinks = [
 ];
 
 const contacts = [
-  { iconName: 'email', uiName: 'ivashchenko.pavel@gmail.com' },
+  { iconName: 'email', uiName: 'pavloiv@gmail.com' },
   { iconName: 'linkedin-black', uiName: 'https://www.linkedin.com/in/pavloiv/' },
-  { iconName: 'telegram', uiName: '@pavlo-ivashchenko' }
+  { iconName: 'telegram', uiName: '@pavloiv' }
 ];
 
 const anchorLinks = [
