@@ -95,11 +95,10 @@
   }
   &__buttonWrap {
     width: 100%;
-    width: 136px;
+    width: 152px;
     height: 48px;
     @include md {
       width: 152px;
-      height: 52px;
     }
     @include lg {
       width: 172px;

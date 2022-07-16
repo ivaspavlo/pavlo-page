@@ -1,10 +1,11 @@
-import React, { memo, RefObject, useContext, useEffect, useRef } from 'react';
+import React, { memo, RefObject, useContext, useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { InView } from 'react-intersection-observer';
 
 import { CONSTANTS } from '@root/constants';
 import { CoreContext } from '@root/pages';
+import { onClickAnchorHandler } from '@root/utils';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
 
 import styles from './ScreenOne.module.scss';
@@ -14,6 +15,7 @@ function ScreenOne() {
   const t = useTranslations('screen-one');
   const titleRef: RefObject<HTMLDivElement> = useRef(null);
   const { language } = useContext(CoreContext);
+  const [isCursorAnimation, setCursorAnimation] = useState<boolean>(false);
 
   useEffect(() => {
     startCursorAnimation(
@@ -28,6 +30,10 @@ function ScreenOne() {
   };
 
   function startCursorAnimation(target: HTMLElement, texts: string[], delimeter?: string | HTMLElement): void {
+    if (isCursorAnimation) {
+      return;
+    }
+    setCursorAnimation(true);
     target.textContent = '';
 
     const _delimenter = delimeter || getBrElement();
@@ -55,6 +61,7 @@ function ScreenOne() {
         if (index < elements.length) {
           cursorRunner(index, target, elements);
         } else {
+          setCursorAnimation(false);
           return;
         }
       }, Math.floor(Math.random() * 220) + 50
@@ -62,7 +69,7 @@ function ScreenOne() {
   }
 
   return (
-    <InView threshold={0.25}>
+    <InView threshold={.25}>
       {({ref, inView}) => (
         <section id={CONSTANTS.sectionIds.sectionOne} ref={ref} className={styles.screenOne}>
 
@@ -94,7 +101,7 @@ function ScreenOne() {
                   variants={animateMainBlock}
                   transition={{ duration: .8, ease: 'easeOut', delay: 1 }}
                   className={styles.mainBlock__buttonWrap}>
-                  <ButtonPrimary title={t('btn-learn-more')} link='/' filled={true}/>
+                    <ButtonPrimary onClick={() => onClickAnchorHandler(CONSTANTS.sectionIds.sectionTwo)} title={t('btn-learn-more')} link='/' filled={true}/>
                 </motion.div>
               </div>
 
