@@ -1,6 +1,6 @@
 import React, { forwardRef, MutableRefObject, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { first, map, Observable, zip } from 'rxjs';
-import { AsyncValidator, Validator } from '@root/validators';
+import { AsyncValidator, Validator } from '@root/utils/validators';
 import Icon from '@components/icon/Icon';
 import styles from './Input.module.scss';
 

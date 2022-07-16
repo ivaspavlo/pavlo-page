@@ -4,7 +4,8 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
 import { CONSTANTS } from '@root/constants';
-import { Validators } from '@root/validators';
+import { Validators } from '@root/utils/validators';
+import { onClickAnchorHandler } from '@root/utils';
 import { CoreContext } from '@root/pages';
 
 import Icon from '@components/icon/Icon';
@@ -54,10 +55,6 @@ function Footer() {
     email: tErrors('errorEmail'),
     minChar: tErrors('errorMinChar')
   };
-
-  const onClickAnchorHandler = (scrollToId: string) => {
-    document.getElementById(scrollToId)?.scrollIntoView();
-  }
 
   const onFormSubmitHandler = (event: MouseEvent<any>): void => {
     event.preventDefault();

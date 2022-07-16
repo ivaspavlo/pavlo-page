@@ -5,6 +5,7 @@ import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
 
 import { CONSTANTS } from '@root/constants';
 import { CoreContext, ICoreContext, IMessage } from '@root/pages';
+import { onClickAnchorHandler } from '@root/utils';
 import Burger from '@components/burger/Burger';
 import LanguageBar from '@components/language-bar/LanguageBar';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
@@ -24,6 +25,7 @@ function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
   const { message } = useContext<ICoreContext>(CoreContext);
   const [burgerExpandedState, setBurgerExpandedState] = useState(false);
   const [isShrinked, setIsShrinked] = useState(false);
+  const [isBurgerOpen, setBurgerState] = useState(false);
   const menuRef = useRef(null);
   const destroy$: Subject<void> = new Subject();
 
@@ -65,11 +67,14 @@ function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
   }
 
   const burgerToggleHandler = (): void => {
+    setBurgerState(true);
     setBurgerExpandedState(!burgerExpandedState);
   }
 
-  const onClickAnchorHandler = (scrollToId: string) => {
-    document.getElementById(scrollToId)?.scrollIntoView();
+  const mobileLinkClickHandler = (scrollToId: string): void => {
+    burgerToggleHandler();
+    onClickAnchorHandler(scrollToId);
+    setBurgerState(false);
   }
 
   return (
@@ -96,7 +101,7 @@ function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
             <ButtonPrimary onClick={() => onClickAnchorHandler(CONSTANTS.sectionIds.coreFooter)} title={t('contact-btn')} link='/' iconName='link-arrow-green' iconNameHover='link-arrow-black' />
           </div>
           <div className='d-flex d-md-none'>
-            <Burger menuRef={menuRef} burgerToggle={burgerToggleHandler} />
+            <Burger currentState={isBurgerOpen} burgerToggle={burgerToggleHandler} />
           </div>
         </div>
 
@@ -104,11 +109,11 @@ function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
           <div className={styles.navMobile__container}>
             <ul className={styles.navMobile__list}>
               {navLinks.map(link => <li key={link.uiName} className={styles.navMobile__item}>
-                <a className={styles.navMobile__link}>{t(link.uiName)}</a>
+                <a onClick={() => mobileLinkClickHandler(link.scrollToId)} className={styles.navMobile__link}>{t(link.uiName)}</a>
               </li>)}
             </ul>
             <div className={styles.header__btnMobileWrap}>
-              <ButtonPrimary onClick={() => onClickAnchorHandler(CONSTANTS.sectionIds.coreFooter)} title={t('contact-btn')} iconName='link-arrow-green' iconNameHover='link-arrow-black' />
+              <ButtonPrimary onClick={() => mobileLinkClickHandler(CONSTANTS.sectionIds.coreFooter)} title={t('contact-btn')} iconName='link-arrow-green' iconNameHover='link-arrow-black' />
             </div>
           </div>
         </div>
