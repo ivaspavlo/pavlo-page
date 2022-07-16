@@ -16,15 +16,15 @@ import styles from './Footer.module.scss';
 
 
 const socialLinks = [
-  { iconName: 'facebook', link: '/' },
-  { iconName: 'instagram', link: '/' },
-  { iconName: 'linkedin-white', link: '/' },
+  { iconName: 'facebook', link: 'https://www.facebook.com/pavloiva/' },
+  { iconName: 'instagram', link: 'https://www.instagram.com/invites/contact/?i=1odcb0ml4a46h&utm_content=n4glbz8' },
+  { iconName: 'linkedin-white', link: 'https://www.linkedin.com/in/pavloiva/' },
 ];
 
 const contacts = [
-  { iconName: 'email', uiName: 'pavloiv@gmail.com' },
-  { iconName: 'linkedin-black', uiName: 'https://www.linkedin.com/in/pavloiv/' },
-  { iconName: 'telegram', uiName: '@pavloiv' }
+  { iconName: 'email', uiName: 'pavloiva@gmail.com' },
+  { iconName: 'linkedin-black', uiName: 'https://www.linkedin.com/in/pavloiva/' },
+  { iconName: 'telegram', uiName: '@pavloiva' }
 ];
 
 const anchorLinks = [
@@ -178,7 +178,7 @@ function Footer() {
                 <ul className='mt-3 mt-md-0 d-flex justify-content-center align-items-center'>
                   {socialLinks.map((item, index) =>
                     <li key={item.iconName} className={`${index ? 'ml-2': ''}`}>
-                      <a className={styles.bottomLine__socialLink} href={item.link} target='_blank'>
+                      <a href={item.link} target='_blank' className={styles.bottomLine__socialLink}>
                         <Icon name={item.iconName}></Icon>
                       </a>
                     </li>

@@ -15,13 +15,13 @@ const projects: { page: number; items: IProject[] }[] = [
     page: 0,
     items: [
       {
-        id: 'project_1',
+        id: 'project1',
         title: 'Jewelry Website',
         desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
         codeLink: '/',
         bgColor: '#A8AAFF',
         projectImg: 'img/project-mock-img.png',
-        sidebarTitle: 'Movie Time IOS App Development',
+        sidebarTitle: 'Front-end Angular Development',
         sidebarBg: 'img/sidebar-1-bg.png',
         sidebarRight: true,
         liveLink: '/'
@@ -31,7 +31,7 @@ const projects: { page: number; items: IProject[] }[] = [
     page: 1,
     items: [
       {
-        id: 'project_3',
+        id: 'project3',
         title: 'Jewelry Website',
         desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
         codeLink: '/',
@@ -42,7 +42,7 @@ const projects: { page: number; items: IProject[] }[] = [
         sidebarRight: true,
         liveLink: '/'
       }, {
-        id: 'project_2',
+        id: 'project2',
         title: 'Jewelry Website',
         desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
         codeLink: '/',
