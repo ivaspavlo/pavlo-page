@@ -74,7 +74,67 @@
   },
   "portfolio": {
     "code": "Code",
-    "live-project": "Live project"
+    "live-project": "Live project",
+    "project0": {
+      "title": "Internal HR management system",
+      "desc": "System that combine a number of necessary HR functions, such as storing employee data, recruitment, employee performance management, and tracking competency and training records"
+    },
+    "project1": {
+      "title": "UPtracker v.1",
+      "desc": "Full version of inventory management system developed for orthodontic offices and retailers. Utilize a global database providing average pricing across multiple products and vendors."
+    },
+    "project2": {
+      "title": "UPtracker v.2",
+      "desc": "Light versions inventory management system developed for orthodontic offices."
+    },
+    "project3": {
+      "title": "Diamond Boyz NFT",
+      "desc": ""
+    },
+    "project4": {
+      "title": "Banda Panda NFT",
+      "desc": ""
+    },
+    "project5": {
+      "title": "Dress Me Now",
+      "desc": ""
+    },
+    "project6": {
+      "title": "Starvegas Spain",
+      "desc": ""
+    },
+    "project7": {
+      "title": "Fenixbet Latvia",
+      "desc": ""
+    },
+    "project8": {
+      "title": "Stargames Germany",
+      "desc": ""
+    },
+    "project9": {
+      "title": "Starvegas Italy",
+      "desc": ""
+    },
+    "project10": {
+      "title": "Fenixbet Estonia",
+      "desc": ""
+    },
+    "project11": {
+      "title": "Admiral Romania",
+      "desc": ""
+    },
+    "project12": {
+      "title": "Tkachuk Sergiy. Massages",
+      "desc": ""
+    },
+    "project13": {
+      "title": "Admiral UK",
+      "desc": ""
+    },
+    "project14": {
+      "title": "Guided Journey",
+      "desc": ""
+    }
   },
   "footer": {
     "contact": "Contact",
