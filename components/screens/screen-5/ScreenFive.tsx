@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 
 import { CONSTANTS } from '@root/constants';
 import Project, { IProject } from '@components/project/Project';
+import ButtonPrimary from '@components/button-primary/ButtonPrimary';
 
 import styles from './ScreenFive.module.scss';
-import ButtonPrimary from '@root/components/button-primary/ButtonPrimary';
 
 
 const projects: { page: number; items: IProject[] }[] = [
@@ -15,16 +15,27 @@ const projects: { page: number; items: IProject[] }[] = [
     page: 0,
     items: [
       {
-        id: 'project1',
-        title: 'Jewelry Website',
-        desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
-        codeLink: '/',
+        id: 'project_1',
+        title: 'project_1.title',
+        desc: 'project_1.desc',
+        codeLink: 'https://github.com/pavel-ivashchenko/staff-management-system',
         bgColor: '#A8AAFF',
-        projectImg: 'img/project-mock-img.png',
-        sidebarTitle: 'Front-end Angular Development',
+        projectImg: '/img/project-1-bg.png',
+        sidebarTitle: 'Node.js Development',
         sidebarBg: 'img/sidebar-1-bg.png',
         sidebarRight: true,
-        liveLink: '/'
+        liveLink: ''
+      }, {
+        id: 'project_2',
+        title: 'project_2.title',
+        desc: 'project_2.desc',
+        codeLink: 'https://github.com/pavel-ivashchenko/dressmenow_ui',
+        bgColor: '#8CB6FF',
+        projectImg: '/public/img/project-2-bg.png',
+        sidebarTitle: 'Angular Development',
+        sidebarBg: 'img/sidebar-2-bg.png',
+        sidebarRight: false,
+        liveLink: ''
       }
     ]
   }, {
@@ -40,7 +51,7 @@ const projects: { page: number; items: IProject[] }[] = [
         sidebarTitle: 'Movie Time IOS App Development',
         sidebarBg: 'img/sidebar-3-bg.png',
         sidebarRight: true,
-        liveLink: '/'
+        liveLink: ''
       }, {
         id: 'project2',
         title: 'Jewelry Website',
