@@ -75,65 +75,57 @@
   "portfolio": {
     "code": "Code",
     "live-project": "Live project",
-    "project0": {
-      "title": "Internal HR management system",
-      "desc": "System that combine a number of necessary HR functions, such as storing employee data, recruitment, employee performance management, and tracking competency and training records"
+    "project_1": {
+      "title": "Internal staff management system",
+      "desc": "System that combine a number of necessary HR functions: storing employee data, recruitment, employee performance management, tracking competency and others."
     },
-    "project1": {
-      "title": "UPtracker v.1",
-      "desc": "Full version of inventory management system developed for orthodontic offices and retailers. Utilize a global database providing average pricing across multiple products and vendors."
-    },
-    "project2": {
-      "title": "UPtracker v.2",
-      "desc": "Light versions inventory management system developed for orthodontic offices."
-    },
-    "project3": {
-      "title": "Diamond Boyz NFT",
-      "desc": ""
-    },
-    "project4": {
-      "title": "Banda Panda NFT",
-      "desc": ""
-    },
-    "project5": {
+    "project_2": {
       "title": "Dress Me Now",
-      "desc": ""
+      "desc": "Marketplace specialized for small retailers of dresses and related products. Includes features: personal account, authorization, ordering and others."
     },
-    "project6": {
+    "project_3": {
+      "title": "UPtracker v.1",
+      "desc": "Full version of inventory management system developed for orthodontic offices and retailers. Facilitates managing of on-hand inventory to allow automated orders based on low stock levels as well as other functions."
+    },
+    "project_4": {
+      "title": "UPtracker v.2",
+      "desc": "Light version of inventory management system developed for orthodontic offices. Provides ordering and reporting functionalities for a paperless office model."
+    },
+    "project_5": {
+      "title": "Diamond Swap",
+      "desc": "Proprietary marketplace with solutions for businesses as well as small creators, artists and content creators to use the blockchain technology to their benefit."
+    },
+    "project_6": {
       "title": "Starvegas Spain",
-      "desc": ""
+      "desc": "One of the biggest online casinos in Spain with thousands of players daily. Available in the Web and App Store."
     },
-    "project7": {
-      "title": "Fenixbet Latvia",
-      "desc": ""
-    },
-    "project8": {
+    "project_7": {
       "title": "Stargames Germany",
-      "desc": ""
+      "desc": "A gambling site, customized for the local market and legislation. Available in the Web and App Store."
     },
-    "project9": {
+    "project_8": {
       "title": "Starvegas Italy",
-      "desc": ""
+      "desc": "A gambling site, customized for the local market and legislation. Available in the Web and App Store."
     },
-    "project10": {
+    "project_9": {
       "title": "Fenixbet Estonia",
-      "desc": ""
+      "desc": "A gambling site, customized for the local market and legislation. Available in the Web and App Store."
     },
-    "project11": {
-      "title": "Admiral Romania",
-      "desc": ""
+    "project_10": {
+      "title": "Admiral United Kingdom",
+      "desc": "Online casino offering the widest variety of gaming vendors on the British market. Available in the Web and App Store."
     },
-    "project12": {
-      "title": "Tkachuk Sergiy. Massages",
-      "desc": ""
+    "project_11": {
+      "title": "Sergiy Tkachuk. Massages",
+      "desc": "Personal website created for a massage salon. Includes personal account, blog, bookings and others."
     },
-    "project13": {
-      "title": "Admiral UK",
-      "desc": ""
+    "project_12": {
+      "title": "Panda Marketplace",
+      "desc": "One of a series of facades for marketplace of DBZ conins."
     },
-    "project14": {
+    "project_13": {
       "title": "Guided Journey",
-      "desc": ""
+      "desc": "Website created for a customer support of an insurance company. Build on a base of a dynamic forms generation via integration of Camunda service and the companie's internal services."
     }
   },
   "footer": {

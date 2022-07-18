@@ -35,8 +35,10 @@ function Project(props: { config: IProject }) {
       <div style={{ 'backgroundColor': config.bgColor }} className={styles.project}>
 
         <div className={styles.project__content}>
-          <h5 className={styles.project__title}>{config.title}</h5>
-          <p className={styles.project__desc}>{config.desc}</p>
+          <div className='d-flex flex-column flex-grow-1 justify-content-center'>
+            <h5 className={styles.project__title}>{t(config.title)}</h5>
+            <p className={styles.project__desc}>{t(config.desc)}</p>
+          </div>
           <div className='w-100 d-flex'>
             <button className={`${styles.project__button} ${styles.project__button_code}`}>
               <Icon name='github' />
