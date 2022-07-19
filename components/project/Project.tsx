@@ -12,7 +12,7 @@ export interface IProject {
   bgColor: string;
   projectImg: string;
   sidebarBg: string;
-  sidebarTitle: string;
+  stack: string[];
   sidebarRight?: boolean;
   liveLink?: string;
 }
@@ -22,34 +22,41 @@ function Project(props: { config: IProject }) {
   const config = props.config;
 
   return (
-    <div className={`${styles.projectContainer} ${config.sidebarRight ? styles.projectContainer_sidebarRight : ''}`}>
+    <div className={styles.projectContainer}>
 
-      <aside style={{ 'backgroundImage': `url(${config.sidebarBg})` }} className={`${styles.projectSidebar} ${config.sidebarRight ? styles.projectSidebar_sidebarRight : ''}`}>
-        <h5 className={styles.projectSidebar__title}>{config.sidebarTitle}</h5>
-        <button className={styles.projectSidebar__button}>
-          <Icon name='github' />
-          <span className='ml-2'>{t('code')}</span>
-        </button>
-      </aside>
+      <div style={{ 'backgroundColor': config.bgColor }} className={`${styles.project} ${config.sidebarRight ? styles.project_sidebarRight : ''}`}>
 
-      <div style={{ 'backgroundColor': config.bgColor }} className={styles.project}>
+        <aside style={{ 'backgroundImage': `url(${config.sidebarBg})` }} className={styles.projectSidebar}>
+          <ul className={styles.projectSidebar__stack}>
+            {config.stack.map(item =>
+              <li className={styles.projectSidebar__stackItem}>{item}</li>
+            )}
+          </ul>
+          <button className={`${styles.projectSidebar__button} ${styles.project__button_live}`}>
+            <Icon name='github' />
+            <span className='ml-2'>{t('live-project')}</span>
+          </button>
+        </aside>
+        
+        <div className='d-flex flex-column flex-md-row'>
 
-        <div className={styles.project__content}>
-          <div className='d-flex flex-column flex-grow-1 justify-content-center'>
-            <h5 className={styles.project__title}>{t(config.title)}</h5>
-            <p className={styles.project__desc}>{t(config.desc)}</p>
+          <div className={styles.project__content}>
+            <div className='d-flex flex-column flex-grow-1 justify-content-center'>
+              <h5 className={styles.project__title}>{t(config.title)}</h5>
+              <p className={styles.project__desc}>{t(config.desc)}</p>
+            </div>
+            <div className='w-100 d-flex'>
+              <button className={`${styles.project__button} ${styles.project__button_code}`}>
+                <Icon name='github' />
+                <span className='ml-2'>{t('code')}</span>
+              </button>
+            </div>
           </div>
-          <div className='w-100 d-flex'>
-            <button className={`${styles.project__button} ${styles.project__button_code}`}>
-              <Icon name='github' />
-              <span className='ml-2'>{t('code')}</span>
-            </button>
-            <button className={`${styles.project__button} ${styles.project__button_live}`}>{t('live-project')}</button>
-          </div>
-        </div>
 
-        <div className={styles.project__imageContainer}>
-          <div style={{ 'backgroundImage': `url(${config.projectImg})` }} className={styles.project__image} />
+          <div className={styles.project__imageContainer}>
+            <div style={{ 'backgroundImage': `url(${config.projectImg})` }} className={styles.project__image} />
+          </div>
+
         </div>
 
       </div>
