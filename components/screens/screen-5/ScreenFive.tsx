@@ -21,10 +21,10 @@ const projects: { page: number; items: IProject[] }[] = [
         codeLink: 'https://github.com/pavel-ivashchenko/staff-management-system',
         bgColor: '#A8AAFF',
         projectImg: '/img/project-1-bg.png',
-        sidebarTitle: 'Node.js Development',
         sidebarBg: 'img/sidebar-1-bg.png',
         sidebarRight: true,
-        liveLink: ''
+        liveLink: '',
+        stack: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose']
       }, {
         id: 'project_2',
         title: 'project_2.title',
@@ -32,10 +32,10 @@ const projects: { page: number; items: IProject[] }[] = [
         codeLink: 'https://github.com/pavel-ivashchenko/dressmenow_ui',
         bgColor: '#8CB6FF',
         projectImg: '/public/img/project-2-bg.png',
-        sidebarTitle: 'Angular Development',
         sidebarBg: 'img/sidebar-2-bg.png',
         sidebarRight: false,
-        liveLink: ''
+        liveLink: '',
+        stack: ['Angular', 'Sockets.io', 'Materialize.css', 'HTML5', 'CSS3']
       }
     ]
   }, {
@@ -48,10 +48,10 @@ const projects: { page: number; items: IProject[] }[] = [
         codeLink: '/',
         bgColor: '#8CB6FF',
         projectImg: 'img/project-mock-img.png',
-        sidebarTitle: 'Movie Time IOS App Development',
         sidebarBg: 'img/sidebar-3-bg.png',
         sidebarRight: true,
-        liveLink: ''
+        liveLink: '',
+        stack: ['Angular', 'Sockets.io', 'Materialize.css', 'HTML5', 'CSS3']
       }, {
         id: 'project2',
         title: 'Jewelry Website',
@@ -59,10 +59,10 @@ const projects: { page: number; items: IProject[] }[] = [
         codeLink: '/',
         bgColor: '#FBFFD0',
         projectImg: 'img/project-mock-img.png',
-        sidebarTitle: 'Movie Time IOS App Development',
         sidebarBg: 'img/sidebar-2-bg.png',
         sidebarRight: false,
-        liveLink: '/'
+        liveLink: '/',
+        stack: ['Angular', 'Sockets.io', 'Materialize.css', 'HTML5', 'CSS3']
       }
     ]
   }
