@@ -75,57 +75,57 @@
   "portfolio": {
     "code": "Code",
     "live-project": "Live project",
-    "project_1": {
-      "title": "Staff management system",
-      "desc": "System that combine a number of necessary HR functions: storing employee data, recruitment, employee performance management, tracking competency and others."
+    "project-0": {
+      "title": "Guided Journey",
+      "desc": "Website created for a customer support of an insurance company. Build on a base of a dynamic forms generation via integration of Camunda service and the companie's internal services."
     },
-    "project_2": {
-      "title": "Dress Me Now",
-      "desc": "Marketplace specialized for small retailers of dresses and related products. Includes features: personal account, authorization, ordering and others."
-    },
-    "project_3": {
-      "title": "UPtracker v.1",
-      "desc": "Full version of inventory management system developed for orthodontic offices and retailers. Facilitates managing of on-hand inventory to allow automated orders based on low stock levels as well as other functions."
-    },
-    "project_4": {
-      "title": "UPtracker v.2",
-      "desc": "Light version of inventory management system developed for orthodontic offices. Provides ordering and reporting functionalities for a paperless office model."
-    },
-    "project_5": {
-      "title": "Diamond Swap",
-      "desc": "Proprietary marketplace with solutions for businesses as well as small creators, artists and content creators to use the blockchain technology to their benefit."
-    },
-    "project_6": {
-      "title": "Starvegas Spain",
-      "desc": "One of the biggest online casinos in Spain with thousands of players daily. Available in the Web and App Store."
-    },
-    "project_7": {
-      "title": "Stargames Germany",
-      "desc": "A gambling site, customized for the local market and legislation. Available in the Web and App Store."
-    },
-    "project_8": {
-      "title": "Starvegas Italy",
-      "desc": "A gambling site, customized for the local market and legislation. Available in the Web and App Store."
-    },
-    "project_9": {
-      "title": "Fenixbet Estonia",
-      "desc": "A gambling site, customized for the local market and legislation. Available in the Web and App Store."
-    },
-    "project_10": {
-      "title": "Admiral United Kingdom",
-      "desc": "Online casino offering the widest variety of gaming vendors on the British market. Available in the Web and App Store."
-    },
-    "project_11": {
-      "title": "Sergiy Tkachuk. Massages",
-      "desc": "Personal website created for a massage salon. Includes personal account, blog, bookings and others."
-    },
-    "project_12": {
+    "project-1": {
       "title": "Panda Marketplace",
       "desc": "One of a series of facades for marketplace of DBZ conins."
     },
-    "project_13": {
-      "title": "Guided Journey",
-      "desc": "Website created for a customer support of an insurance company. Build on a base of a dynamic forms generation via integration of Camunda service and the companie's internal services."
+    "project-2": {
+      "title": "Admiral United Kingdom",
+      "desc": "Online casino offering the widest variety of gaming vendors on the British market. Available in the Web and App Store."
+    },
+    "project-3": {
+      "title": "Starvegas Spain",
+      "desc": "One of the biggest online casinos in Spain with thousands of players daily. Available in the Web and App Store."
+    },
+    "project-4": {
+      "title": "Stargames Germany",
+      "desc": "A gambling site, customized for the local market and legislation. Available in the Web and App Store."
+    },
+    "project-5": {
+      "title": "Starvegas Italy",
+      "desc": "A gambling site, customized for the local market and legislation. Available in the Web and App Store."
+    },
+    "project-6": {
+      "title": "Fenixbet Estonia",
+      "desc": "A gambling site, customized for the local market and legislation. Available in the Web and App Store."
+    },
+    "project-7": {
+      "title": "Sergiy Tkachuk. Massages",
+      "desc": "Personal website created for a massage salon. Includes personal account, blog, bookings and others."
+    },
+    "project-8": {
+      "title": "Diamond Swap",
+      "desc": "Proprietary marketplace with solutions for businesses as well as small creators, artists and content creators to use the blockchain technology to their benefit."
+    },
+    "project-9": {
+      "title": "UPtracker v.2",
+      "desc": "Light version of inventory management system developed for orthodontic offices. Provides ordering and reporting functionalities for a paperless office model."
+    },
+    "project-10": {
+      "title": "UPtracker v.1",
+      "desc": "Extended version of the inventory management system developed for orthodontic offices and retailers. Facilitates managing of on-hand inventory to allow automated orders based on low stock levels as well as other functions."
+    },
+    "project-11": {
+      "title": "Dress Me Now",
+      "desc": "Marketplace specialized for small retailers of dresses and related products. Includes personal account, authorization, ordering and others."
+    },
+    "project-12": {
+      "title": "Staff management system",
+      "desc": "Combines a number of necessary HR functions: storing employee data, recruitment, employee performance management, tracking competency and others."
     }
   },
   "footer": {

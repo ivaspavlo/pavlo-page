@@ -4,37 +4,32 @@ import { InView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
 import { CONSTANTS } from '@root/constants';
-import Project, { IProject } from '@components/project/Project';
+import Project, { IProjectConfig } from '@components/project/Project';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
 
 import styles from './ScreenFive.module.scss';
 
 
-const projects: { page: number; items: IProject[] }[] = [
+const projects: { page: number; items: IProjectConfig[] }[] = [
   {
     page: 0,
     items: [
       {
-        id: 'project_1',
-        title: 'project_1.title',
-        desc: 'project_1.desc',
-        codeLink: 'https://github.com/pavel-ivashchenko/staff-management-system',
-        bgColor: '#A8AAFF',
-        projectImg: '/img/project-1-bg.png',
-        sidebarBg: 'img/sidebar-1-bg.png',
-        sidebarRight: true,
-        liveLink: '',
-        stack: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose']
-      }, {
-        id: 'project_2',
-        title: 'project_2.title',
-        desc: 'project_2.desc',
-        codeLink: 'https://github.com/pavel-ivashchenko/dressmenow_ui',
-        bgColor: '#8CB6FF',
-        projectImg: '/public/img/project-2-bg.png',
-        sidebarBg: 'img/sidebar-2-bg.png',
+        id: 'project-9',
+        title: 'project-9.title',
+        desc: 'project-9.desc',
+        codeLink: 'https://github.com/pavel-ivashchenko/uptracker-v2',
+        projectImg: 'img/project-9-bg.png',
         sidebarRight: false,
-        liveLink: '',
+        liveLink: 'https://up-tracker.com/',
+        stack: ['Angular', 'NgRx', 'Material', 'HTML5', 'CSS3']
+      }, {
+        id: 'project-10',
+        title: 'project-10.title',
+        desc: 'project-10.desc',
+        projectImg: 'img/project-10-bg.png',
+        sidebarRight: true,
+        liveLink: 'https://up-tracker.com/',
         stack: ['Angular', 'Sockets.io', 'Materialize.css', 'HTML5', 'CSS3']
       }
     ]
@@ -42,27 +37,21 @@ const projects: { page: number; items: IProject[] }[] = [
     page: 1,
     items: [
       {
-        id: 'project3',
-        title: 'Jewelry Website',
-        desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
-        codeLink: '/',
-        bgColor: '#8CB6FF',
-        projectImg: 'img/project-mock-img.png',
-        sidebarBg: 'img/sidebar-3-bg.png',
-        sidebarRight: true,
-        liveLink: '',
-        stack: ['Angular', 'Sockets.io', 'Materialize.css', 'HTML5', 'CSS3']
-      }, {
-        id: 'project2',
-        title: 'Jewelry Website',
-        desc: 'Professionally deliver world-class process improvements after team driven scenarios.',
-        codeLink: '/',
-        bgColor: '#FBFFD0',
-        projectImg: 'img/project-mock-img.png',
-        sidebarBg: 'img/sidebar-2-bg.png',
+        id: 'project-11',
+        title: 'project-11.title',
+        desc: 'project-11.desc',
+        codeLink: 'https://github.com/pavel-ivashchenko/dressmenow_ui',
+        projectImg: '/img/project-11-bg.png',
         sidebarRight: false,
-        liveLink: '/',
-        stack: ['Angular', 'Sockets.io', 'Materialize.css', 'HTML5', 'CSS3']
+        stack: ['Angular', 'Material', 'HTML5', 'CSS3']
+      }, {
+        id: 'project-12',
+        title: 'project-12.title',
+        desc: 'project-12.desc',
+        codeLink: 'https://github.com/pavel-ivashchenko/staff-management-system',
+        projectImg: '/img/project-12-bg.png',
+        sidebarRight: true,
+        stack: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose']
       }
     ]
   }
@@ -72,7 +61,7 @@ function ScreenFive() {
   const t = useTranslations('screen-five');
 
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [visibleProjects, setVisibleProjects] = useState<IProject[]>([]);
+  const [visibleProjects, setVisibleProjects] = useState<IProjectConfig[]>([]);
   const [snapAlignBottom, setSnapAlignBottom] = useState<boolean>(false);
   const [isLastPage, setIsLastPage] = useState<boolean>(false);
 
@@ -122,14 +111,14 @@ function ScreenFive() {
             </motion.header>
 
             <ul className='w-100'>
-              {visibleProjects.map((projectConfig: IProject, index: number) =>
+              {visibleProjects.map((projectConfig: IProjectConfig, index: number) =>
                 <motion.li
                   key={projectConfig.id}
                   initial={false}
                   animate={inView ? 'open' : 'closed'}
                   variants={index/2 > 0 ? oddVariants : evenVariants}
                   transition={{ duration: .5, delay: index / 3 }}>
-                    <Project config={projectConfig} />
+                    <Project index={index} config={projectConfig} />
                 </motion.li>
               )}
             </ul>
