@@ -34,10 +34,10 @@
     max-width: 1200px;
     padding: 40px 12px;
     @include md {
-      padding: 56px 24px;
+      padding: 80px 24px;
     }
     @include xl {
-      padding: 56px 24px 100px;
+      padding: 100px 24px;
     }
   }
   &__subtitle {

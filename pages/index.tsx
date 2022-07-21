@@ -69,8 +69,11 @@ const Home: NextPage = () => {
 
           <ScreenTwo />
           <ScreenThree />
-          <ScreenFour />
-          <ScreenFive />
+
+          <section>
+            <ScreenFour />
+            <ScreenFive />
+          </section>
 
         </StrictMode>
         
