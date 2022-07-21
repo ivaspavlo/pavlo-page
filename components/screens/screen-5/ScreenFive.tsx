@@ -15,6 +15,27 @@ const projects: { page: number; items: IProjectConfig[] }[] = [
     page: 0,
     items: [
       {
+        id: 'project-7',
+        title: 'project-7.title',
+        desc: 'project-7.desc',
+        codeLink: 'https://github.com/pavel-ivashchenko/massage-services-ui',
+        projectImg: 'img/project-7-bg.png',
+        sidebarRight: false,
+        stack: ['Angular', 'Web3', 'Metamask', 'HTML5', 'CSS3']
+      }, {
+        id: 'project-8',
+        title: 'project-8.title',
+        desc: 'project-8.desc',
+        codeLink: 'https://github.com/pavel-ivashchenko/diamond-boyz-ui',
+        projectImg: 'img/project-8-bg.png',
+        sidebarRight: false,
+        stack: ['Angular', 'Web3', 'Metamask', 'HTML5', 'CSS3']
+      }
+    ]
+  }, {
+    page: 1,
+    items: [
+      {
         id: 'project-9',
         title: 'project-9.title',
         desc: 'project-9.desc',
@@ -34,7 +55,7 @@ const projects: { page: number; items: IProjectConfig[] }[] = [
       }
     ]
   }, {
-    page: 1,
+    page: 2,
     items: [
       {
         id: 'project-11',
@@ -62,8 +83,8 @@ function ScreenFive() {
 
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [visibleProjects, setVisibleProjects] = useState<IProjectConfig[]>([]);
-  const [snapAlignBottom, setSnapAlignBottom] = useState<boolean>(false);
   const [isLastPage, setIsLastPage] = useState<boolean>(false);
+  const [showMoreIsClicked, setShowMoreIsClicked] = useState<boolean>(false);
 
   useEffect(() => {
     setVisibleProjects(projects[currentPage].items);
@@ -80,15 +101,15 @@ function ScreenFive() {
     if (nextPage === projects.length - 1) {
       setIsLastPage(true);
     }
-    setSnapAlignBottom(true);
+    setShowMoreIsClicked(true);
     setCurrentPage(nextPage);
-    setVisibleProjects([ ...visibleProjects, ...projects[nextPage].items ]);
+    setVisibleProjects([ ...projects[nextPage].items, ...visibleProjects ]);
   };
 
   return (
     <InView threshold={0.25}>
       {({ref, inView}) => (
-        <section id={CONSTANTS.sectionIds.sectionFive} ref={ref} className={`${styles.screenFive} ${snapAlignBottom ? styles.screenFive_snapAlignEnd : ''}`}>
+        <section id={CONSTANTS.sectionIds.sectionFive} ref={ref} className={`${styles.screenFive} `}>
           <div className={styles.screenFive__container}>
 
             <motion.header
@@ -117,7 +138,7 @@ function ScreenFive() {
                   initial={false}
                   animate={inView ? 'open' : 'closed'}
                   variants={index/2 > 0 ? oddVariants : evenVariants}
-                  transition={{ duration: .5, delay: index / 3 }}>
+                  transition={{ duration: .5, delay: showMoreIsClicked ? (visibleProjects.length - index) / 3 : index / 3 }}>
                     <Project index={index} config={projectConfig} />
                 </motion.li>
               )}
