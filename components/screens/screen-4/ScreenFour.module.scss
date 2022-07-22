@@ -25,6 +25,7 @@
 
 .screenFour {
   @include screen;
+  @include bg-img('~public/img/texture-bg.png');
   width: 100%;
   padding-top: $mobileHeaderHeight;
   justify-content: center;
