@@ -1,14 +1,14 @@
-import React from "react";
-import { InView } from "react-intersection-observer";
-import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import React, { useState, useEffect } from 'react';
+import { InView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
-import { CONSTANTS } from "@root/constants";
-import ButtonPrimary from "@components/button-primary/ButtonPrimary";
-import ButtonSecondary from "@components/button-secondary/ButtonSecondary";
-import Icon from "@components/icon/Icon";
+import { CONSTANTS } from '@root/constants';
+import ButtonPrimary from '@components/button-primary/ButtonPrimary';
+import ButtonSecondary from '@components/button-secondary/ButtonSecondary';
+import Icon from '@components/icon/Icon';
 
-import styles from "./ScreenFour.module.scss";
+import styles from './ScreenFour.module.scss';
 
 
 const experienceCards = [
@@ -55,6 +55,14 @@ const toolCards = [
 
 function screenFour() {
   const t = useTranslations('screen-four');
+  const [isFirstRender, setIsFirstRender] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsFirstRender(false);
+  }, []);
+
+  const evenVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '-5%', opacity: 0 } };
+  const oddVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '5%', opacity: 0 } };
 
   return (
     <InView threshold={0.10}>
@@ -64,60 +72,57 @@ function screenFour() {
 
             <motion.header
               initial={false}
-              animate={inView ? "open" : "closed"}
+              animate={inView ? 'open' : 'closed'}
               variants={{
                 open: { translateY: 0, opacity: 1 },
                 closed: { translateY: '-20%', opacity: 0 }
               }}
-              transition={{ duration: .8, ease: "easeOut", delay: .2 }}
-              className="w-100 d-flex flex-column">
-                <h5 className={styles.screenFour__subtitle}>{t("subtitle")}</h5>
-                <div className="w-100 mt-2 d-flex flex-column flex-md-row justify-content-md-between">
+              transition={{ duration: .8, ease: 'easeOut', delay: .2 }}
+              className='w-100 d-flex flex-column'>
+                <h5 className={styles.screenFour__subtitle}>{t('subtitle')}</h5>
+                <div className='w-100 mt-2 d-flex flex-column flex-md-row justify-content-md-between'>
                   <h3 className={styles.screenFour__title}>
-                    <span>{t("title")}</span>
+                    <span>{t('title')}</span>
                     <motion.div
                       initial={false}
-                      animate={inView ? "open" : "closed"}
+                      animate={inView ? 'open' : 'closed'}
                       variants={{
                         open: { translateX: 0, opacity: 1 },
                         closed: { translateX: '-40%', opacity: 0 }
                       }}
                       transition={{ duration: .5, delay: 1 }}
-                      className="ml-2 d-inline-flex"
+                      className='ml-2 d-inline-flex'
                     >😏</motion.div>
                   </h3>
-                  <p className={styles.screenFour__desc}>{t("desc")}</p>
+                  <p className={styles.screenFour__desc}>{t('desc')}</p>
                 </div>
             </motion.header>
 
-            <div className="d-flex flex-column flex-md-row">
+            <div className='d-flex flex-column flex-md-row'>
               <div className={styles.screenFour__cardsColumn}>
-                <h4 className={styles.screenFour__columnTitle}>{t("experience")}</h4>
+                <h4 className={styles.screenFour__columnTitle}>{t('experience')}</h4>
                 <ul>
                   {experienceCards.map((card, index) => 
                     <motion.li
                       initial={false}
-                      animate={inView ? "open" : "closed"}
-                      variants={{
-                        open: { translateX: 0, opacity: 1 },
-                        closed: { translateX: '-10%', opacity: 0 }
-                      }}
-                      transition={{ duration: .3, delay: index / 3 }}
+                      animate={inView ? 'open' : 'closed'}
+                      variants={index/2 > 0 ? oddVariants : evenVariants}
+                      transition={{ duration: .3, delay: isFirstRender ? index / 3 : 0 }}
                       key={card.position + index}
                       className={styles.xCard}>
                         <p className={styles.xCard__years}>
                           <span className={`${styles.screenFour__bullet} mr-2`}></span>
                           <span>{card.starYear}</span>
-                          <span className="mx-2">-</span>
+                          <span className='mx-2'>-</span>
                           <span>{card.endYear || '...'}</span>
                         </p>
-                        <div className="d-flex flex-column flex-grow-1">
+                        <div className='d-flex flex-column flex-grow-1'>
                           <h6 className={styles.xCard__position}>{t(card.position)}</h6>
-                          <div className="d-flex align-items-start ">
+                          <div className='d-flex align-items-start '>
                             <div className={styles.xCard__companyLogo}>
                               <Icon width={32} height={32} name={card.iconName}></Icon>
                             </div>
-                            <div className="ml-3">
+                            <div className='ml-3'>
                               <p className={styles.xCard__company}>{card.company}</p>
                               <p className={styles.xCard__location}>{t(card.location)}</p>
                             </div>
@@ -129,7 +134,7 @@ function screenFour() {
                 </ul>
               </div>
               <div className={styles.screenFour__educationColumn}>
-                <h4 className={styles.screenFour__columnTitle}>{t("education")}</h4>
+                <h4 className={styles.screenFour__columnTitle}>{t('education')}</h4>
                 <ul>
                   {educationCards.map(card => 
                     <motion.li key={card.title} className={styles.edCard}>
@@ -142,14 +147,14 @@ function screenFour() {
                     </motion.li>
                   )}
                 </ul>
-                <h4 className={styles.screenFour__skillsTitle}>{t("skills")}</h4>
-                <ul className="d-flex flex-wrap">
+                <h4 className={styles.screenFour__skillsTitle}>{t('skills')}</h4>
+                <ul className='d-flex flex-wrap'>
                   {skillCards.map(card =>
                     <motion.li key={card} className={styles.skillCard}>{card}</motion.li>
                   )}
                 </ul>
-                <h4 className={styles.screenFour__toolsTitle}>{t("tools")}</h4>
-                <ul className="d-flex flex-wrap">
+                <h4 className={styles.screenFour__toolsTitle}>{t('tools')}</h4>
+                <ul className='d-flex flex-wrap'>
                   {toolCards.map(card =>
                     <motion.li key={card} className={styles.toolCard}>
                       <Icon name={card} width={20} height={20}></Icon>
@@ -161,10 +166,10 @@ function screenFour() {
 
             <div className={styles.screenFour__controls}>
               <div className={styles.screenFour__buttonWrap}>
-                <ButtonPrimary title={t('btn-contact')} link="/" filled={true}/>
+                <ButtonPrimary title={t('btn-contact')} link='/' filled={true}/>
               </div>
               <div className={styles.screenFour__buttonWrap}>
-                <ButtonSecondary title={t('btn-cv')} link="/" />
+                <ButtonSecondary title={t('btn-cv')} link='/' />
               </div>
             </div>
 

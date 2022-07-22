@@ -3,8 +3,7 @@
 
 .screenTwo {
   @include screen;
-  @include bg-img('~public/img/screen-two-texture.png');
-  background-color: $grey-2;
+  @include bg-img('~public/img/texture-bg.png');
   &__container {
     width: 100%;
     min-height: 100vh;

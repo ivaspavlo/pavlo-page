@@ -80,14 +80,15 @@ const projects: { page: number; items: IProjectConfig[] }[] = [
   
 function ScreenFive() {
   const t = useTranslations('screen-five');
-
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [visibleProjects, setVisibleProjects] = useState<IProjectConfig[]>([]);
   const [isLastPage, setIsLastPage] = useState<boolean>(false);
   const [showMoreIsClicked, setShowMoreIsClicked] = useState<boolean>(false);
+  const [isFirstRender, setIsFirstRender] = useState<boolean>(false);
 
   useEffect(() => {
     setVisibleProjects(projects[currentPage].items);
+    setIsFirstRender(false);
   }, []);
 
   const evenVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '-5%', opacity: 0 } };
@@ -103,13 +104,13 @@ function ScreenFive() {
     }
     setShowMoreIsClicked(true);
     setCurrentPage(nextPage);
-    setVisibleProjects([ ...projects[nextPage].items, ...visibleProjects ]);
+    setVisibleProjects([ ...visibleProjects, ...projects[nextPage].items ]);
   };
 
   return (
     <InView threshold={0.25}>
       {({ref, inView}) => (
-        <section id={CONSTANTS.sectionIds.sectionFive} ref={ref} className={`${styles.screenFive} `}>
+        <section id={CONSTANTS.sectionIds.sectionFive} ref={ref} className={`${styles.screenFive} ${showMoreIsClicked ? styles.screenFive_snapAlignEnd : ''}`}>
           <div className={styles.screenFive__container}>
 
             <motion.header
@@ -138,7 +139,7 @@ function ScreenFive() {
                   initial={false}
                   animate={inView ? 'open' : 'closed'}
                   variants={index/2 > 0 ? oddVariants : evenVariants}
-                  transition={{ duration: .5, delay: showMoreIsClicked ? (visibleProjects.length - index) / 3 : index / 3 }}>
+                  transition={{ duration: .5, delay: isFirstRender ? index / 3 : 0 }}>
                     <Project index={index} config={projectConfig} />
                 </motion.li>
               )}
