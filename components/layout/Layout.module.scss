@@ -29,6 +29,7 @@
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+  scroll-padding-top: $mobileHeaderHeight;
   scroll-snap-type: y mandatory;
   section, footer {
     scroll-snap-align: start;

@@ -11,6 +11,7 @@ import ScreenTwo from '@components/screens/screen-2/ScreenTwo';
 import ScreenThree from '@components/screens/screen-3/screenThree';
 import ScreenFour from '@components/screens/screen-4/ScreenFour';
 import ScreenFive from '@components/screens/screen-5/ScreenFive';
+import Footer from '@components/footer/Footer';
 
 export interface IMessage {
   value: string;
@@ -64,17 +65,15 @@ const Home: NextPage = () => {
       <Layout>
 
         <ScreenOne />
+        <ScreenTwo />
+        <ScreenThree />
 
         <StrictMode>
-
-          <ScreenTwo />
-          <ScreenThree />
-
           <section>
             <ScreenFour />
             <ScreenFive />
+            <Footer />
           </section>
-
         </StrictMode>
         
       </Layout>
