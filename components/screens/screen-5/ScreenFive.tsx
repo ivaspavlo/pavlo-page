@@ -110,7 +110,7 @@ function ScreenFive() {
   return (
     <InView threshold={0.25}>
       {({ref, inView}) => (
-        <section id={CONSTANTS.sectionIds.sectionFive} ref={ref} className={`${styles.screenFive} ${showMoreIsClicked ? styles.screenFive_snapAlignEnd : ''}`}>
+        <section id={CONSTANTS.sectionIds.sectionFive} ref={ref} className={styles.screenFive}>
           <div className={styles.screenFive__container}>
 
             <motion.header

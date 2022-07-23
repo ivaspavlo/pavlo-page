@@ -3,12 +3,8 @@
 
 .screenFive {
   @include screen;
-  padding-top: $mobileHeaderHeight;
   justify-content: center;
   background-color: #d7d7d7;
-  &_snapAlignEnd {
-    scroll-snap-align: end !important;
-  }
   &__container {
     width: 100%;
     max-width: 1200px;
