@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { InView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
@@ -83,13 +83,19 @@ function ScreenFive() {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [visibleProjects, setVisibleProjects] = useState<IProjectConfig[]>([]);
   const [isLastPage, setIsLastPage] = useState<boolean>(false);
-  const [showMoreIsClicked, setShowMoreIsClicked] = useState<boolean>(false);
   const [isFirstRender, setIsFirstRender] = useState<boolean>(false);
 
   useEffect(() => {
     setVisibleProjects(projects[currentPage].items);
     setIsFirstRender(false);
   }, []);
+
+  useEffect(() => {
+    if (isFirstRender) {
+      return;
+    }
+    document.getElementById(CONSTANTS.sectionIds.sectionFive)?.scrollIntoView({ block: 'end' });
+  }, [visibleProjects]);
 
   const evenVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '-5%', opacity: 0 } };
   const oddVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '5%', opacity: 0 } };
@@ -102,13 +108,12 @@ function ScreenFive() {
     if (nextPage === projects.length - 1) {
       setIsLastPage(true);
     }
-    setShowMoreIsClicked(true);
     setCurrentPage(nextPage);
     setVisibleProjects([ ...visibleProjects, ...projects[nextPage].items ]);
   };
 
   return (
-    <InView threshold={0.25}>
+    <InView threshold={0.1}>
       {({ref, inView}) => (
         <section id={CONSTANTS.sectionIds.sectionFive} ref={ref} className={styles.screenFive}>
           <div className={styles.screenFive__container}>
@@ -146,7 +151,9 @@ function ScreenFive() {
             </ul>
             
             <div className={styles.screenFive__button}>
-              <ButtonPrimary onClick={onClickHandler} title={t('see-more')} filled={true} disabled={isLastPage}/>
+              {isLastPage ?
+                <p>That's all for now 🙈</p> :
+                <ButtonPrimary onClick={onClickHandler} title={t('see-more')} filled={true}/>}
             </div>
 
           </div>
