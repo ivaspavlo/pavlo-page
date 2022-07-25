@@ -65,7 +65,7 @@ function screenFour() {
   const oddVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '5%', opacity: 0 } };
 
   return (
-    <InView threshold={0.10}>
+    <InView threshold={0.1}>
       {({ref, inView}) => (
         <section id={CONSTANTS.sectionIds.sectionFour} ref={ref} className={styles.screenFour}>
           <div className={styles.screenFour__container}>
