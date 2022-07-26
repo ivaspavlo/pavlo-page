@@ -31,7 +31,7 @@
   overflow-y: auto;
   scroll-padding-top: $mobileHeaderHeight;
   scroll-snap-type: y mandatory;
-  section, footer {
+  .screenSection {
     scroll-snap-align: start;
   }
 }

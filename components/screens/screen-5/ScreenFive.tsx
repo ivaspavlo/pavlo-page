@@ -150,10 +150,11 @@ function ScreenFive() {
               )}
             </ul>
             
-            <div className={styles.screenFive__button}>
-              {isLastPage ?
-                <p>That's all for now 🙈</p> :
-                <ButtonPrimary onClick={onClickHandler} title={t('see-more')} filled={true}/>}
+            <div className='w-100 position-relative d-flex justify-content-center'>
+              <p className={`${styles.screenFive__buttonPlaceholder} ${isLastPage ? styles.visible : styles.hidden}`}>{t('no-projects')} 🙈</p>
+              <div className={`${styles.screenFive__buttonContainer} ${isLastPage ? styles.hidden : styles.visibl}`}>
+                <ButtonPrimary onClick={onClickHandler} title={t('see-more')} filled={true}/>
+              </div>
             </div>
 
           </div>
