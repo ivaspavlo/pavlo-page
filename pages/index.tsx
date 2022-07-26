@@ -67,14 +67,11 @@ const Home: NextPage = () => {
         <ScreenOne />
         <ScreenTwo />
         <ScreenThree />
-
-        <StrictMode>
-          <section>
-            <ScreenFour />
-            <ScreenFive />
-            <Footer />
-          </section>
-        </StrictMode>
+        <section>
+          <ScreenFour />
+          <ScreenFive />
+          <Footer />
+        </section>
         
       </Layout>
 

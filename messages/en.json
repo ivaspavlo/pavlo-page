@@ -70,7 +70,8 @@
   "screen-five": {
     "title": "Latest projects",
     "subtitle": "portfolio",
-    "see-more": "See more"
+    "see-more": "See more",
+    "no-projects": "That's all for now"
   },
   "portfolio": {
     "code": "Code",

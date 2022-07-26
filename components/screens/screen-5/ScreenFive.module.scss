@@ -56,13 +56,19 @@
       line-height: 64px;
     }
   }
-  &__button {
+  &__buttonContainer {
     width: 148px;
     height: 52px;
+    position: relative;
     @include lg {
       width: 188px;
       height: 65px;
     }
+  }
+  &__buttonPlaceholder {
+    position: absolute; top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
   }
   &__projectItem {
     position: relative;
@@ -73,4 +79,18 @@
       content: '';
     }
   }
+}
+
+.visible {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .3s, transform 1s;
+}
+
+.hidden {
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s, transform 1s;
 }
