@@ -16,8 +16,8 @@ import styles from '@components/header/Header.module.scss';
 const navLinks = [
   { uiName: 'about', scrollToId: CONSTANTS.sectionIds.sectionTwo },
   { uiName: 'services', scrollToId: CONSTANTS.sectionIds.sectionThree },
-  { uiName: 'resume', scrollToId: CONSTANTS.sectionIds.sectionFour },
-  { uiName: 'portfolio', scrollToId: CONSTANTS.sectionIds.sectionFive }
+  { uiName: 'resume', scrollToId: CONSTANTS.sectionIds.experience },
+  { uiName: 'portfolio', scrollToId: CONSTANTS.sectionIds.portfolio }
 ];
 
 function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {

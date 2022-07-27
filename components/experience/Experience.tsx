@@ -67,7 +67,7 @@ function Experience() {
   return (
     <InView threshold={0.1}>
       {({ref, inView}) => (
-        <section id={CONSTANTS.sectionIds.sectionFour} ref={ref} className={styles.experience}>
+        <section id={CONSTANTS.sectionIds.experience} ref={ref} className={styles.experience}>
           <div className={styles.experience__container}>
 
             <motion.header

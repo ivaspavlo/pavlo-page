@@ -94,7 +94,7 @@ function Portfolio() {
     if (isFirstRender) {
       return;
     }
-    document.getElementById(CONSTANTS.sectionIds.sectionFive)?.scrollIntoView({ block: 'end' });
+    document.getElementById(CONSTANTS.sectionIds.portfolio)?.scrollIntoView({ block: 'end' });
   }, [visibleProjects]);
 
   const evenVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '-5%', opacity: 0 } };
@@ -115,7 +115,7 @@ function Portfolio() {
   return (
     <InView threshold={0.1}>
       {({ref, inView}) => (
-        <section id={CONSTANTS.sectionIds.sectionFive} ref={ref} className={styles.portfolio}>
+        <section id={CONSTANTS.sectionIds.portfolio} ref={ref} className={styles.portfolio}>
           <div className={styles.portfolio__container}>
 
             <motion.header

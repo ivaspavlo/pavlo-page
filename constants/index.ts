@@ -5,8 +5,8 @@ export const CONSTANTS = {
     sectionOne: 'sectionOneId',
     sectionTwo: 'sectionTwoId',
     sectionThree: 'sectionThreeId',
-    sectionFour: 'sectionFourId',
-    sectionFive: 'sectionFiveId',
+    experience: 'experienceId',
+    portfolio: 'portfolioId',
     coreFooter: 'coreFooterId'
   },
   coreMessages: {
