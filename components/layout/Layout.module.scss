@@ -31,9 +31,6 @@
   overflow-y: auto;
   scroll-padding-top: $mobileHeaderHeight;
   scroll-snap-type: y mandatory;
-  .screenSection {
-    scroll-snap-align: start;
-  }
 }
 
 .layoutBackground {
