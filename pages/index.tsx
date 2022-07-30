@@ -4,13 +4,20 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 
 import Layout from '@components/layout/Layout';
 import ScreenOne from '@components/screens/screen-1/ScreenOne';
 import ScreenTwo from '@components/screens/screen-2/ScreenTwo';
 import ScreenThree from '@components/screens/screen-3/screenThree';
-import ScreenFour from '@components/screens/screen-4/ScreenFour';
+import Footer from '@root/components/footer/Footer';
 
+const ScreenFour = dynamic(
+  () => {
+    return import('../components/screens/screen-4/ScreenFour')
+  },
+  { ssr: false }
+);
 
 export interface IMessage {
   value: string;
@@ -67,6 +74,7 @@ const Home: NextPage = () => {
         <ScreenTwo />
         <ScreenThree />
         <ScreenFour />
+        <Footer />
         
       </Layout>
 

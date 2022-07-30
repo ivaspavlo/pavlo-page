@@ -1,6 +1,31 @@
 @import '~styles/core-mixins.scss';
 
 .screenFour {
-  @include screen;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  overflow: auto;
+}
+
+.list {
+  position: absolute; top: 0;
+  width: 100vh;
+  height: 100vw;
+  display: flex;
   flex-direction: column;
+  background-color: grey;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: rotate(-90deg) translateY(-100vh);
+  transform-origin: right top;
+}
+
+.item {
+  width: 100vh;
+  min-height: 100vw;
+  font-size: 60px;
+  color: white;
+  writing-mode: vertical-lr;
 }
