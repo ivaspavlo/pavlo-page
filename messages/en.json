@@ -45,7 +45,7 @@
     "service-app-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches.",
     "service-desk-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches."
   },
-  "screen-four": {
+  "experience": {
     "title": "Outstanding Resume",
     "subtitle": "resume",
     "desc": "Collaboratively communicate technically sound metrics vis-a-vis virtual human capital. Seamlessly conceptualize 24/365 potentialities via distinctive leadership.",
@@ -67,13 +67,11 @@
     "btn-contact": "Contact me",
     "btn-cv": "Download CV"
   },
-  "screen-five": {
+  "portfolio": {
     "title": "Latest projects",
     "subtitle": "portfolio",
     "see-more": "See more",
-    "no-projects": "That's all for now"
-  },
-  "portfolio": {
+    "no-projects": "That's all for now",
     "code": "Code",
     "live-project": "Live project",
     "project-0": {

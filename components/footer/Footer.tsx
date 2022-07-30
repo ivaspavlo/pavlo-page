@@ -30,7 +30,7 @@ const contacts = [
 const anchorLinks = [
   { uiName: 'anchor-about', scrollToId: CONSTANTS.sectionIds.sectionTwo },
   { uiName: 'anchor-resume', scrollToId: CONSTANTS.sectionIds.sectionThree },
-  { uiName: 'anchor-portfolio', scrollToId: CONSTANTS.sectionIds.sectionFour }
+  { uiName: 'anchor-portfolio', scrollToId: CONSTANTS.sectionIds.experience }
 ];
 
 function Footer() {
@@ -39,6 +39,7 @@ function Footer() {
   const { message } = useContext(CoreContext);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
+  const [contactCopied, setContactCopied] = useState<string>('');
 
   const animation = {
     open: { translateY: 0, opacity: 1 },
@@ -112,6 +113,14 @@ function Footer() {
     );
   }
 
+  const onCopyClipboard = (contact: string) => {
+    setContactCopied(contact);
+    navigator.clipboard.writeText(contact);
+    setTimeout(() => {
+      setContactCopied('');
+    }, 1000);
+  }
+
   return (
     <InView threshold={.25}>
       {({ref, inView}) => (
@@ -129,11 +138,14 @@ function Footer() {
               <p className={styles.footerContent__desc}>{t('desc')}</p>
               <ul className='d-flex flex-column'>
                 {contacts.map(item =>
-                  <li key={item.uiName} className={styles.contactItem}>
+                  <li onClick={() => onCopyClipboard(item.uiName)} key={item.uiName} className={styles.contactItem}>
                     <div className={styles.contactItem__icon}>
                       <Icon name={item.iconName}></Icon>
                     </div>
                     <p className={styles.contactItem__name}>{item.uiName}</p>
+                    <a className={styles.contactItem__copy}>
+                      <Icon name={contactCopied === item.uiName ? 'check' : 'copy'} />
+                    </a>
                   </li>
                 )}
               </ul>

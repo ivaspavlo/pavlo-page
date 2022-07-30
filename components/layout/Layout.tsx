@@ -1,7 +1,7 @@
-import React, { ReactNode, RefObject, useRef } from "react";
+import React, { ReactNode, RefObject, useRef } from 'react';
 import { CONSTANTS } from '@root/constants';
-import Header from "@components/header/Header";
-import styles from "@components/layout/Layout.module.scss";
+import Header from '@components/header/Header';
+import styles from '@components/layout/Layout.module.scss';
 
 
 function Layout({ children }: { children: ReactNode; }) {

@@ -1,8 +1,10 @@
 @import '~styles/core-variables.scss';
 @import '~styles/core-mixins.scss';
 
-.screenFive {
-  @include screen;
+.portfolio {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
   justify-content: center;
   background-color: #d7d7d7;
   &__container {

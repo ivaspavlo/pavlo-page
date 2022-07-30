@@ -7,7 +7,7 @@ import { CONSTANTS } from '@root/constants';
 import Project, { IProjectConfig } from '@components/project/Project';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
 
-import styles from './ScreenFive.module.scss';
+import styles from './Portfolio.module.scss';
 
 
 const projects: { page: number; items: IProjectConfig[] }[] = [
@@ -78,8 +78,8 @@ const projects: { page: number; items: IProjectConfig[] }[] = [
   }
 ];
   
-function ScreenFive() {
-  const t = useTranslations('screen-five');
+function Portfolio() {
+  const t = useTranslations('portfolio');
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [visibleProjects, setVisibleProjects] = useState<IProjectConfig[]>([]);
   const [isLastPage, setIsLastPage] = useState<boolean>(false);
@@ -94,7 +94,7 @@ function ScreenFive() {
     if (isFirstRender) {
       return;
     }
-    document.getElementById(CONSTANTS.sectionIds.sectionFive)?.scrollIntoView({ block: 'end' });
+    document.getElementById(CONSTANTS.sectionIds.portfolio)?.scrollIntoView({ block: 'end' });
   }, [visibleProjects]);
 
   const evenVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '-5%', opacity: 0 } };
@@ -115,8 +115,8 @@ function ScreenFive() {
   return (
     <InView threshold={0.1}>
       {({ref, inView}) => (
-        <section id={CONSTANTS.sectionIds.sectionFive} ref={ref} className={styles.screenFive}>
-          <div className={styles.screenFive__container}>
+        <section id={CONSTANTS.sectionIds.portfolio} ref={ref} className={styles.portfolio}>
+          <div className={styles.portfolio__container}>
 
             <motion.header
               initial={false}
@@ -124,8 +124,8 @@ function ScreenFive() {
               variants={{ open: { translateY: 0, opacity: 1 }, closed: { translateY: '-20%', opacity: 0 } }}
               transition={{ duration: .8, ease: 'easeOut', delay: .2 }}
               className='w-100 d-flex flex-column'>
-                <h5 className={styles.screenFive__subtitle}>{t('subtitle')}</h5>
-                <h3 className={styles.screenFive__title}>
+                <h5 className={styles.portfolio__subtitle}>{t('subtitle')}</h5>
+                <h3 className={styles.portfolio__title}>
                   <span>{t('title')}</span>
                   <motion.div
                     initial={false}
@@ -151,8 +151,8 @@ function ScreenFive() {
             </ul>
             
             <div className='w-100 position-relative d-flex justify-content-center'>
-              <p className={`${styles.screenFive__buttonPlaceholder} ${isLastPage ? styles.visible : styles.hidden}`}>{t('no-projects')} 🙈</p>
-              <div className={`${styles.screenFive__buttonContainer} ${isLastPage ? styles.hidden : styles.visibl}`}>
+              <p className={`${styles.portfolio__buttonPlaceholder} ${isLastPage ? styles.visible : styles.hidden}`}>{t('no-projects')} 🙈</p>
+              <div className={`${styles.portfolio__buttonContainer} ${isLastPage ? styles.hidden : styles.visibl}`}>
                 <ButtonPrimary onClick={onClickHandler} title={t('see-more')} filled={true}/>
               </div>
             </div>
@@ -164,5 +164,5 @@ function ScreenFive() {
   );
 }
     
-export default ScreenFive;
+export default Portfolio;
     
