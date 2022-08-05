@@ -5,6 +5,7 @@ export const CONSTANTS = {
     sectionOne: 'sectionOneId',
     sectionTwo: 'sectionTwoId',
     sectionThree: 'sectionThreeId',
+    sectionFour: 'sectionFour',
     experience: 'experienceId',
     portfolio: 'portfolioId',
     coreFooter: 'coreFooterId'
