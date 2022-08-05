@@ -1,31 +1,26 @@
 @import '~styles/core-mixins.scss';
 
 .screenFour {
-  display: flex;
   height: 100vh;
   width: 100vw;
   position: relative;
+  display: flex;
   scroll-snap-align: start;
-  overflow: auto;
 }
 
 .list {
-  position: absolute; top: 0;
-  width: 100vh;
-  height: 100vw;
+  position: absolute;
+  top: 0;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   background-color: grey;
-  overflow-y: auto;
-  overflow-x: hidden;
-  transform: rotate(-90deg) translateY(-100vh);
-  transform-origin: right top;
+  overflow: auto;
+  transition: .8s ease-in;
 }
 
 .item {
-  width: 100vh;
-  min-height: 100vw;
+  min-width: 100vw;
+  min-height: 100vh;
   font-size: 60px;
   color: white;
-  writing-mode: vertical-lr;
 }
