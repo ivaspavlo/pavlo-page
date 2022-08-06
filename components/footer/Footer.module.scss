@@ -13,6 +13,7 @@
   @include container;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   padding: 20px 16px;
   @include md {
     padding: 24px;
@@ -126,12 +127,9 @@
     display: flex;
     flex-direction: column;
     @include md {
-      padding: 28px 16px;
+      padding: 16px;
       flex-direction: row;
       justify-content: space-between;
-    }
-    @include lg {
-      padding: 34px 16px;
     }
   }
   &__title {
