@@ -74,27 +74,27 @@
     "no-projects": "That's all for now",
     "code": "Code",
     "live-project": "Live project",
-    "project-0": {
+    "project-12": {
       "title": "Guided Journey",
       "desc": "Website created for a customer support of an insurance company. Build on a base of a dynamic forms generation via integration of Camunda service and the companie's internal services."
     },
-    "project-1": {
+    "project-11": {
       "title": "Panda Marketplace",
       "desc": "One of a series of facades for marketplace of DBZ conins."
     },
-    "project-2": {
+    "project-10": {
       "title": "Admiral United Kingdom",
       "desc": "Online casino offering the widest variety of gaming vendors on the British market. Available in the Web and App Store."
     },
-    "project-3": {
+    "project-9": {
       "title": "Starvegas Spain",
       "desc": "One of the biggest online casinos in Spain with thousands of players daily. Available in the Web and App Store."
     },
-    "project-4": {
+    "project-8": {
       "title": "Stargames Germany",
       "desc": "A gambling site, customized for the local market and legislation. Available in the Web and App Store."
     },
-    "project-5": {
+    "project-7": {
       "title": "Starvegas Italy",
       "desc": "A gambling site, customized for the local market and legislation. Available in the Web and App Store."
     },
@@ -102,27 +102,27 @@
       "title": "Fenixbet Estonia",
       "desc": "A gambling site, customized for the local market and legislation. Available in the Web and App Store."
     },
-    "project-7": {
+    "project-5": {
       "title": "Sergiy Tkachuk. Massages",
       "desc": "Personal website created for a massage salon. Includes personal account, blog, bookings and others."
     },
-    "project-8": {
+    "project-4": {
       "title": "Diamond Swap",
       "desc": "Proprietary marketplace with solutions for businesses as well as small creators and artists to use the blockchain technology to their benefit."
     },
-    "project-9": {
+    "project-3": {
       "title": "UPtracker v.2",
       "desc": "Light version of inventory management system developed for orthodontic offices. Provides ordering and reporting functionalities for a paperless office model."
     },
-    "project-10": {
+    "project-2": {
       "title": "UPtracker v.1",
       "desc": "Extended version of the inventory management system developed for orthodontic offices and retailers. Facilitates managing of on-hand inventory to allow automated orders based on low stock levels as well as other functions."
     },
-    "project-11": {
+    "project-1": {
       "title": "Dress Me Now",
       "desc": "Marketplace specialized for small retailers of dresses and related products. Includes personal account, authorization, ordering and others."
     },
-    "project-12": {
+    "project-0": {
       "title": "Staff management system",
       "desc": "Combines a number of necessary HR functions: storing employee data, recruitment, employee performance management, tracking competency and others."
     }
@@ -130,7 +130,7 @@
   "footer": {
     "contact": "Contact",
     "me": "With Me Now",
-    "desc": "I am almost in all social media, but you can most surely find me via LinkedIn and Telegram, or you can just submit the feedback form. I am always open to chat on professional matters.",
+    "desc": "I am present almost in all social media, but you can most surely find me via LinkedIn and Telegram, or you can just submit the feedback form. I am always open to chat on professional matters.",
     "bottom-line-title": "Let`s create something!",
     "anchor-about": "About me",
     "anchor-resume": "Resume",

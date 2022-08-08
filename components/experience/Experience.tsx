@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { InView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
 import { CONSTANTS } from '@root/constants';
+import { onClickAnchorHandler } from '@root/utils';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
 import ButtonSecondary from '@components/button-secondary/ButtonSecondary';
 import Icon from '@components/icon/Icon';
@@ -13,12 +14,20 @@ import styles from './Experience.module.scss';
 
 const experienceCards = [
   {
-    starYear: 2018,
-    endYear: 2019,
-    iconName: 'itrex-logo',
-    company: 'ITRex Group',
-    location: 'location-kyiv',
-    position: 'position-node',
+    starYear: 2022,
+    endYear: null,
+    iconName: 'allianz-logo',
+    company: 'Allianz Technology',
+    location: 'location-vienna',
+    position: 'position-angular',
+    desc: 'desc-temp'
+  }, {
+    starYear: 2020,
+    endYear: 2022,
+    iconName: 'greentube-logo',
+    company: 'Greentube Internet Entertainment Solutions GmbH',
+    location: 'location-vienna',
+    position: 'position-angular',
     desc: 'desc-temp'
   }, {
     starYear: 2019,
@@ -29,12 +38,12 @@ const experienceCards = [
     position: 'position-angular',
     desc: 'desc-temp'
   }, {
-    starYear: 2020,
-    endYear: null,
-    iconName: 'greentube-logo',
-    company: 'Greentube Internet Entertainment Solutions GmbH',
+    starYear: 2018,
+    endYear: 2019,
+    iconName: 'itrex-logo',
+    company: 'ITRex Group',
     location: 'location-kyiv',
-    position: 'position-angular',
+    position: 'position-node',
     desc: 'desc-temp'
   }
 ];
@@ -55,12 +64,6 @@ const toolCards = [
 
 function Experience() {
   const t = useTranslations('experience');
-  const [isFirstRender, setIsFirstRender] = useState<boolean>(false);
-
-  useEffect(() => {
-    setIsFirstRender(false);
-  }, []);
-
   const evenVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '-5%', opacity: 0 } };
   const oddVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '5%', opacity: 0 } };
 
@@ -106,8 +109,8 @@ function Experience() {
                     <motion.li
                       initial={false}
                       animate={inView ? 'open' : 'closed'}
-                      variants={index/2 > 0 ? oddVariants : evenVariants}
-                      transition={{ duration: .3, delay: isFirstRender ? index / 3 : 0 }}
+                      variants={index % 2 > 0 ? oddVariants : evenVariants}
+                      transition={{ duration: .3, delay: 0.5 }}
                       key={card.position + index}
                       className={styles.xCard}>
                         <p className={styles.xCard__years}>
@@ -166,7 +169,7 @@ function Experience() {
 
             <div className={styles.experience__controls}>
               <div className={styles.experience__buttonWrap}>
-                <ButtonPrimary title={t('btn-contact')} link='/' filled={true}/>
+                <ButtonPrimary onClick={() => onClickAnchorHandler(CONSTANTS.sectionIds.coreFooter)} title={t('btn-contact')} filled={true}/>
               </div>
               <div className={styles.experience__buttonWrap}>
                 <ButtonSecondary title={t('btn-cv')} link='/' />

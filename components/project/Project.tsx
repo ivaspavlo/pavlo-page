@@ -10,7 +10,6 @@ export interface IProjectConfig {
   desc: string;
   projectImg: string;
   stack: string[];
-  sidebarRight?: boolean;
   codeLink?: string;
   liveLink?: string;
 }
@@ -44,7 +43,7 @@ function Project(props: IProject) {
   return (
     <div className={styles.projectContainer}>
 
-      <div style={{ 'backgroundColor': bgStyles.content }} className={`${styles.project} ${config.sidebarRight ? styles.project_sidebarRight : ''}`}>
+      <div style={{ 'backgroundColor': bgStyles.content }} className={styles.project}>
 
         <aside style={{ 'backgroundImage': `url(${bgStyles.aside})` }} className={styles.projectSidebar}>
           <ul className={styles.projectSidebar__stack}>
