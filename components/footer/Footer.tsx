@@ -41,10 +41,20 @@ function Footer() {
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const [contactCopied, setContactCopied] = useState<string>('');
 
-  const animation = {
+  const animation_1 = {
     open: { translateY: 0, opacity: 1 },
-    closed: { translateY: '-20%', opacity: 0 }
+    closed: { translateY: '-5%', opacity: 0 }
   };
+
+  const animation_2 = {
+    open: { translateX: 0, opacity: 1 },
+    closed: { translateX: '-5%', opacity: 0 }
+  }
+
+  const animation_3 = {
+    open: { scale: 1, opacity: 1 },
+    closed: { scale: .7, opacity: 0 }
+  }
 
   const form: {[key:string]: MutableRefObject<any>} = {
     name: useRef() as MutableRefObject<any>,
@@ -118,11 +128,11 @@ function Footer() {
     navigator.clipboard.writeText(contact);
     setTimeout(() => {
       setContactCopied('');
-    }, 1000);
+    }, 600);
   }
 
   return (
-    <InView threshold={.25}>
+    <InView threshold={.2}>
       {({ref, inView}) => (
         <footer id={CONSTANTS.sectionIds.coreFooter} ref={ref} className={styles.footer}>
 
@@ -133,20 +143,31 @@ function Footer() {
                 <span>{t('contact')}</span>
                 <br />
                 <span>{t('me')}</span>
-                <div className='d-inline-flex ml-2'>👋</div>
+                <motion.div
+                  initial={false}
+                  animate={inView ? 'open' : 'closed'}
+                  variants={animation_3}
+                  transition={{ duration: .8, ease: 'easeInOut', delay: 1 }}
+                  className='d-inline-flex ml-2'
+                >🖖</motion.div>
               </h3>
               <p className={styles.footerContent__desc}>{t('desc')}</p>
               <ul className='d-flex flex-column'>
-                {contacts.map(item =>
-                  <li onClick={() => onCopyClipboard(item.uiName)} key={item.uiName} className={styles.contactItem}>
-                    <div className={styles.contactItem__icon}>
-                      <Icon name={item.iconName}></Icon>
-                    </div>
-                    <p className={styles.contactItem__name}>{item.uiName}</p>
-                    <a className={styles.contactItem__copy}>
-                      <Icon name={contactCopied === item.uiName ? 'check' : 'copy'} />
-                    </a>
-                  </li>
+                {contacts.map((item: { iconName: string; uiName: string; }, index: number) =>
+                  <motion.li
+                    initial={false}
+                    animate={inView ? 'open' : 'closed'}
+                    variants={animation_2}
+                    transition={{ duration: .8, ease: 'easeOut', delay: index * 0.3 }}
+                    onClick={() => onCopyClipboard(item.uiName)} key={item.uiName} className={styles.contactItem}>
+                      <div className={styles.contactItem__icon}>
+                        <Icon name={item.iconName}></Icon>
+                      </div>
+                      <p className={styles.contactItem__name}>{item.uiName}</p>
+                      <a className={styles.contactItem__copy}>
+                        <Icon name={contactCopied === item.uiName ? 'check' : 'copy'} />
+                      </a>
+                  </motion.li>
                 )}
               </ul>
             </div>
@@ -154,7 +175,7 @@ function Footer() {
             <motion.div
               initial={false}
               animate={inView ? 'open' : 'closed'}
-              variants={animation}
+              variants={animation_1}
               transition={{ duration: .8, ease: 'easeOut'}}
               className={`${styles.footerContent__column} ${styles.footerContent__column_second}`}>
                 <form className={styles.form}>

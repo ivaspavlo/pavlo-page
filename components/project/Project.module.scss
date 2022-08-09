@@ -36,12 +36,6 @@
   display: flex;
   flex-direction: column;
   border-radius: 2px;
-  &_sidebarRight {
-    flex-direction: column-reverse;
-    @include md {
-      flex-direction: row-reverse !important;
-    }
-  }
   @include md {
     flex-direction: row;
   }

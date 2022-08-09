@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 
 import { CONSTANTS } from "@root/constants";
+import { onClickAnchorHandler } from '@root/utils';
 import ButtonSecondary from "@components/button-secondary/ButtonSecondary";
 import ButtonPrimary from "@components/button-primary/ButtonPrimary";
 
@@ -74,7 +75,7 @@ function ScreenTwo() {
                   </div>
                   <div className={styles.mainBlock__controls}>
                     <div className={styles.mainBlock__buttonWrap}>
-                      <ButtonPrimary title={t('btn-experience')} link="/" filled={true}/>
+                      <ButtonPrimary onClick={() => onClickAnchorHandler(CONSTANTS.sectionIds.experience)} title={t('btn-experience')} link="/" filled={true}/>
                     </div>
                     <div className={styles.mainBlock__buttonWrap}>
                       <ButtonSecondary title={t('btn-cv')} link="/" />

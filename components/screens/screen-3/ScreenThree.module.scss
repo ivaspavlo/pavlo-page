@@ -87,12 +87,6 @@
       flex-direction: row;
       align-items: center;
     }
-    @include lg {
-      padding: 80px 0 128px;
-    }
-    @include xl {
-      padding: 72px 0 128px;
-    }
   }
 }
 

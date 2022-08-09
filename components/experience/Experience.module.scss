@@ -234,11 +234,22 @@
       line-height: 24px;
     }
   }
-  &__desc {
+  &__quote {
     margin-top: 16px;
     font-size: 14px;
     line-height: 24px;
     color: $grey-5;
+    position: relative;
+    &:before, &:after {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      @include bg-img('~public/icons/quote.svg');
+      content: '';
+    }
+    &:before { left: 0; transform: translate(-130%, -60%); }
+    &:after { right: 0; transform: translate(0%, -10%); }
     @include md {
       margin-top: 24px;
     }
@@ -246,6 +257,12 @@
       font-size: 16px;
       line-height: 28px;
     }
+  }
+  &__quoteAuthor {
+    margin-top: 30px;
+    font-size: 14px;
+    font-style: italic;
+    text-align: end;
   }
 }
 
