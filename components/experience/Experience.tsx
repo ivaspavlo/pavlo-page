@@ -20,7 +20,8 @@ const experienceCards = [
     company: 'Allianz Technology',
     location: 'location-vienna',
     position: 'position-angular',
-    desc: 'desc-temp'
+    quote: 'quote-4.text',
+    quoteAuthor: 'quote-4.author'
   }, {
     starYear: 2020,
     endYear: 2022,
@@ -28,7 +29,8 @@ const experienceCards = [
     company: 'Greentube Internet Entertainment Solutions GmbH',
     location: 'location-vienna',
     position: 'position-angular',
-    desc: 'desc-temp'
+    quote: 'quote-3.text',
+    quoteAuthor: 'quote-3.author'
   }, {
     starYear: 2019,
     endYear: 2020,
@@ -36,7 +38,8 @@ const experienceCards = [
     company: 'ITRex Group',
     location: 'location-kyiv',
     position: 'position-angular',
-    desc: 'desc-temp'
+    quote: 'quote-2.text',
+    quoteAuthor: 'quote-2.author'
   }, {
     starYear: 2018,
     endYear: 2019,
@@ -44,7 +47,8 @@ const experienceCards = [
     company: 'ITRex Group',
     location: 'location-kyiv',
     position: 'position-node',
-    desc: 'desc-temp'
+    quote: 'quote-1.text',
+    quoteAuthor: 'quote-1.author'
   }
 ];
 
@@ -55,7 +59,7 @@ const educationCards = [
 ];
 
 const skillCards = [
-  'HTML', 'CSS', 'Angular', 'Node.js', 'JavaScript', 'Sass'
+  'Angular', 'Node.js', 'Express.js', 'TypeScript', 'JavaScript', 'Karma', 'Jest', 'HTML5', 'CSS3', 'Sass', 'Bootstrap', 'React', 'Next.js', 'Docker'
 ];
 
 const toolCards = [
@@ -130,7 +134,8 @@ function Experience() {
                               <p className={styles.xCard__location}>{t(card.location)}</p>
                             </div>
                           </div>
-                          <p className={styles.xCard__desc}>{t(card.desc)}</p>
+                          <p className={styles.xCard__quote}>{t(card.quote)}</p>
+                          <p className={styles.xCard__quoteAuthor}>— {t(card.quoteAuthor)}</p>
                         </div>
                     </motion.li>
                   )}

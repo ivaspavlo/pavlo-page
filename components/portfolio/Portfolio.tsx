@@ -14,7 +14,7 @@ const portfolioItems = [
     id: 'project-12',
     title: 'project-12.title',
     desc: 'project-12.desc',
-    projectImg: '#',
+    projectImg: 'img/project-12-bg.png',
     liveLink: '#',
     stack: ['Angular', 'Camunda', 'HTML5', 'CSS3']
   }, {
@@ -30,35 +30,35 @@ const portfolioItems = [
     desc: 'project-10.desc',
     projectImg: '#',
     liveLink: '#',
-    stack: ['Angular', 'NgRx', 'Gulp', 'HTML5', 'CSS3']
+    stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-9',
     title: 'project-9.title',
     desc: 'project-9.desc',
     projectImg: '#',
     liveLink: '#',
-    stack: ['Angular', 'NgRx', 'Gulp', 'HTML5', 'CSS3']
+    stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-8',
     title: 'project-8.title',
     desc: 'project-8.desc',
     projectImg: '#',
     liveLink: '#',
-    stack: ['Angular', 'NgRx', 'Gulp', 'HTML5', 'CSS3']
+    stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-7',
     title: 'project-7.title',
     desc: 'project-7.desc',
     projectImg: '#',
     liveLink: '#',
-    stack: ['Angular', 'NgRx', 'Gulp', 'HTML5', 'CSS3']
+    stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-6',
     title: 'project-6.title',
     desc: 'project-6.desc',
     projectImg: '#',
     liveLink: '#',
-    stack: ['Angular', 'NgRx', 'Gulp', 'HTML5', 'CSS3']
+    stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-5',
     title: 'project-5.title',
@@ -124,7 +124,7 @@ function Portfolio() {
   };
 
   return (
-    <InView threshold={0.1}>
+    <InView threshold={0.05}>
       {({ref, inView}) => (
         <section id={CONSTANTS.sectionIds.portfolio} ref={ref} className={styles.portfolio}>
           <div className={styles.portfolio__container}>
