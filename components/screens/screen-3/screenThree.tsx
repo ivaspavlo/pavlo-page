@@ -8,9 +8,9 @@ import styles from "./ScreenThree.module.scss";
 
 
 const serviceCards = [
-  { iconName: 'service-web-dev', title: 'service-web-title', desc: 'service-web-desc' },
+  { iconName: 'service-fe-dev', title: 'service-fe-title', desc: 'service-fe-desc' },
   { iconName: 'service-app-dev', title: 'service-app-title', desc: 'service-app-desc' },
-  { iconName: 'service-desk-dev', title: 'service-desk-title', desc: 'service-desk-desc' }
+  { iconName: 'service-be-dev', title: 'service-be-title', desc: 'service-be-desc' }
 ];
 
 function ScreenThree() {
