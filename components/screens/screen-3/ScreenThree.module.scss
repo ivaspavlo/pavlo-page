@@ -4,20 +4,15 @@
 .screenThree {
   @include screen;
   justify-content: center;
+  padding-top: $mobileHeaderHeight;
   &__container {
     @include container;
-    padding-top: 40px;
+    padding-top: 20px;
     flex-direction: column;
     align-items: flex-start;
     @include md {
-      padding: 40px 0 0;
+      padding-top: 20px;
       align-items: center;
-    }
-    @include xl {
-      padding: 56px 0 0;
-    }
-    @include xxl {
-      padding: 96px 0 0;
     }
   }
   &__subtitle {
@@ -131,14 +126,13 @@
   }
   @include md {
     max-width: 280px;
-    min-height: 364px;
     margin: 0 12px;
     padding: 32px 20px 48px;
     align-items: center;
   }
   @include lg {
     max-width: 358px;
-    min-height: 428px;
+    min-height: 320px;
     margin: 0 24px;
     padding: 48px 32px 50px;
   }

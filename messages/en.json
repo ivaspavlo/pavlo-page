@@ -35,15 +35,15 @@
     "btn-cv": "Download CV"
   },
   "screen-three": {
-    "title": "Provide Services",
-    "subtitle": "What I can offer",
-    "desc": "Uniquely e-enable corporate growth strategies with scalable experiences. Rapidiously orchestrate mission-critical channels rather than tactical methodologies.",
-    "service-web-title": "Web development",
+    "title": "Services provided",
+    "subtitle": "What I usually do",
+    "desc": "Positions in various start-ups as well as in large corporate projects prepared me perfectly to perform well in all environments",
+    "service-fe-title": "FE development",
     "service-app-title": "App development",
-    "service-desk-title": "Desktop development",
-    "service-web-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches.",
-    "service-app-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches.",
-    "service-desk-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches."
+    "service-be-title": "BE development",
+    "service-fe-desc": "Available to solve a widest variety of issues. Pixel-perfect and non-trivial visual solutions` development makes me happy.",
+    "service-app-desc": "My current focus. Aiming to apply my skills in tasks of any complexity, foremost with Cordova and Ionic.",
+    "service-be-desc": "Adept of GoF principles and patterns. Love to build complex queries and clean architecture."
   },
   "experience": {
     "title": "Outstanding Resume",
