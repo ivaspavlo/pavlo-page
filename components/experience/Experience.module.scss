@@ -260,8 +260,14 @@
     }
   }
   &__quoteAuthor {
+    font-weight: 600;
     margin-top: 30px;
     font-size: 14px;
+    font-style: italic;
+    text-align: end;
+  }
+  &__quotePosition {
+    font-size: 10px;
     font-style: italic;
     text-align: end;
   }

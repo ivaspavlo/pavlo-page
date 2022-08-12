@@ -2,12 +2,12 @@
 @import '~styles/core-mixins.scss';
 
 .header {
+  position: fixed; top: 0;
   width: 100%;
   height: $mobileHeaderHeight;
   display: flex;
   justify-content: center;
   background-color: $black;
-  position: fixed; top: 0;
   z-index: $z-header;
   transition: height .7s;
   &_isShrinked {

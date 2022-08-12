@@ -21,7 +21,8 @@ const experienceCards = [
     location: 'location-vienna',
     position: 'position-angular',
     quote: 'quote-4.text',
-    quoteAuthor: 'quote-4.author'
+    quoteAuthor: 'quote-4.author',
+    quotePosition: 'quote-4.position'
   }, {
     starYear: 2020,
     endYear: 2022,
@@ -30,7 +31,8 @@ const experienceCards = [
     location: 'location-vienna',
     position: 'position-angular',
     quote: 'quote-3.text',
-    quoteAuthor: 'quote-3.author'
+    quoteAuthor: 'quote-3.author',
+    quotePosition: 'quote-3.position'
   }, {
     starYear: 2019,
     endYear: 2020,
@@ -39,7 +41,8 @@ const experienceCards = [
     location: 'location-kyiv',
     position: 'position-angular',
     quote: 'quote-2.text',
-    quoteAuthor: 'quote-2.author'
+    quoteAuthor: 'quote-2.author',
+    quotePosition: 'quote-2.position'
   }, {
     starYear: 2018,
     endYear: 2019,
@@ -48,7 +51,8 @@ const experienceCards = [
     location: 'location-kyiv',
     position: 'position-node',
     quote: 'quote-1.text',
-    quoteAuthor: 'quote-1.author'
+    quoteAuthor: 'quote-1.author',
+    quotePosition: 'quote-1.position'
   }
 ];
 
@@ -63,7 +67,7 @@ const skillCards = [
 ];
 
 const toolCards = [
-  'visual-studio', 'figma', 'slack'
+  'visual-studio', 'webstorm', 'git', 'jira', 'bitbucket', 'confluence', 'figma', 'slack'
 ];
 
 function Experience() {
@@ -136,6 +140,7 @@ function Experience() {
                           </div>
                           <p className={styles.xCard__quote}>{t(card.quote)}</p>
                           <p className={styles.xCard__quoteAuthor}>— {t(card.quoteAuthor)}</p>
+                          <p className={styles.xCard__quotePosition}>{t(card.quotePosition)}</p>
                         </div>
                     </motion.li>
                   )}

@@ -59,7 +59,7 @@ function Project(props: IProject) {
           : ''}
         </aside>
         
-        <div className='d-flex flex-column flex-md-row'>
+        <div className='w-100 d-flex flex-column flex-md-row'>
 
           <div className={styles.project__content}>
             <div className='d-flex flex-column flex-grow-1 justify-content-center'>

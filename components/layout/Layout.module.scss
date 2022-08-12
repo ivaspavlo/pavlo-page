@@ -13,7 +13,7 @@
 }
 
 @mixin dots($count) {
-  opacity: .3;
+  opacity: .5;
   $text-shadow: ();
   @for $i from 0 through $count {
     $text-shadow: $text-shadow,
@@ -29,7 +29,9 @@
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  scroll-snap-type: y proximity;
+  @include md {
+    scroll-snap-type: y proximity;
+  }
 }
 
 .layoutBackground {

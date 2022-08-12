@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef, useContext, memo } from 'react';
+import React, { useState, useEffect, useRef, useContext, memo, useLayoutEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { fromEvent } from 'rxjs';
-import { distinctUntilChanged, map, tap } from 'rxjs/operators';
+import { distinctUntilChanged, map, tap, startWith } from 'rxjs/operators';
 
 import { CONSTANTS } from '@root/constants';
 import { CoreContext, ICoreContext, IMessage } from '@root/pages';
@@ -33,8 +33,12 @@ function Header() {
     const scrollOrigin = document.getElementById(CONSTANTS.sectionIds.scrollOrigin) as HTMLDivElement;
     shrinkOnScroll(scrollOrigin);
     changeWidthOnResize(scrollOrigin);
-    setHeaderWidth(scrollOrigin.clientWidth);
   }, []);
+
+  useLayoutEffect(() => {
+    const scrollOrigin = document.getElementById(CONSTANTS.sectionIds.scrollOrigin) as HTMLDivElement;
+    setHeaderWidth(scrollOrigin.clientWidth);
+  });
 
   useEffect(() => {
     if (message.current.value) {
@@ -59,6 +63,7 @@ function Header() {
     }
     fromEvent<MouseEvent>(scrollOrigin, 'scroll').pipe(
       map((event: any) => event.target.scrollTop > 0),
+      startWith(scrollOrigin.scrollTop),
       distinctUntilChanged(),
       tap((event: any) => setIsShrinked(event))
     ).subscribe();
@@ -84,7 +89,7 @@ function Header() {
   }
 
   return (
-    <div style={{ width: headerWidth ? `${headerWidth}px` : '100%' }} className={`${styles.header} ${isShrinked ? styles.header_isShrinked : ''}`}>
+    <div style={{ width: `${headerWidth}px` }} className={`${styles.header} ${isShrinked ? styles.header_isShrinked : ''}`}>
 
       <div className={styles.header__container}>
 
