@@ -17,7 +17,7 @@ function ScreenThree() {
   const t = useTranslations('screen-three');
   const animateVariants = {
     open: { translateY: 0, opacity: 1 },
-    closed: { translateY: '-20%', opacity: 0 }
+    closed: { translateY: '-10%', opacity: 0 }
   };
 
   return (

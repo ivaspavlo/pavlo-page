@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { InView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
@@ -28,35 +28,35 @@ const portfolioItems = [
     id: 'project-10',
     title: 'project-10.title',
     desc: 'project-10.desc',
-    projectImg: '#',
+    projectImg: 'img/project-10-bg.png',
     liveLink: '#',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-9',
     title: 'project-9.title',
     desc: 'project-9.desc',
-    projectImg: '#',
+    projectImg: 'img/project-9-bg.png',
     liveLink: '#',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-8',
     title: 'project-8.title',
     desc: 'project-8.desc',
-    projectImg: '#',
+    projectImg: 'img/project-8-bg.png',
     liveLink: '#',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-7',
     title: 'project-7.title',
     desc: 'project-7.desc',
-    projectImg: '#',
+    projectImg: 'img/project-7-bg.png',
     liveLink: '#',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-6',
     title: 'project-6.title',
     desc: 'project-6.desc',
-    projectImg: '#',
+    projectImg: 'img/project-6-bg.png',
     liveLink: '#',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
@@ -109,9 +109,18 @@ function Portfolio() {
   const t = useTranslations('portfolio');
   const [isLastPage, setIsLastPage] = useState<boolean>(false);
   const [itemsToShow, setItemsToShow] = useState(2);
+  const [isFirstRender, setIsFirstRender] = useState(true);
 
   const evenVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '-5%', opacity: 0 } };
   const oddVariants = { open: { translateX: 0, opacity: 1 }, closed: { translateX: '5%', opacity: 0 } };
+
+  useEffect(() => {
+    if (isFirstRender) {
+      setIsFirstRender(false);
+      return;
+    }
+    scrollToBottom();
+  }, [itemsToShow]);
 
   function onClickHandler() {
     if (itemsToShow === portfolioItems.length - 1) {
@@ -122,6 +131,10 @@ function Portfolio() {
     }
     setItemsToShow(itemsToShow + 1);
   };
+
+  function scrollToBottom(): void {
+    document.getElementById(CONSTANTS.sectionIds.portfolio)?.scrollIntoView(false);
+  }
 
   return (
     <InView threshold={0.05}>

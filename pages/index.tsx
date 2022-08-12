@@ -6,11 +6,12 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
 
 import Layout from '@components/layout/Layout';
+import Header from '@root/components/header/Header';
+import Footer from '@root/components/footer/Footer';
 import ScreenOne from '@components/screens/screen-1/ScreenOne';
 import ScreenTwo from '@components/screens/screen-2/ScreenTwo';
 import ScreenThree from '@components/screens/screen-3/screenThree';
 import Experience from '@root/components/experience/Experience';
-import Footer from '@root/components/footer/Footer';
 import Portfolio from '@root/components/portfolio/Portfolio';
 
 export interface IMessage {
@@ -59,11 +60,15 @@ const Home: NextPage = () => {
       <Head>
         <title>{t('title')}</title>
         <meta name='description' content={t('desc')} />
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='Shortcut icon' href='/favicon.ico' />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-favicon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
       </Head>
-      
+
       <Layout>
 
+        <Header />
         <ScreenOne />
         <ScreenTwo />
         <ScreenThree />

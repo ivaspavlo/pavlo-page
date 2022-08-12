@@ -24,9 +24,9 @@ function ScreenOne() {
     );
   }, [language]);
 
-  const animateMainBlock = {
+  const animate = {
     open: { translateY: 0, opacity: 1 },
-    closed: { translateY: '-20%', opacity: 0 }
+    closed: { translateY: '-15px', opacity: 0 }
   };
 
   function startCursorAnimation(target: HTMLElement, texts: string[], delimeter?: string | HTMLElement): void {
@@ -76,29 +76,22 @@ function ScreenOne() {
           <div className={styles.screenOne__container}>
             <div className={styles.mainBlock}>
 
-              <motion.h1
-                ref={titleRef}
-                initial={false}
-                animate={inView ? 'open' : 'closed'}
-                variants={animateMainBlock}
-                transition={{ duration: .8, ease: 'easeOut' }}
-                className={styles.mainBlock__title}
-              ></motion.h1>
+              <h1 ref={titleRef} className={styles.mainBlock__title}></h1>
 
               <motion.h4
                 initial={false}
                 animate={inView ? 'open' : 'closed'}
-                variants={animateMainBlock}
+                variants={animate}
                 transition={{ duration: .8, ease: 'easeOut', delay: .5 }}
                 className={styles.mainBlock__subtitle}>
                   {t('intro-text')}
               </motion.h4>
 
-              <div className='d-flex flex-grow-1 align-items-end'>
+              <div className='d-flex flex-grow-md-1 align-items-end'>
                 <motion.div
                   initial={false}
                   animate={inView ? 'open' : 'closed'}
-                  variants={animateMainBlock}
+                  variants={animate}
                   transition={{ duration: .8, ease: 'easeOut', delay: 1 }}
                   className={styles.mainBlock__buttonWrap}>
                     <ButtonPrimary onClick={() => onClickAnchorHandler(CONSTANTS.sectionIds.sectionTwo)} title={t('btn-learn-more')} link='/' filled={true}/>
@@ -106,7 +99,6 @@ function ScreenOne() {
               </div>
 
             </div>
-    
           </div>
 
         </section>
