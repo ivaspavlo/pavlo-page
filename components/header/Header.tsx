@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef, RefObject, useContext, memo } from 'react';
+import React, { useState, useEffect, useRef, useContext, memo } from 'react';
 import { useTranslations } from 'next-intl';
-import { fromEvent, Subject } from 'rxjs';
-import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
+import { fromEvent } from 'rxjs';
+import { distinctUntilChanged, map, tap } from 'rxjs/operators';
 
 import { CONSTANTS } from '@root/constants';
 import { CoreContext, ICoreContext, IMessage } from '@root/pages';
@@ -20,21 +20,20 @@ const navLinks = [
   { uiName: 'portfolio', scrollToId: CONSTANTS.sectionIds.portfolio }
 ];
 
-function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
+function Header() {
   const t = useTranslations('nav-menu');
   const { message } = useContext<ICoreContext>(CoreContext);
   const [burgerExpandedState, setBurgerExpandedState] = useState(false);
   const [isShrinked, setIsShrinked] = useState(false);
   const [isBurgerOpen, setBurgerState] = useState(false);
+  const [headerWidth, setHeaderWidth] = useState(0);
   const menuRef = useRef(null);
-  const destroy$: Subject<void> = new Subject();
 
   useEffect(() => {
-    shrinkOnScroll();
-    return () => {
-      destroy$.next();
-      destroy$.complete();
-    }
+    const scrollOrigin = document.getElementById(CONSTANTS.sectionIds.scrollOrigin) as HTMLDivElement;
+    shrinkOnScroll(scrollOrigin);
+    changeWidthOnResize(scrollOrigin);
+    setHeaderWidth(scrollOrigin.clientWidth);
   }, []);
 
   useEffect(() => {
@@ -54,31 +53,38 @@ function Header(props: { scrollOrigin: RefObject<HTMLDivElement>; }) {
     message.setCurrent({ value: '', type: 'hidden' });
   }
 
-  function shrinkOnScroll(): void {
-    if (!props.scrollOrigin?.current) {
+  function shrinkOnScroll(scrollOrigin: HTMLDivElement): void {
+    if (!scrollOrigin) {
       return;
     }
-    fromEvent<MouseEvent>(props.scrollOrigin.current, 'scroll').pipe(
+    fromEvent<MouseEvent>(scrollOrigin, 'scroll').pipe(
       map((event: any) => event.target.scrollTop > 0),
       distinctUntilChanged(),
-      takeUntil(destroy$),
       tap((event: any) => setIsShrinked(event))
     ).subscribe();
   }
 
-  const burgerToggleHandler = (): void => {
+  function changeWidthOnResize(scrollOrigin: HTMLDivElement): void {
+    // @ts-ignore
+    const resizeObserver = new ResizeObserver((entry: ResizeObserverEntry[]) => {
+      setHeaderWidth(entry[0].target.clientWidth);
+    });
+    resizeObserver.observe(scrollOrigin);
+  }
+
+  function burgerToggleHandler(): void {
     setBurgerState(true);
     setBurgerExpandedState(!burgerExpandedState);
   }
 
-  const mobileLinkClickHandler = (scrollToId: string): void => {
+  function mobileLinkClickHandler(scrollToId: string): void {
     burgerToggleHandler();
     onClickAnchorHandler(scrollToId);
     setBurgerState(false);
   }
 
   return (
-    <div className={`${styles.header} ${isShrinked ? styles.header_isShrinked : ''}`}>
+    <div style={{ width: headerWidth ? `${headerWidth}px` : '100%' }} className={`${styles.header} ${isShrinked ? styles.header_isShrinked : ''}`}>
 
       <div className={styles.header__container}>
 

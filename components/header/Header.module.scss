@@ -9,7 +9,7 @@
   background-color: $black;
   position: fixed; top: 0;
   z-index: $z-header;
-  transition: .7s;
+  transition: height .7s;
   &_isShrinked {
     height: $mobileHeaderHeight !important;
     a.header__logo {

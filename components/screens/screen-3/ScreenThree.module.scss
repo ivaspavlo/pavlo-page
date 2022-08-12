@@ -121,9 +121,6 @@
       transition-delay: 1.5s;
     }
   }
-  @include sm {
-    min-height: 200px;
-  }
   @include md {
     max-width: 280px;
     margin: 0 12px;
@@ -132,7 +129,6 @@
   }
   @include lg {
     max-width: 358px;
-    min-height: 320px;
     margin: 0 24px;
     padding: 48px 32px 50px;
   }

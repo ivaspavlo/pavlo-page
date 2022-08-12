@@ -1,16 +1,11 @@
-import React, { ReactNode, RefObject, useRef } from 'react';
+import React, { ReactNode } from 'react';
 import { CONSTANTS } from '@root/constants';
-import Header from '@components/header/Header';
 import styles from '@components/layout/Layout.module.scss';
 
 
 function Layout({ children }: { children: ReactNode; }) {
-  const layoutRef: RefObject<HTMLDivElement> = useRef(null);
-
   return (
-    <div id={CONSTANTS.sectionIds.scrollOrigin} ref={layoutRef} className={styles.layout}>
-
-      <Header scrollOrigin={layoutRef} />
+    <div id={CONSTANTS.sectionIds.scrollOrigin} className={styles.layout}>
 
       {children}
 
