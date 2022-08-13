@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { InView } from 'react-intersection-observer';
 
 import { CONSTANTS } from '@root/constants';
-import { onClickAnchorHandler } from '@root/utils';
+import { copyClipboard, onClickAnchorHandler } from '@root/utils';
 import ButtonSecondary from '@components/button-secondary/ButtonSecondary';
 import ButtonPrimary from '@components/button-primary/ButtonPrimary';
 
 import styles from './ScreenTwo.module.scss';
+import Icon from '@root/components/icon/Icon';
 
 
 function ScreenTwo() {
   const t = useTranslations('screen-two');
+  const [contactCopied, setContactCopied] = useState<boolean>(false);
   const age = getCurrentAge();
   const animate_1 = {
     open: { translateY: 0, opacity: 1 },
@@ -29,6 +31,14 @@ function ScreenTwo() {
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth();
     return currentYear - birthYear - (currentMonth - birthMonth < 0 ? 1 : 0);
+  }
+
+  function onCopyEmail() {
+    setContactCopied(true);
+    copyClipboard('pavloiva@gmail.com');
+    setTimeout(() => {
+      setContactCopied(false);
+    }, 600);
   }
 
   return (
@@ -98,15 +108,21 @@ function ScreenTwo() {
                     </motion.p>
                   </div>
                   <div className='d-flex flex-column'>
-                    <motion.p
+                    <motion.a
+                      onClick={onCopyEmail}
                       initial={false}
                       animate={inView ? 'open' : 'closed'}
                       variants={animate_2}
                       transition={{ duration: .4, ease: 'easeOut', delay: .6 }}
-                      className={styles.mainBlock__myInfo}>
+                      className={`${styles.mainBlock__myInfo} ${styles.mainBlock__myInfo_email}`}>
                         <b>{t('email-title')}:</b>
-                        <span className={styles.mainBlock__myInfo_email}>pavloiva@gmail.com</span>
-                    </motion.p>
+                        <p>
+                          <span>pavloiva@gmail.com</span>
+                          <span className={styles.mainBlock__myInfo_copyIcon}>
+                            <Icon name={contactCopied ? 'check-blue' : 'copy-blue'} />
+                          </span>
+                        </p>
+                    </motion.a>
                     <motion.p
                       initial={false}
                       animate={inView ? 'open' : 'closed'}

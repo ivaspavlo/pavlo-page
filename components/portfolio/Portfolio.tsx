@@ -21,7 +21,7 @@ const portfolioItems = [
     id: 'project-11',
     title: 'project-11.title',
     desc: 'project-11.desc',
-    projectImg: '#',
+    projectImg: 'img/project-11-bg.png',
     liveLink: '#',
     stack: ['Angular', 'Web3', 'Metamask', 'HTML5', 'CSS3']
   }, {

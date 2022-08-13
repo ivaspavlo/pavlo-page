@@ -121,7 +121,29 @@
       margin-right: 8px;
     }
     &_email {
-      color: $blue;
+      p {
+        display: inline-flex;
+        position: relative;
+        color: $blue;
+        cursor: pointer;
+        &:hover {
+          .mainBlock__myInfo_copyIcon {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+    &_copyIcon {
+      position: absolute; right: -20px; top: 50%;
+      width: 16px;
+      height: 16px;
+      transform: translateY(-50%);
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s;
+      display: flex;
+      flex-shrink: 0;
     }
   }
   &__buttonWrap {
