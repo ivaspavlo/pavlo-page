@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 import { CONSTANTS } from '@root/constants';
 import { Validators } from '@root/utils/validators';
-import { onClickAnchorHandler } from '@root/utils';
+import { copyClipboard, onClickAnchorHandler } from '@root/utils';
 import { CoreContext } from '@root/pages';
 
 import Icon from '@components/icon/Icon';
@@ -123,9 +123,9 @@ function Footer() {
     );
   }
 
-  const onCopyClipboard = (contact: string) => {
-    setContactCopied(contact);
-    navigator.clipboard.writeText(contact);
+  const onClickContact = (value: string) => {
+    setContactCopied(value);
+    copyClipboard(value);
     setTimeout(() => {
       setContactCopied('');
     }, 600);
@@ -159,7 +159,7 @@ function Footer() {
                     animate={inView ? 'open' : 'closed'}
                     variants={animation_2}
                     transition={{ duration: .8, ease: 'easeOut', delay: index * 0.3 }}
-                    onClick={() => onCopyClipboard(item.uiName)} key={item.uiName} className={styles.contactItem}>
+                    onClick={() => onClickContact(item.uiName)} key={item.uiName} className={styles.contactItem}>
                       <div className={styles.contactItem__icon}>
                         <Icon name={item.iconName}></Icon>
                       </div>

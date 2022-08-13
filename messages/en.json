@@ -17,13 +17,13 @@
   "screen-one": {
     "greets-1": "Hey there,",
     "greets-2": "Here's Pavlo Ivashchenko",
-    "intro-text": "Thanks for coming by! I am a Web developer. My tooling is primarily MEAN stack, of course not limited to: recently I mastered Next.js and created this page with it :)",
+    "intro-text": "Thanks for coming by! I am a Web developer. My tooling is primarily MEAN stack, of course not limited to: for this page I mastered React and Next.js :)",
     "btn-learn-more": "Discover more"
   },
   "screen-two": {
     "subtitle": "Who am I",
     "title": "About me",
-    "desc": "Сurrently I have more than four years of commercial Web development experience both on FE and BE side, with the strong focus in Angular. I`m a big fan of this framework and I think that this is by far the best tool for corporate application development. I have been working in teams of various scale, in start-ups as well as in large corporate projects. I have experience of starting new projects from scratch. Now my prefereble business domains are: fintech, insurance and of course health care.",
+    "desc": "Currently I have more than four years of commercial Web development experience both on FE and BE side, with the strong focus in Angular, by far the best tool for the corporate application development for FE. I have been working in teams of various scale, in start-ups as well as in large corporate projects. I have experience of starting new projects from scratch. Now my prefereble business domains are: fintech, insurance and of course health care.",
     "name-title": "Name",
     "age-title": "Age",
     "email-title": "Email",
@@ -37,13 +37,13 @@
   "screen-three": {
     "title": "Services provided",
     "subtitle": "What I usually do",
-    "desc": "Positions in various start-ups as well as in large corporate projects prepared me perfectly to perform well in all environments",
+    "desc": "Here I listed the main three of my work directions and the level of my expertise in the fields.",
     "service-fe-title": "FE development",
     "service-app-title": "App development",
     "service-be-title": "BE development",
     "service-fe-desc": "Available to solve a widest variety of issues. Pixel-perfect and non-trivial visual solutions` development makes me happy.",
-    "service-app-desc": "My current focus. Aiming to apply my skills in tasks of any complexity, foremost with Cordova and Ionic.",
-    "service-be-desc": "Adept of GoF principles and patterns. Love to build complex queries and clean architecture."
+    "service-app-desc": "My current focus is Ionic. So far I have some working experience with Cordova and plans to master React Native.",
+    "service-be-desc": "With my commercial experience I am able to solve medium complexitiy issues. Deeper knowledge I have in MongoDB."
   },
   "experience": {
     "title": "Outstanding Resume",
