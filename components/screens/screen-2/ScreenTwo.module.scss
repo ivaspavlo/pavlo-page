@@ -121,17 +121,8 @@
       margin-right: 8px;
     }
     &_email {
-      p {
-        display: inline-flex;
-        position: relative;
-        color: $blue;
-        cursor: pointer;
-        &:hover {
-          .mainBlock__myInfo_copyIcon {
-            opacity: 1;
-            visibility: visible;
-          }
-        }
+      span {
+        color: $blue
       }
     }
     &_copyIcon {

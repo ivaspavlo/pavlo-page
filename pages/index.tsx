@@ -13,10 +13,11 @@ import ScreenTwo from '@components/screens/screen-2/ScreenTwo';
 import ScreenThree from '@components/screens/screen-3/screenThree';
 import Experience from '@root/components/experience/Experience';
 import Portfolio from '@root/components/portfolio/Portfolio';
+import { CONSTANTS } from '@root/constants';
 
 export interface IMessage {
   value: string;
-  type: 'error' | 'success' | 'hidden';
+  type: 'supportUkraine' | 'error' | 'success' | 'hidden';
 }
 
 export interface ICoreContext {
@@ -46,7 +47,7 @@ export const CoreContext = createContext<ICoreContext>({
 const Home: NextPage = () => {
   const t = useTranslations('core');
   const { locale } = useRouter();
-  const [message, setMessage] = useState<IMessage>({value: '', type: 'hidden'});
+  const [message, setMessage] = useState<IMessage>({value: CONSTANTS.coreMessages.supportUkraine, type: 'supportUkraine'});
 
   return (
     <CoreContext.Provider value={{

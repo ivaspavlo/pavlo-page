@@ -11,8 +11,9 @@ export const CONSTANTS = {
     coreFooter: 'coreFooterId'
   },
   coreMessages: {
-    emailSentSuccess: 'core.email-sent-success',
-    emailSentFail: 'core.email-sent-fail'
+    supportUkraine: 'support-ukraine',
+    emailSentSuccess: 'email-sent-success',
+    emailSentFail: 'email-sent-fail'
   },
   errorMessages: {
     email: 'error-email',

@@ -138,6 +138,7 @@
   &.hidden { transform: translateY(100%) scale(0); }
   &.error { background-color: $red; }
   &.success { background-color: $green; }
+  &.supportUkraine { background-color: $blue; }
   &__close {
     @include bg-img('~public/icons/close.svg');
     position: absolute; top: 8px; right: 8px;
@@ -145,6 +146,13 @@
     height: 16px;
     cursor: pointer;
     &:hover { opacity: .7; }
+  }
+  &__supportUkraine {
+    margin-left: 5px;
+    a {
+      font-weight: bold;
+      color: yellow;
+    }
   }
   @include sm {
     text-align: center;

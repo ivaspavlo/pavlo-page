@@ -48,7 +48,7 @@ function Project(props: IProject) {
         <aside style={{ 'backgroundImage': `url(${bgStyles.aside})` }} className={styles.projectSidebar}>
           <ul className={styles.projectSidebar__stack}>
             {config.stack.map(item =>
-              <li className={styles.projectSidebar__stackItem}>{item}</li>
+              <li key={`${config.id}_${item}`} className={styles.projectSidebar__stackItem}>{item}</li>
             )}
           </ul>
           {config.liveLink ?
