@@ -9,6 +9,7 @@ import ButtonPrimary from '@components/button-primary/ButtonPrimary';
 
 import styles from './Portfolio.module.scss';
 
+
 const portfolioItems = [
   {
     id: 'project-12',
@@ -104,7 +105,7 @@ const portfolioItems = [
     stack: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose']
   }
 ];
-  
+
 function Portfolio() {
   const t = useTranslations('portfolio');
   const [isLastPage, setIsLastPage] = useState<boolean>(false);

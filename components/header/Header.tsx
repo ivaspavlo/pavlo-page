@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext, memo, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useRef, useContext, memo } from 'react';
 import { useTranslations } from 'next-intl';
 import { fromEvent } from 'rxjs';
 import { distinctUntilChanged, map, tap, startWith } from 'rxjs/operators';
@@ -35,11 +35,6 @@ function Header() {
     changeWidthOnResize(scrollOrigin);
   }, []);
 
-  useLayoutEffect(() => {
-    const scrollOrigin = document.getElementById(CONSTANTS.sectionIds.scrollOrigin) as HTMLDivElement;
-    setHeaderWidth(scrollOrigin.clientWidth);
-  });
-
   useEffect(() => {
     if (message.current.value) {
       showMessagePanel(message.current);
@@ -48,9 +43,11 @@ function Header() {
 
   function showMessagePanel(value: IMessage): void {
     message.setCurrent(value);
-    setTimeout(() => {
-      hideMessagePanel();
-    }, 3000);
+    if (value.type !== 'supportUkraine') {
+      setTimeout(() => {
+        hideMessagePanel();
+      }, 3000);
+    }
   }
 
   function hideMessagePanel(): void {
@@ -89,7 +86,7 @@ function Header() {
   }
 
   return (
-    <div style={{ width: `${headerWidth}px` }} className={`${styles.header} ${isShrinked ? styles.header_isShrinked : ''}`}>
+    <div className={`${styles.header} ${isShrinked ? styles.header_isShrinked : ''}`}>
 
       <div className={styles.header__container}>
 
@@ -130,8 +127,14 @@ function Header() {
         </div>
 
         <div className={`${styles.alert} ${styles[message.current.type]}`}>
-          <p>{message.current.value}</p>
-          <i onClick={hideMessagePanel} className={styles.alert__close}></i>
+            <span>{t(message.current.value)}</span>
+            {
+              message.current.type === 'supportUkraine' ?
+                <span className={styles.alert__supportUkraine}>
+                  <a href="https://www.comebackalive.in.ua/" target='_blank'>{t('support-now')}</a>
+                </span> :
+                <i onClick={hideMessagePanel} className={styles.alert__close}></i>
+            }
         </div>
 
       </div>

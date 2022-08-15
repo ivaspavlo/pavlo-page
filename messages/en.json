@@ -12,7 +12,11 @@
     "services": "Services",
     "resume": "Resume",
     "portfolio": "Portfolio",
-    "contact-btn": "Contact"
+    "contact-btn": "Contact",
+    "support-now": "Support now!",
+    "support-ukraine": "Help Ukraine to withstand 🇺🇦",
+    "email-sent-success": "Message was sent to me! Thanks!",
+    "email-sent-failure": "Hoppla... please try to reach me by other means!"
   },
   "screen-one": {
     "greets-1": "Hey there,",
@@ -46,7 +50,7 @@
     "service-be-desc": "With my commercial experience I am able to solve medium complexitiy issues. Deeper knowledge I have in MongoDB."
   },
   "experience": {
-    "title": "Outstanding Resume",
+    "title": "Some of my references",
     "subtitle": "resume",
     "desc": "My passion is to continually master technologies and related concepts and to apply that with every iteration to my projects. Check out some of the references on that below.",
     "location-kyiv": "Kyiv, Ukraine",
@@ -149,7 +153,7 @@
   "footer": {
     "contact": "Contact",
     "me": "With Me",
-    "desc": "I am present almost in all social media, but you can most surely find me in LinkedIn and Telegram, or just submit the feedback form.",
+    "desc": "I am present almost in all social networks, but you can most surely find me in LinkedIn and Telegram, or just submit the feedback form.",
     "bottom-line-title": "Let`s create together!",
     "anchor-about": "About me",
     "anchor-resume": "Resume",
