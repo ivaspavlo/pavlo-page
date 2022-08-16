@@ -16,49 +16,48 @@ const portfolioItems = [
     title: 'project-12.title',
     desc: 'project-12.desc',
     projectImg: 'img/project-12-bg.png',
-    liveLink: '#',
     stack: ['Angular', 'Camunda', 'HTML5', 'CSS3']
   }, {
     id: 'project-11',
     title: 'project-11.title',
     desc: 'project-11.desc',
     projectImg: 'img/project-11-bg.png',
-    liveLink: '#',
+    codeLink: 'https://github.com/pavel-ivashchenko/panda-marketplace',
     stack: ['Angular', 'Web3', 'Metamask', 'HTML5', 'CSS3']
   }, {
     id: 'project-10',
     title: 'project-10.title',
     desc: 'project-10.desc',
     projectImg: 'img/project-10-bg.png',
-    liveLink: '#',
+    liveLink: 'https://www.admiralcasino.co.uk/en',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-9',
     title: 'project-9.title',
     desc: 'project-9.desc',
     projectImg: 'img/project-9-bg.png',
-    liveLink: '#',
+    liveLink: 'https://www.admiralbet.es/es',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-8',
     title: 'project-8.title',
     desc: 'project-8.desc',
     projectImg: 'img/project-8-bg.png',
-    liveLink: '#',
+    liveLink: 'https://www.stargames.de/en',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-7',
     title: 'project-7.title',
     desc: 'project-7.desc',
     projectImg: 'img/project-7-bg.png',
-    liveLink: '#',
+    liveLink: 'https://www.starvegas.it/it',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-6',
     title: 'project-6.title',
     desc: 'project-6.desc',
     projectImg: 'img/project-6-bg.png',
-    liveLink: '#',
+    liveLink: 'https://www.fenixbet.ee/en',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-5',

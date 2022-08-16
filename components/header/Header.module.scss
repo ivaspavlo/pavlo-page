@@ -152,6 +152,10 @@
     a {
       font-weight: bold;
       color: yellow;
+      transition: .3s;
+      &:hover {
+        color: $green;
+      }
     }
   }
   @include sm {
