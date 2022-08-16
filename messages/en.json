@@ -19,15 +19,15 @@
     "email-sent-failure": "Hoppla... please try to reach me by other means!"
   },
   "screen-one": {
-    "greets-1": "Hey there,",
+    "greets-1": "Hey there!",
     "greets-2": "Here's Pavlo Ivashchenko",
-    "intro-text": "Thanks for coming by! I am a Web developer. My tooling is primarily MEAN stack, of course not limited to: for this page I mastered React and Next.js :)",
+    "intro-text": "Thanks for coming by! I am a Web developer. My tooling is mostly MEAN stack, but of course not limited to: for this page I mastered React and Next.js :)",
     "btn-learn-more": "Discover more"
   },
   "screen-two": {
     "subtitle": "Who am I",
     "title": "About me",
-    "desc": "Currently I have more than four years of commercial Web development experience both on FE and BE side, with the strong focus in Angular, by far the best tool for the corporate application development for FE. I have been working in teams of various scale, in start-ups as well as in large corporate projects. I have experience of starting new projects from scratch. Now my prefereble business domains are: fintech, insurance and of course health care.",
+    "desc": "I already have more than four years of commercial Web development experience both on FE and BE side, with the strong focus in Angular, by far the best tool for the corporate application development on the FE. I have been working in teams of various scale, in start-ups and in large corporate projects. Some of them I have created from scratch.",
     "name-title": "Name",
     "age-title": "Age",
     "email-title": "Email",
@@ -40,19 +40,19 @@
   },
   "screen-three": {
     "title": "Services provided",
-    "subtitle": "What I usually do",
-    "desc": "Here I listed the main three of my work directions and the level of my expertise in the fields.",
-    "service-fe-title": "FE development",
+    "subtitle": "What I do",
+    "desc": "Here listed my main three work directions and the level of my expertise in the fields.",
+    "service-fe-title": "Front-end development",
     "service-app-title": "App development",
-    "service-be-title": "BE development",
+    "service-be-title": "Back-end development",
     "service-fe-desc": "Available to solve a widest variety of issues. Pixel-perfect and non-trivial visual solutions` development makes me happy.",
     "service-app-desc": "My current focus is Ionic. So far I have some working experience with Cordova and plans to master React Native.",
-    "service-be-desc": "With my commercial experience I am able to solve medium complexitiy issues. Deeper knowledge I have in MongoDB."
+    "service-be-desc": "With my commercial experience I am able to solve medium complexitiy issues, however a deeper knowledge I have in MongoDB."
   },
   "experience": {
     "title": "Some of my references",
     "subtitle": "resume",
-    "desc": "My passion is to continually master technologies and related concepts and to apply that with every iteration to my projects. Check out some of the references on that below.",
+    "desc": "My passion is to continually master technologies and related concepts and to apply them with every iteration to my projects. Check out some of the references on that below.",
     "location-kyiv": "Kyiv, Ukraine",
     "location-vienna": "Vienna, Austria",
     "position-angular": "Angular developer",
@@ -110,7 +110,7 @@
       "desc": "Online casino offering a variety of gaming vendors for the British market. Available in the Web and App Store."
     },
     "project-9": {
-      "title": "Starvegas Spain",
+      "title": "AdmiralBET Spain",
       "desc": "One of the biggest online casinos in Spain with thousands of players daily. Available in the Web and App Store."
     },
     "project-8": {

@@ -208,7 +208,7 @@ function Footer() {
                     </li>
                   )}
                 </ul>
-                <ul className='mt-3 mt-md-0 d-flex justify-content-center align-items-center'>
+                <ul className='mt-3 mt-md-0 ml-md-3 d-flex justify-content-center align-items-center'>
                   {socialLinks.map((item, index) =>
                     <li key={item.iconName} className={`${index ? 'ml-2': ''}`}>
                       <a href={item.link} className={styles.bottomLine__socialLink}>
