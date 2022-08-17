@@ -35,56 +35,115 @@
   },
   "screen-three": {
     "title": "Moї сервіси",
-    "subtitle": "Чим я займаюсь",
-    "desc": "Uniquely e-enable corporate growth strategies with scalable experiences. Rapidiously orchestrate mission-critical channels rather than tactical methodologies.",
-    "service-fe-title": "Web development",
+    "subtitle": "Що я роблю",
+    "desc": "Тут перераховані мої три основні напрямки роботи та рівень моєї експертності в цих сферах.",
+    "service-fe-title": "Front-end development",
     "service-app-title": "App development",
-    "service-betop-title": "Desktop development",
-    "service-fe-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches.",
-    "service-app-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches.",
-    "service-betop-desc": "Strategy formulation is built on the match between all organisation resources and skills based program. Design is the first thing that catches."
+    "service-be-title": "Back-end development",
+    "service-fe-desc": "Здатний вирішувати найрізноманітніші задачі. Pixel-perfect та створення складних візуальних рішень - це моє.",
+    "service-app-desc": "Наразі мій приорітет - це, передусім, Ionic. Я вже маю певний досвід роботи з Cordova і невдовзі планую опанувати React Native.",
+    "service-be-desc": "Завдяки моєму досвіду розробки з Node.js, я можу вирішувати проблеми середньої складності, проте маю більш глибокі знання MongoDB."
   },
-  "screen-four": {
-    "title": "Outstanding Resume",
-    "subtitle": "resume",
-    "desc": "Collaboratively communicate technically sound metrics vis-a-vis virtual human capital. Seamlessly conceptualize 24/365 potentialities via distinctive leadership.",
+  "experience": {
+    "title": "Деякі з моїх референсів",
+    "subtitle": "резюме",
+    "desc": "Моє захоплення - це опановувати нові технології і пов’язані концепти та застосовувати їх у своїх проектах на кожній ітерації. Лише деякі відгуки щодо цього наведено нижче.",
     "desc-temp": "Intrinsicly harness best-of-breed systems before sustainable services. Distinctively aggregate an expanded array of applications with enterprise-wide opportunities. Monotonectally strategize frictionless relationships rather than ubiquitous metrics.",
-    "location-kyiv": "Kyiv, Ukraine",
-    "location-vienna": "Vienna, Austria",
+    "location-kyiv": "Київ, Україна",
+    "location-vienna": "Відень, Австрія",
     "position-angular": "Angular developer",
     "position-node": "Node.js developer",
-    "experience": "Experience",
-    "education": "Education",
-    "skills": "Skills",
-    "tools": "Key tools",
-    "politech-title": "Bachelor's degree, Computer systems and networks",
-    "politech-school": "Vinnytsia National Technical University",
-    "pedagogic-title": "Master's degree, English language and literature",
-    "pedagogic-school": "Vinnic'kij Deržavnij Pedagogicnij Universitet im. M. Kocubinski",
-    "economic-title": "Master's degree, Logistics, material supply and supply chain management",
-    "economic-school": "Kyiv National Economics University",
-    "btn-contact": "Contact me",
-    "btn-cv": "Download CV"
-  },
-  "screen-five": {
-    "title": "Мої проекти",
-    "subtitle": "Портфоліо",
-    "see-more": "Ще"
+    "experience": "Досвід",
+    "education": "Освіта",
+    "skills": "Технології",
+    "tools": "Інструменти",
+    "politech-title": "Бакалавр: Комп'ютерні системи та мережі",
+    "politech-school": "Вінницький національний технічний університет",
+    "pedagogic-title": "Магістр: Англійська мова та література",
+    "pedagogic-school": "Вінницький національний педагогічний університет",
+    "economic-title": "Магістр: Логістика, матеріальне забезпечення та управління ланцюгами поставок",
+    "economic-school": "Київський національний економічний університет",
+    "btn-contact": "Зв'язатись",
+    "btn-cv": "Моє CV",
+    "quote-4": {
+      "text": "Successfully started not that long ago and so far everything looks great 😎",
+      "author": "Я",
+      "position": "Senior developer"
+    },
+    "quote-3": {
+      "text": "He not only demonstrated a high level of apprehension in all of his assigned tasks, but also managed all projects and tasks with a very high level of responsibility and outstanding expertise.",
+      "author": "Рене Пратч",
+      "position": "Platform architect"
+    },
+    "quote-2": {
+      "text": "He is able to raise required technology, skill or domain specific knowledge in a very short time. I'm not even speaking about his human quality. He really reliable person and just nice guy!",
+      "author": "Вадім Поспєлов",
+      "position": "Head of Ukrainian branch"
+    },
+    "quote-1": {
+      "text": "Working with Pavel at ITREX Group as a tech lead for a project for approximately 2 years I cannot remember any other person with such truly phenomenal persistence, responsibility, and hardworking. I was observing Pavel making tremendous progress in his technical and soft skills every day.",
+      "author": "Олександр Бучек",
+      "position": "Technical lead"
+    }
   },
   "portfolio": {
+    "title": "Мої проекти",
+    "subtitle": "Портфоліо",
+    "see-more": "Ще",
+    "no-projects": "Це все, поки що... ",
     "code": "Code",
     "live-project": "Live project",
-    "project0": {
-      "title": "Internal HR Managment System",
-      "desc": "Система, яка поєднує низку необхідних HR-функцій, таких як зберігання даних про співробітників, підбір персоналу, робочий час і відвідуваність, управління продуктивністю співробітників і відстеження компетенцій і записів про навчання."
+    "project-12": {
+      "title": "Guided Journey",
+      "desc": "Ресурс, створений для клієнтської підтримки страхової компанії. Система на базі генерації динамічних форм через інтеграцію сервісу Camunda та внутрішніх бібліотек компанії."
     },
-    "project1": {
-      "title": "UPtracker v.1",
-      "desc": "Повна версія системи управління запасами, розроблена для ортодонтичних кабінетів та рітейлерів. Використовуйте глобальну базу даних із середніми цінами для багатьох продуктів і постачальників."
+    "project-11": {
+      "title": "Panda Marketplace",
+      "desc": "Один із серії фасадів для маркетплейсу криптомонет."
     },
-    "project2": {
+    "project-10": {
+      "title": "Admiral United Kingdom",
+      "desc": "Онлайн казино, що має величезний перелік ігрових вендорів. Створений для британського ринку. Доступне в Web та App Store."
+    },
+    "project-9": {
+      "title": "AdmiralBET Spain",
+      "desc": "Одне з найбільших онлайн казино в Іспанії з тисячами гравців щодня. Доступне в Web та App Store."
+    },
+    "project-8": {
+      "title": "Stargames Germany",
+      "desc": "Сайт азартних ігор, адаптований до місцевого ринку та законодавства. Доступний в Web та App Store."
+    },
+    "project-7": {
+      "title": "Starvegas Italy",
+      "desc": "Сайт азартних ігор, адаптований до місцевого ринку та законодавства. Доступний в Web та App Store."
+    },
+    "project-6": {
+      "title": "Fenixbet Estonia",
+      "desc": "Сайт азартних ігор, адаптований до місцевого ринку та законодавства. Доступний в Web та App Store."
+    },
+    "project-5": {
+      "title": "Sergiy Tkachuk. Massages",
+      "desc": "Сайт масажного салону. Включає особистий кабінет, блог, бронювання та інший функіонал."
+    },
+    "project-4": {
+      "title": "Diamond Swap",
+      "desc": "NFT маркетплейс для компаній і митців."
+    },
+    "project-3": {
       "title": "UPtracker v.2",
-      "desc": "Полегшена версія системи управління запасами для ортодонтичних кабінетів."
+      "desc": "Полегшена версія системи управління запасами, розроблена для ортодонтичних кабінетів. Надає функції оформлення замовлень і звітності."
+    },
+    "project-2": {
+      "title": "UPtracker v.1",
+      "desc": "Розширена версія системи управління запасами, розроблена для ортодонтичних кабінетів і роздрібної торгівлі. Надає функції управління наявними запасами, автоматизованого замовлення на основі низьких індикаторів запасів, а також низку іншиї функцій."
+    },
+    "project-1": {
+      "title": "Dress Me Now",
+      "desc": "Маркетплейс, що спеціалізується на роздрібній торгівлі сукнями і супутніми товарами. Включає особистий кабінет, оформлення замовлень, тощо."
+    },
+    "project-0": {
+      "title": "Staff management system",
+      "desc": "Поєднує в собі низку HR функцій: зберігання даних співробітників, підбір персоналу, управління ефективністю співробітників, відстеження компетенцій та інші."
     }
   },
   "footer": {
