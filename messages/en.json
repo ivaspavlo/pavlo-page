@@ -45,7 +45,7 @@
     "service-fe-title": "Front-end development",
     "service-app-title": "App development",
     "service-be-title": "Back-end development",
-    "service-fe-desc": "Available to solve a widest variety of issues. Pixel-perfect and non-trivial visual solutions` development makes me happy.",
+    "service-fe-desc": "Able to solve a widest variety of issues. Pixel-perfect and non-trivial visual solutions` development makes me happy.",
     "service-app-desc": "My current focus is Ionic. So far I have some working experience with Cordova and plans to master React Native.",
     "service-be-desc": "With my commercial experience I am able to solve medium complexitiy issues, however a deeper knowledge I have in MongoDB."
   },
@@ -82,7 +82,7 @@
     "quote-2": {
       "text": "He is able to raise required technology, skill or domain specific knowledge in a very short time. I'm not even speaking about his human quality. He really reliable person and just nice guy!",
       "author": "Vadim Pospelov",
-      "position": "Head of company's unit"
+      "position": "Head of Ukrainian branch"
     },
     "quote-1": {
       "text": "Working with Pavel at ITREX Group as a tech lead for a project for approximately 2 years I cannot remember any other person with such truly phenomenal persistence, responsibility, and hardworking. I was observing Pavel making tremendous progress in his technical and soft skills every day.",
@@ -135,7 +135,7 @@
     },
     "project-3": {
       "title": "UPtracker v.2",
-      "desc": "Light version of inventory management system developed for orthodontic offices. Provides ordering and reporting functionalities facilitating the paperless office model."
+      "desc": "Light version of inventory management system developed for orthodontic offices. Provides ordering and reporting functionalities, facilitating the paperless office model."
     },
     "project-2": {
       "title": "UPtracker v.1",
