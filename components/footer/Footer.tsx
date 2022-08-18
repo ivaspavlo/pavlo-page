@@ -16,21 +16,21 @@ import styles from './Footer.module.scss';
 
 
 const socialLinks = [
-  { iconName: 'facebook', link: 'https://www.facebook.com/pavloiva/' },
-  { iconName: 'instagram', link: 'https://www.instagram.com/invites/contact/?i=1odcb0ml4a46h&utm_content=n4glbz8' },
-  { iconName: 'skype', link: 'ttps://join.skype.com/invite/phipk837xLb4' }
+  { iconName: 'facebook', link: 'https://www.facebook.com/ivaspavlo' },
+  { iconName: 'instagram', link: 'https://www.instagram.com/invites/contact/?i=1l51jluejfzu8&utm_content=n4glbz8' },
+  { iconName: 'skype', link: 'https://join.skype.com/invite/phipk837xLb4' }
 ];
 
 const contacts = [
-  { iconName: 'email', uiName: 'pavloiva@gmail.com' },
-  { iconName: 'linkedin-black', uiName: 'https://www.linkedin.com/in/pavloiva/' },
-  { iconName: 'telegram', uiName: '@pavloiva' }
+  { iconName: 'email', uiName: 'ivaspavlo@gmail.com' },
+  { iconName: 'linkedin-black', uiName: 'https://www.linkedin.com/in/ivaspavlo' },
+  { iconName: 'telegram', uiName: '@ivaspavlo' }
 ];
 
 const anchorLinks = [
   { uiName: 'anchor-about', scrollToId: CONSTANTS.sectionIds.sectionTwo },
-  { uiName: 'anchor-resume', scrollToId: CONSTANTS.sectionIds.sectionThree },
-  { uiName: 'anchor-portfolio', scrollToId: CONSTANTS.sectionIds.experience }
+  { uiName: 'anchor-resume', scrollToId: CONSTANTS.sectionIds.experience },
+  { uiName: 'anchor-portfolio', scrollToId: CONSTANTS.sectionIds.portfolio }
 ];
 
 function Footer() {

@@ -63,7 +63,7 @@ const educationCards = [
 ];
 
 const skillCards = [
-  'Angular', 'Node.js', 'Express.js', 'TypeScript', 'JavaScript', 'Karma', 'Jest', 'HTML5', 'CSS3', 'Sass', 'Bootstrap', 'React', 'Next.js', 'Docker'
+  'Angular', 'Node.js', 'Express.js', 'TypeScript', 'JavaScript', 'Karma', 'Jest', 'HTML5', 'CSS3', 'Sass', 'Bootstrap', 'React', 'Next.js', 'MongoDB', 'Docker'
 ];
 
 const toolCards = [
