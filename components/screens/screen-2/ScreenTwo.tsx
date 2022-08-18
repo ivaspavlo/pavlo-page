@@ -99,7 +99,7 @@ function ScreenTwo() {
                     transition={{ duration: .4, ease: 'easeOut', delay: .6 }}
                     className={`${styles.mainBlock__myInfo} ${styles.mainBlock__myInfo_email}`}>
                       <b>{t('email-title')}:</b>
-                      <span>pavloiva@gmail.com</span>
+                      <span>ivaspavlo@gmail.com</span>
                   </motion.a>
                   <motion.p
                     initial={false}

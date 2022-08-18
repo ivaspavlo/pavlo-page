@@ -22,7 +22,7 @@ const portfolioItems = [
     title: 'project-11.title',
     desc: 'project-11.desc',
     projectImg: 'img/project-11-bg.png',
-    codeLink: 'https://github.com/pavel-ivashchenko/panda-marketplace',
+    codeLink: 'https://github.com/ivaspavlo/panda-marketplace',
     stack: ['Angular', 'Web3', 'Metamask', 'HTML5', 'CSS3']
   }, {
     id: 'project-10',
@@ -63,21 +63,21 @@ const portfolioItems = [
     id: 'project-5',
     title: 'project-5.title',
     desc: 'project-5.desc',
-    codeLink: 'https://github.com/pavel-ivashchenko/massage-services-ui',
+    codeLink: 'https://github.com/ivaspavlo/massage-services-ui',
     projectImg: 'img/project-5-bg.png',
     stack: ['Angular', 'Web3', 'Metamask', 'HTML5', 'CSS3']
   }, {
     id: 'project-4',
     title: 'project-4.title',
     desc: 'project-4.desc',
-    codeLink: 'https://github.com/pavel-ivashchenko/diamond-boyz-ui',
+    codeLink: 'https://github.com/ivaspavlo/diamond-boyz-ui',
     projectImg: 'img/project-4-bg.png',
     stack: ['Angular', 'Web3', 'Metamask', 'HTML5', 'CSS3']
   }, {
     id: 'project-3',
     title: 'project-3.title',
     desc: 'project-3.desc',
-    codeLink: 'https://github.com/pavel-ivashchenko/uptracker-v2',
+    codeLink: 'https://github.com/ivaspavlo/uptracker-v2',
     projectImg: 'img/project-3-bg.png',
     liveLink: 'https://up-tracker.com/',
     stack: ['Angular', 'NgRx', 'Material', 'HTML5', 'CSS3']
@@ -92,14 +92,14 @@ const portfolioItems = [
     id: 'project-1',
     title: 'project-1.title',
     desc: 'project-1.desc',
-    codeLink: 'https://github.com/pavel-ivashchenko/dressmenow_ui',
+    codeLink: 'https://github.com/ivaspavlo/dressmenow_ui',
     projectImg: '/img/project-1-bg.png',
     stack: ['Angular', 'Material', 'HTML5', 'CSS3']
   }, {
     id: 'project-0',
     title: 'project-0.title',
     desc: 'project-0.desc',
-    codeLink: 'https://github.com/pavel-ivashchenko/staff-management-system',
+    codeLink: 'https://github.com/ivaspavlo/staff-management-system',
     projectImg: '/img/project-0-bg.png',
     stack: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose']
   }
