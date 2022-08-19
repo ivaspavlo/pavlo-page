@@ -27,7 +27,8 @@
   "screen-two": {
     "subtitle": "Who am I",
     "title": "About me",
-    "desc": "I already have more than four years of commercial Web development experience both on FE and BE side, with the strong focus in Angular, by far the best tool for the corporate application development on the FE. I have been working in teams of various scale, in start-ups and in large corporate projects. Some of them I have created from scratch.",
+    "desc": "I already have more than four years of Web development experience both on FE and BE side, with the strong focus in Angular - by far the best tool for the corporate application development on the FE side. I have been working in teams of various scale, both in start-ups and in large corporate projects. Some of them I have started from scratch.",
+    "emmi": "By the way, please meet my coding partner and arguably the best cat ever - Emmi Mokrianski 💛",
     "name-title": "Name",
     "age-title": "Age",
     "email-title": "Email",
@@ -41,12 +42,12 @@
     "title": "Services provided",
     "subtitle": "What I do",
     "desc": "Here listed my main three work directions and the level of my expertise in the fields.",
-    "service-fe-title": "Front-end development",
-    "service-app-title": "App development",
-    "service-be-title": "Back-end development",
-    "service-fe-desc": "Able to solve a widest variety of issues. Pixel-perfect and non-trivial visual solutions` development makes me happy.",
-    "service-app-desc": "My current focus is Ionic. So far I have some working experience with Cordova and plans to master React Native.",
-    "service-be-desc": "With my commercial experience I am able to solve medium complexitiy issues, however a deeper knowledge I have in MongoDB."
+    "service-fe-title": "Front-end",
+    "service-app-title": "Apps",
+    "service-be-title": "Back-end",
+    "service-fe-desc": "Able to solve a widest variety of tasks. Pixel-perfect and non-trivial visual solutions` development is what makes me happy.",
+    "service-app-desc": "My current focus is Ionic. So far I have some working experience with Cordova and plan to master React Native.",
+    "service-be-desc": "With my development experience I am able to solve medium complexitiy issues, however I have a deeper knowledge in MongoDB."
   },
   "experience": {
     "title": "Some of my references",

@@ -103,7 +103,12 @@
     }
     @include xl {
       margin-bottom: 32px;
-      padding: 0 0 48px;
+      padding: 0 0 36px;
+    }
+    &_emmi {
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 20px;
     }
   }
   &__myInfo {

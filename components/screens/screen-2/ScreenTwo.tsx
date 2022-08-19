@@ -64,13 +64,18 @@ function ScreenTwo() {
                   >👋</motion.div>
               </motion.h3>
 
-              <motion.p
+              <motion.div
                 initial={false}
                 animate={inView ? 'open' : 'closed'}
                 variants={animate_1}
                 transition={{ duration: .8, ease: 'easeOut', delay: .8 }}
-                className={styles.mainBlock__desc}
-              >{t('desc')}</motion.p>
+                className={styles.mainBlock__desc}>
+                  <p>{t('desc')}</p>
+                  <p className={styles.mainBlock__desc_emmi}>
+                    <span className='mr-2'>🐈</span>
+                    <span className='mr-1'>{t('emmi')}</span>
+                  </p>
+              </motion.div>
 
               <div className='w-100 d-flex flex-column flex-lg-row'>
                 <div className='mr-4 d-flex flex-column'>
@@ -121,7 +126,7 @@ function ScreenTwo() {
                     <ButtonPrimary onClick={() => onClickAnchorHandler(CONSTANTS.sectionIds.experience)} title={t('btn-experience')} link='/' filled={true}/>
                   </div>
                   <div className={styles.mainBlock__buttonWrap}>
-                    <ButtonSecondary title={t('btn-cv')} link='/' />
+                    <ButtonSecondary link='/cv_pavlo_ivashchenko.pdf' title={t('btn-cv')} />
                   </div>
               </motion.div>
 

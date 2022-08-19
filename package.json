@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hotjar/browser": "^1.0.6",
     "bootstrap-4-grid": "^3.4.0",
     "dotenv": "^16.0.1",
     "framer-motion": "^6.3.11",

@@ -4,6 +4,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
+import Hotjar from '@hotjar/browser';
 
 import Layout from '@components/layout/Layout';
 import Header from '@root/components/header/Header';
@@ -14,6 +15,11 @@ import ScreenThree from '@components/screens/screen-3/screenThree';
 import Experience from '@root/components/experience/Experience';
 import Portfolio from '@root/components/portfolio/Portfolio';
 import { CONSTANTS } from '@root/constants';
+
+const siteId = 3115253;
+const hotjarVersion = 6;
+
+Hotjar.init(siteId, hotjarVersion);
 
 export interface IMessage {
   value: string;
