@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import styles from "@components/button-secondary/ButtonSecondary.module.scss";
+import React from 'react';
+import styles from '@components/button-secondary/ButtonSecondary.module.scss';
 
 
 export interface IButtonSecondary {
@@ -12,12 +11,6 @@ export interface IButtonSecondary {
 }
 
 function ButtonSecondary(props: IButtonSecondary) {
-  const [state, setState] = useState(false);
-
-  useEffect(() => {
-    return () => {}
-  }, []);
-
   return (
     <button className={`
       ${styles.buttonSecondary}
@@ -25,7 +18,7 @@ function ButtonSecondary(props: IButtonSecondary) {
       ${props.filled ? styles.filled : ''}
       ${props.noBorder ? styles.noBorder : ''}
     `}>
-      <Link href={props.link}>{props.title}</Link>
+      <a href={props.link} download>{props.title}</a>
     </button>
   );
 }

@@ -182,7 +182,7 @@ function Experience() {
                 <ButtonPrimary onClick={() => onClickAnchorHandler(CONSTANTS.sectionIds.coreFooter)} title={t('btn-contact')} filled={true}/>
               </div>
               <div className={styles.experience__buttonWrap}>
-                <ButtonSecondary title={t('btn-cv')} link='/' />
+                <ButtonSecondary title={t('btn-cv')} link='/cv_pavlo_ivashchenko.pdf' />
               </div>
             </div>
 
