@@ -63,7 +63,8 @@ const portfolioItems = [
     id: 'project-5',
     title: 'project-5.title',
     desc: 'project-5.desc',
-    codeLink: 'https://github.com/ivaspavlo/massage-services-ui',
+    codeLink: 'https://github.com/ivaspavlo/massage-therapy-tkachuk',
+    liveLink: 'https://massage-therapy-tkachuk.web.app/main',
     projectImg: 'img/project-5-bg.png',
     stack: ['Angular', 'Web3', 'Metamask', 'HTML5', 'CSS3']
   }, {
