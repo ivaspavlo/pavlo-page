@@ -126,7 +126,7 @@ function ScreenTwo() {
                     <ButtonPrimary onClick={() => onClickAnchorHandler(CONSTANTS.sectionIds.experience)} title={t('btn-experience')} link='/' filled={true}/>
                   </div>
                   <div className={styles.mainBlock__buttonWrap}>
-                    <ButtonSecondary link='/cv_pavlo_ivashchenko.pdf' title={t('btn-cv')} />
+                    <ButtonSecondary link='/pavlo_ivashchenko.pdf' title={t('btn-cv')} />
                   </div>
               </motion.div>
 

@@ -14,18 +14,18 @@ import styles from './Experience.module.scss';
 
 const experienceCards = [
   {
-    starYear: 2022,
-    endYear: null,
-    iconName: 'allianz-logo',
-    company: 'Allianz Technology',
-    location: 'location-vienna',
-    position: 'position-angular',
-    quote: 'quote-4.text',
-    quoteAuthor: 'quote-4.author',
-    quotePosition: 'quote-4.position'
-  }, {
+  //   starYear: 2022,
+  //   endYear: null,
+  //   iconName: 'allianz-logo',
+  //   company: 'Allianz Technology',
+  //   location: 'location-vienna',
+  //   position: 'position-angular',
+  //   quote: 'quote-4.text',
+  //   quoteAuthor: 'quote-4.author',
+  //   quotePosition: 'quote-4.position'
+  // }, {
     starYear: 2020,
-    endYear: 2022,
+    endYear: null,
     iconName: 'greentube-logo',
     company: 'Greentube Internet Entertainment Solutions GmbH',
     location: 'location-vienna',
@@ -182,7 +182,7 @@ function Experience() {
                 <ButtonPrimary onClick={() => onClickAnchorHandler(CONSTANTS.sectionIds.coreFooter)} title={t('btn-contact')} filled={true}/>
               </div>
               <div className={styles.experience__buttonWrap}>
-                <ButtonSecondary title={t('btn-cv')} link='/cv_pavlo_ivashchenko.pdf' />
+                <ButtonSecondary title={t('btn-cv')} link='/pavlo_ivashchenko.pdf' />
               </div>
             </div>
 
