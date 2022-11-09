@@ -97,6 +97,10 @@
     "no-projects": "That's all for now",
     "code": "Code",
     "live-project": "Live project",
+    "project-13": {
+      "title": "Sharky's Fit",
+      "desc": "Website created for the management of the trainers staff of gym facility."
+    },
     "project-12": {
       "title": "Guided Journey",
       "desc": "Website created for a customer support of an insurance company. Build on a base of a dynamic forms generation via integration of Camunda service and the company's internal libraries."

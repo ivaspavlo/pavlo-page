@@ -12,12 +12,20 @@ import styles from './Portfolio.module.scss';
 
 const portfolioItems = [
   {
-    id: 'project-12',
-    title: 'project-12.title',
-    desc: 'project-12.desc',
-    projectImg: 'img/project-12-bg.png',
-    stack: ['Angular', 'Camunda', 'HTML5', 'CSS3']
+    id: 'project-13',
+    title: 'project-13.title',
+    desc: 'project-13.desc',
+    projectImg: 'img/project-13-bg.png',
+    codeLink: 'https://github.com/ivaspavlo/sharkys-fit',
+    liveLink: 'https://sharkys-fit.web.app',
+    stack: ['Angular', 'HTML5', 'CSS3']
   }, {
+  //   id: 'project-12',
+  //   title: 'project-12.title',
+  //   desc: 'project-12.desc',
+  //   projectImg: 'img/project-12-bg.png',
+  //   stack: ['Angular', 'Camunda', 'HTML5', 'CSS3']
+  // }, {
     id: 'project-11',
     title: 'project-11.title',
     desc: 'project-11.desc',
