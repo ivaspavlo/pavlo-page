@@ -13,7 +13,7 @@
     "bootstrap-4-grid": "^3.4.0",
     "dotenv": "^16.0.1",
     "framer-motion": "^6.3.11",
-    "next": "12.1.5",
+    "next": "^15.5.7",
     "next-intl": "^2.7.1",
     "node-sass": "^7.0.1",
     "nodemailer": "^6.7.7",
