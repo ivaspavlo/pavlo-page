@@ -21,13 +21,13 @@
   "screen-one": {
     "greets-1": "Hey there!",
     "greets-2": "Here's Pavlo Ivashchenko",
-    "intro-text": "Thanks for coming by! I am a Web developer. My tooling is mostly MEAN stack, but of course not limited to: for this page I mastered React and Next.js :)",
+    "intro-text": "Thanks for coming by! I am a Web developer. My tooling is mostly MEAN stack, but of course not limited to: currently I work with Java and Spring Boot extensively, and for this page I mastered React and Next.js, at the time no AI tools was available :)",
     "btn-learn-more": "Discover more"
   },
   "screen-two": {
     "subtitle": "Who am I",
     "title": "About me",
-    "desc": "I already have more than four years of Web development experience both on FE and BE side, with the strong focus in Angular - by far the best tool for the corporate application development on the FE side. I have been working in teams of various scale, both in start-ups and in large corporate projects. Some of them I have started from scratch.",
+    "desc": "I already have more than seven years of Web development experience both on FE and BE side, with the strong focus in Angular - by far the best tool for the corporate application development on the FE side. I have been working in teams of various scale, both in start-ups and in large corporate projects. Some of them I have started from scratch.",
     "emmi": "By the way, please meet my coding partner and arguably the best cat ever - Emmi Mokrianski 💛",
     "name-title": "Name",
     "age-title": "Age",
@@ -47,7 +47,7 @@
     "service-be-title": "Back-end",
     "service-fe-desc": "Able to solve a widest variety of tasks. Pixel-perfect and non-trivial visual solutions` development is what makes me happy.",
     "service-app-desc": "My current focus is Ionic. So far I have some working experience with Cordova and plan to master React Native.",
-    "service-be-desc": "With my development experience with Node.js I am able to solve medium complexitiy issues, however I have a deeper knowledge in MongoDB."
+    "service-be-desc": "Experienced in backend development with Node.js and MongoDB. Proficient in Java with Spring Boot and PostgreSQL, developing scalable applications across NoSQL and relational databases."
   },
   "experience": {
     "title": "Some of my references",
@@ -56,7 +56,10 @@
     "location-kyiv": "Kyiv, Ukraine",
     "location-vienna": "Vienna, Austria",
     "position-angular": "Angular developer",
+    "position-angular-senior": "Senior Angular developer",
+    "position-fullstack": "Fullstack developer",
     "position-node": "Node.js developer",
+    "position-lead-fullstack": "FE lead & fullstack developer",
     "experience": "Experience",
     "education": "Education",
     "skills": "Skills",
@@ -69,10 +72,15 @@
     "economic-school": "Kyiv National Economics University",
     "btn-contact": "Contact me",
     "btn-cv": "Download CV",
-    "quote-4": {
-      "text": "Successfully started not that long ago and so far everything looks great 😎",
+    "quote-5": {
+      "text": "Leading the frontend, contributing across the stack, and helping evolve a rating platform. Happy with how things are going so far 😊",
       "author": "Me",
-      "position": "Senior developer"
+      "position": "FE lead & fullstack developer"
+    },
+    "quote-4": {
+      "text": "Pavlo took over the project at a critical stage, got up to speed quickly, and helped ensure a successful production release. Great collaboration and a reliable delivery throughout!",
+      "author": "Julia Weigand",
+      "position": "Delivery manager"
     },
     "quote-3": {
       "text": "He not only demonstrated a high level of apprehension in all of his assigned tasks, but also managed all projects and tasks with a very high level of responsibility and outstanding expertise.",
@@ -97,6 +105,10 @@
     "no-projects": "That's all for now",
     "code": "Code",
     "live-project": "Live project",
+    "project-14": {
+      "title": "Amadeus Rating Platform",
+      "desc": "Integral banking system for assessing financial statements and calculating credit score. The platform includes multiple financial models and asset classes: corporate, financial institutions, SMB etc. It is built using the modern tech stack with micro-service and micro-frontends architecture."
+    },
     "project-13": {
       "title": "Sharky's Fit",
       "desc": "Website created for the management of the trainers staff of gym facility."

@@ -12,6 +12,20 @@ import styles from './Portfolio.module.scss';
 
 const portfolioItems = [
   {
+    id: 'project-14',
+    title: 'project-14.title',
+    desc: 'project-14.desc',
+    projectImg: 'img/project-14-bg.png',
+    backgroundPosition: 'start',
+    stack: ['Angular', 'Native Federation', 'NGRX', 'Java', 'Spring Boot', 'Docker', 'AWS']
+  },{
+    id: 'project-12',
+    title: 'project-12.title',
+    desc: 'project-12.desc',
+    projectImg: 'img/project-12-bg.png',
+    backgroundPosition: 'start',
+    stack: ['Angular', 'Camunda', 'HTML5', 'CSS3', 'Java', 'Spring Boot', 'PostgreSQL']
+  }, {
     id: 'project-13',
     title: 'project-13.title',
     desc: 'project-13.desc',
@@ -20,12 +34,6 @@ const portfolioItems = [
     liveLink: 'https://sharkys-fit.web.app',
     stack: ['Angular', 'HTML5', 'CSS3']
   }, {
-  //   id: 'project-12',
-  //   title: 'project-12.title',
-  //   desc: 'project-12.desc',
-  //   projectImg: 'img/project-12-bg.png',
-  //   stack: ['Angular', 'Camunda', 'HTML5', 'CSS3']
-  // }, {
     id: 'project-11',
     title: 'project-11.title',
     desc: 'project-11.desc',
@@ -38,6 +46,7 @@ const portfolioItems = [
     desc: 'project-10.desc',
     projectImg: 'img/project-10-bg.png',
     liveLink: 'https://www.admiralcasino.co.uk/en',
+    backgroundPosition: 'start',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-9',
@@ -45,6 +54,7 @@ const portfolioItems = [
     desc: 'project-9.desc',
     projectImg: 'img/project-9-bg.png',
     liveLink: 'https://www.admiralbet.es/es',
+    backgroundPosition: 'start',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-8',
@@ -52,6 +62,7 @@ const portfolioItems = [
     desc: 'project-8.desc',
     projectImg: 'img/project-8-bg.png',
     liveLink: 'https://www.stargames.de/en',
+    backgroundPosition: 'start',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-7',
@@ -59,6 +70,7 @@ const portfolioItems = [
     desc: 'project-7.desc',
     projectImg: 'img/project-7-bg.png',
     liveLink: 'https://www.starvegas.it/it',
+    backgroundPosition: 'start',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-6',
@@ -66,6 +78,7 @@ const portfolioItems = [
     desc: 'project-6.desc',
     projectImg: 'img/project-6-bg.png',
     liveLink: 'https://www.fenixbet.ee/en',
+    backgroundPosition: 'start',
     stack: ['Angular', 'NgRx', 'Gulp', 'Cordova']
   }, {
     id: 'project-5',
