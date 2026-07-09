@@ -66,9 +66,9 @@ function ButtonPrimary(props: IButtonPrimary) {
           props.loading ?
             <PulseLoader color={props.filled ? '#000' : '#fff'} loading={props.loading} cssOverride={override} size={10} /> :
             <Fragment>
-              {!props.iconRight ?? icon}
+              {!props.iconRight && icon}
               <span className={styles.buttonPrimary__content}>{props.title}</span>
-              {props.iconRight ?? icon}
+              {props.iconRight && icon}
             </Fragment>
         }
     </div>

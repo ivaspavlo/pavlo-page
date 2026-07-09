@@ -1,26 +1,41 @@
-@import '~styles/core-variables.scss';
-@import '~styles/core-mixins.scss';
+@use 'sass:math';
+
+@use '~styles/core-variables.scss' as *;
+@use '~styles/core-mixins.scss' as *;
 
 @keyframes a7n-gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes move {
-  from { transform: rotate(0deg) scale(20) translateX(-2px); }
-  to { transform: rotate(360deg) scale(30) translateX(2px); }
+  from {
+    transform: rotate(0deg) scale(20) translateX(-2px);
+  }
+  to {
+    transform: rotate(360deg) scale(30) translateX(2px);
+  }
 }
 
 @mixin dots($count) {
-  opacity: .8;
+  opacity: 0.8;
   $text-shadow: ();
   @for $i from 0 through $count {
-    $text-shadow: $text-shadow,
-                 (-.5+(random()) * 3) + em
-                 (-.5+(random()) * 3) + em
-                 7px
-                 hsla(random() * 360,100%,50%,.9);
+    $text-shadow:
+      $text-shadow,
+      (-0.5+ (math.random()) * 3) +
+        em
+        (-0.5+ (math.random()) * 3) +
+        em
+        7px
+        hsla(math.random() * 360, 100%, 50%, 0.9);
   }
   text-shadow: $text-shadow;
 }
@@ -32,16 +47,19 @@
 }
 
 .layoutBackground {
-  position: fixed; top: 0;
+  position: fixed;
+  top: 0;
   width: 100vw;
   height: 100vh;
   z-index: -1;
   overflow: hidden;
   &__decor_1 {
-    position: absolute; top: 0; left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(-45deg, #303251, #0D0D0D, #3d5543);
+    background: linear-gradient(-45deg, #303251, #0d0d0d, #3d5543);
     background-size: 200% 200%;
     animation: a7n-gradient 15s ease-out infinite;
     display: flex;
@@ -50,8 +68,11 @@
   &__decor_2 {
     display: block;
     font-size: 82px;
-    &:before, &:after {
-      position: absolute; top: 50%; left: 50%;
+    &:before,
+    &:after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       width: 3em;
       height: 3em;
       mix-blend-mode: screen;
@@ -71,7 +92,9 @@
   }
   &__decor_3 {
     @include bg-img('~public/img/screen-one-texture.png');
-    position: absolute; top: 0; left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -86,7 +109,7 @@
     min-height: 100vh;
     transform-style: preserve-3d;
     &.parallax::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       right: 0;
@@ -101,9 +124,18 @@
 
 // Not used by now
 @keyframes a7n-splash {
-  0% { transform: scale(1); opacity: .4; }
-  50% { transform: scale(.7); opacity: .1; }
-  100% { transform: scale(1); opacity: .4; }
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(0.7);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
 }
 
 @mixin splash($duration: 10s) {

@@ -1,14 +1,17 @@
 import type { AppProps } from 'next/app';
-import { NextIntlProvider } from 'next-intl';
-import '@root/styles/globals.scss';
-
+import { NextIntlClientProvider } from 'next-intl';
+import { useRouter } from 'next/router';
+import 'bootstrap-4-grid/css/grid.min.css';
+import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const { locale: routerLocale } = useRouter();
+  const locale = pageProps.locale || routerLocale || 'en';
 
   return (
-    <NextIntlProvider messages={pageProps.messages}>
+    <NextIntlClientProvider locale={locale} messages={pageProps.messages} timeZone='Europe/Vienna'>
       <Component {...pageProps} />
-    </NextIntlProvider>
+    </NextIntlClientProvider>
   );
 }
 

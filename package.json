@@ -13,12 +13,12 @@
     "bootstrap-4-grid": "^3.4.0",
     "dotenv": "^16.0.1",
     "framer-motion": "^6.3.11",
-    "next": "^15.5.7",
-    "next-intl": "^4.5.8",
-    "node-sass": "^7.0.1",
-    "nodemailer": "^6.7.7",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "next": "^15.5.20",
+    "next-intl": "^4.13.1",
+    "sass": "^1.93.2",
+    "nodemailer": "^9.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-intersection-observer": "^9.2.2",
     "react-spinners": "^0.13.3",
     "react-transition-group": "^4.4.2",
@@ -26,10 +26,13 @@
   },
   "devDependencies": {
     "@types/node": "17.0.30",
-    "@types/react": "18.0.8",
-    "@types/react-dom": "18.0.3",
-    "eslint": "8.14.0",
-    "eslint-config-next": "12.1.5",
-    "typescript": "4.6.4"
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.5.20",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
   }
 }
