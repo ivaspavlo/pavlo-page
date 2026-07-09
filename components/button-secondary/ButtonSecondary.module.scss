@@ -1,4 +1,4 @@
-@import '~styles/core-variables.scss';
+@use '~styles/core-variables.scss' as *;
 
 .buttonSecondary {
   width: 100%;

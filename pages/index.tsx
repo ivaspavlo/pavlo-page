@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { GetStaticPropsContext } from 'next';
 import { NextPage } from 'next';
 import Head from 'next/head';
@@ -19,8 +19,6 @@ import { CONSTANTS } from '@root/constants';
 const siteId = 3115253;
 const hotjarVersion = 6;
 
-Hotjar.init(siteId, hotjarVersion);
-
 export interface IMessage {
   value: string;
   type: 'supportUkraine' | 'error' | 'success' | 'hidden';
@@ -30,15 +28,16 @@ export interface ICoreContext {
   language: string;
   message: {
     current: IMessage;
-    setCurrent: (value: IMessage) => void
-  }
+    setCurrent: (value: IMessage) => void;
+  };
 }
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../messages/${locale}.json`)).default
-    }
+      locale,
+      messages: (await import(`../messages/${locale}.json`)).default,
+    },
   };
 }
 
@@ -46,35 +45,56 @@ export const CoreContext = createContext<ICoreContext>({
   language: '',
   message: {
     current: { value: '', type: 'hidden' },
-    setCurrent: (value: IMessage) => {}
-  }
+    setCurrent: (value: IMessage) => {},
+  },
 });
 
 const Home: NextPage = () => {
   const t = useTranslations('core');
   const { locale } = useRouter();
-  const [message, setMessage] = useState<IMessage>({value: CONSTANTS.coreMessages.supportUkraine, type: 'supportUkraine'});
+  const [message, setMessage] = useState<IMessage>({
+    value: CONSTANTS.coreMessages.supportUkraine,
+    type: 'supportUkraine',
+  });
+
+  useEffect(() => {
+    Hotjar.init(siteId, hotjarVersion);
+  }, []);
 
   return (
-    <CoreContext.Provider value={{
-      language: locale || '',
-      message: {
-        current: message,
-        setCurrent: setMessage
-      }
-    }}>
-
+    <CoreContext.Provider
+      value={{
+        language: locale || '',
+        message: {
+          current: message,
+          setCurrent: setMessage,
+        },
+      }}
+    >
       <Head>
         <title>{t('title')}</title>
         <meta name='description' content={t('desc')} />
         <link rel='Shortcut icon' href='/favicon.ico' />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-favicon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+        <link
+          rel='apple-touch-icon'
+          sizes='180x180'
+          href='/apple-favicon.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
+          href='/favicon-32x32.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='16x16'
+          href='/favicon-16x16.png'
+        />
       </Head>
 
       <Layout>
-
         <Header />
         <ScreenOne />
         <ScreenTwo />
@@ -82,11 +102,9 @@ const Home: NextPage = () => {
         <Experience />
         <Portfolio />
         <Footer />
-        
       </Layout>
-
     </CoreContext.Provider>
   );
-}
+};
 
 export default Home;

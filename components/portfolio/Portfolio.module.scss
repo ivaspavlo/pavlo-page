@@ -1,5 +1,5 @@
-@import '~styles/core-variables.scss';
-@import '~styles/core-mixins.scss';
+@use '~styles/core-variables.scss' as *;
+@use '~styles/core-mixins.scss' as *;
 
 .portfolio {
   width: 100%;

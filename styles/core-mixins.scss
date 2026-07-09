@@ -1,38 +1,52 @@
-@import '~styles/core-variables.scss';
+@use "sass:map";
+
+@use "~styles/core-variables.scss" as *;
 
 // Responsive
 
 $bp: (
-  'xs': 428px,
-  'sm': 576px,
-  'md': 768px,
-  'lg': 992px,
-  'xl': 1200px,
-  'xxl': 1400px
+  "xs": 428px,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1400,
 );
 
 @mixin xs {
-  @media only screen and (min-width: map-get($bp, 'xs')) { @content; }
+  @media only screen and (min-width: map.get($bp, "xs")) {
+    @content;
+  }
 }
 
 @mixin sm {
-  @media only screen and (min-width: map-get($bp, 'sm')) { @content; }
+  @media only screen and (min-width: map.get($bp, "sm")) {
+    @content;
+  }
 }
 
 @mixin md {
-  @media only screen and (min-width: map-get($bp, 'md')) { @content; }
+  @media only screen and (min-width: map.get($bp, "md")) {
+    @content;
+  }
 }
 
 @mixin lg {
-  @media only screen and (min-width: map-get($bp, 'lg')) { @content; }
+  @media only screen and (min-width: map.get($bp, "lg")) {
+    @content;
+  }
 }
 
 @mixin xl {
-  @media only screen and (min-width: map-get($bp, 'xl')) { @content; }
+  @media only screen and (min-width: map.get($bp, "xl")) {
+    @content;
+  }
 }
 
 @mixin xxl {
-  @media only screen and (min-width: map-get($bp, 'xxl')) { @content; }
+  @media only screen and (min-width: map.get($bp, "xxl")) {
+    @content;
+  }
 }
 
 // Components
@@ -55,8 +69,14 @@ $bp: (
 
 // Background image
 
-@mixin bg-img($img, $bg-repeat: no-repeat, $bg-pos: center, $bg-color: transparent, $bg-size: cover) {
-  background-image: url('#{$img}');
+@mixin bg-img(
+  $img,
+  $bg-repeat: no-repeat,
+  $bg-pos: center,
+  $bg-color: transparent,
+  $bg-size: cover
+) {
+  background-image: url("#{$img}");
   background-size: $bg-size;
   background-repeat: $bg-repeat;
   background-position: $bg-pos;
