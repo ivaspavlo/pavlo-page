@@ -12,6 +12,7 @@ export interface IProjectConfig {
   stack: string[];
   codeLink?: string;
   liveLink?: string;
+  backgroundPosition?: string;
 }
 
 export interface IProject {
@@ -29,6 +30,7 @@ function Project(props: IProject) {
   const config = props.config;
 
   const bgStyles: IBgStyles = getBgStyles(props.index);
+  const imageBackgroundPosition = getImageBackgroundPosition(config.backgroundPosition);
 
   function getBgStyles(index: number): IBgStyles {
     if (index % 3 === 0) {
@@ -38,6 +40,14 @@ function Project(props: IProject) {
     } else {
       return { aside: 'img/sidebar-1-bg.png', content: '#A8AAFF' };
     }
+  }
+
+  function getImageBackgroundPosition(position?: string): string {
+    if (!position) {
+      return 'center';
+    }
+
+    return position.toLowerCase() === 'start' ? 'left top' : position;
   }
 
   return (
@@ -77,7 +87,10 @@ function Project(props: IProject) {
           </div>
 
           <div className={styles.project__imageContainer}>
-            <div style={{ 'backgroundImage': `url(${config.projectImg})` }} className={styles.project__image} />
+            <div
+              style={{ backgroundImage: `url(${config.projectImg})`, backgroundPosition: imageBackgroundPosition }}
+              className={styles.project__image}
+            />
           </div>
 
         </div>

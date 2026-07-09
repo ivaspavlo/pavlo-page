@@ -17,8 +17,7 @@ import styles from './Footer.module.scss';
 
 const socialLinks = [
   { iconName: 'facebook', link: 'https://www.facebook.com/ivaspavlo' },
-  { iconName: 'instagram', link: 'https://www.instagram.com/invites/contact/?i=1l51jluejfzu8&utm_content=n4glbz8' },
-  { iconName: 'skype', link: 'https://join.skype.com/invite/phipk837xLb4' }
+  { iconName: 'instagram', link: 'https://www.instagram.com/invites/contact/?i=1l51jluejfzu8&utm_content=n4glbz8' }
 ];
 
 const contacts = [

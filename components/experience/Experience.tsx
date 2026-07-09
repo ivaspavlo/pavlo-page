@@ -14,22 +14,33 @@ import styles from './Experience.module.scss';
 
 const experienceCards = [
   {
-  //   starYear: 2022,
-  //   endYear: null,
-  //   iconName: 'allianz-logo',
-  //   company: 'Allianz Technology',
-  //   location: 'location-vienna',
-  //   position: 'position-angular',
-  //   quote: 'quote-4.text',
-  //   quoteAuthor: 'quote-4.author',
-  //   quotePosition: 'quote-4.position'
-  // }, {
-    starYear: 2020,
+    starYear: 2024,
     endYear: null,
+    iconName: 'raiffeisen-logo',
+    company: 'Raiffeisen Bank International AG',
+    location: 'location-vienna',
+    position: 'position-lead-fullstack',
+    quote: 'quote-5.text',
+    quoteAuthor: 'quote-5.author',
+    quotePosition: 'quote-5.position'
+  },
+  {
+    starYear: 2022,
+    endYear: 2024,
+    iconName: 'allianz-logo',
+    company: 'Allianz Technology',
+    location: 'location-vienna',
+    position: 'position-fullstack',
+    quote: 'quote-4.text',
+    quoteAuthor: 'quote-4.author',
+    quotePosition: 'quote-4.position'
+  }, {
+    starYear: 2020,
+    endYear: 2022,
     iconName: 'greentube-logo',
     company: 'Greentube Internet Entertainment Solutions GmbH',
     location: 'location-vienna',
-    position: 'position-angular',
+    position: 'position-angular-senior',
     quote: 'quote-3.text',
     quoteAuthor: 'quote-3.author',
     quotePosition: 'quote-3.position'
@@ -63,7 +74,7 @@ const educationCards = [
 ];
 
 const skillCards = [
-  'Angular', 'Node.js', 'Express.js', 'TypeScript', 'JavaScript', 'Karma', 'Jest', 'HTML5', 'CSS3', 'Sass', 'Bootstrap', 'React', 'Next.js', 'MongoDB', 'Docker'
+  'Angular', 'Native Federation', 'Node.js', 'Express.js', 'TypeScript', 'JavaScript', 'Karma', 'Jest', 'HTML5', 'CSS3', 'Sass', 'Bootstrap', 'React', 'Next.js', 'MongoDB', 'PostgreSQL', 'Docker', 'AWS', 'GCP', 'Figma'
 ];
 
 const toolCards = [
@@ -182,7 +193,7 @@ function Experience() {
                 <ButtonPrimary onClick={() => onClickAnchorHandler(CONSTANTS.sectionIds.coreFooter)} title={t('btn-contact')} filled={true}/>
               </div>
               <div className={styles.experience__buttonWrap}>
-                <ButtonSecondary title={t('btn-cv')} link='/pavlo_ivashchenko.pdf' />
+                <ButtonSecondary title={t('btn-cv')} link="/Pavlo's CV.pdf" />
               </div>
             </div>
 
