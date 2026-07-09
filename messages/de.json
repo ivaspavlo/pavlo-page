@@ -1,0 +1,171 @@
+{
+  "core": {
+    "title": "Pavlos Seite",
+    "desc": "Front-End-Entwickler"
+  },
+  "errors": {
+    "errorMinChar": "Bitte gib einen laengeren Wert ein",
+    "errorEmail": "Bitte gib eine E-Mail-Adresse im richtigen Format ein"
+  },
+  "nav-menu": {
+    "about": "Ueber mich",
+    "services": "Leistungen",
+    "resume": "Lebenslauf",
+    "portfolio": "Portfolio",
+    "contact-btn": "Kontakt",
+    "support-now": "Jetzt unterstuetzen!",
+    "support-ukraine": "Hilf der Ukraine standzuhalten",
+    "email-sent-success": "Die Nachricht wurde an mich gesendet. Danke!",
+    "email-sent-failure": "Hoppla... bitte versuche, mich auf anderem Weg zu erreichen!"
+  },
+  "screen-one": {
+    "greets-1": "Hallo!",
+    "greets-2": "Ich bin Pavlo Ivashchenko",
+    "intro-text": "Danke fuers Vorbeischauen! Ich bin Webentwickler. Meine Werkzeuge liegen vor allem im MEAN-Stack, aber natuerlich nicht nur dort: Fuer diese Seite habe ich React und Next.js gemeistert :)",
+    "btn-learn-more": "Mehr erfahren"
+  },
+  "screen-two": {
+    "subtitle": "Wer ich bin",
+    "title": "Ueber mich",
+    "desc": "Ich habe bereits mehr als vier Jahre Erfahrung in der Webentwicklung, sowohl im Frontend als auch im Backend, mit starkem Fokus auf Angular - meiner Meinung nach das beste Werkzeug fuer die Entwicklung von Unternehmensanwendungen im Frontend. Ich habe in Teams unterschiedlicher Groesse gearbeitet, sowohl in Start-ups als auch in grossen Unternehmensprojekten. Einige davon habe ich von Grund auf aufgebaut.",
+    "emmi": "Uebrigens: Das ist meine Coding-Partnerin und wahrscheinlich die beste Katze ueberhaupt - Emmi Mokrianski",
+    "name-title": "Name",
+    "age-title": "Alter",
+    "email-title": "E-Mail",
+    "location-title": "Standort",
+    "name": "Pavlo Ivashchenko",
+    "location": "Wien, Oesterreich",
+    "btn-experience": "Erfahrung",
+    "btn-cv": "CV herunterladen"
+  },
+  "screen-three": {
+    "title": "Angebotene Leistungen",
+    "subtitle": "Was ich mache",
+    "desc": "Hier sind meine drei wichtigsten Arbeitsbereiche und mein Erfahrungsniveau in diesen Feldern aufgefuehrt.",
+    "service-fe-title": "Frontend",
+    "service-app-title": "Apps",
+    "service-be-title": "Backend",
+    "service-fe-desc": "Ich kann eine breite Vielfalt an Aufgaben loesen. Pixelgenaue und nicht triviale visuelle Loesungen zu entwickeln macht mir besonders Freude.",
+    "service-app-desc": "Mein aktueller Fokus liegt auf Ionic. Bisher habe ich praktische Erfahrung mit Cordova gesammelt und plane, React Native zu meistern.",
+    "service-be-desc": "Durch meine Entwicklungserfahrung mit Node.js kann ich Aufgaben mittlerer Komplexitaet loesen, habe aber tiefere Kenntnisse in MongoDB."
+  },
+  "experience": {
+    "title": "Einige meiner Referenzen",
+    "subtitle": "Lebenslauf",
+    "desc": "Meine Leidenschaft ist es, Technologien und die dazugehoerigen Konzepte stetig zu vertiefen und sie mit jeder Iteration in meinen Projekten anzuwenden. Einige Referenzen dazu findest du unten.",
+    "location-kyiv": "Kiew, Ukraine",
+    "location-vienna": "Wien, Oesterreich",
+    "position-angular": "Angular-Entwickler",
+    "position-node": "Node.js-Entwickler",
+    "experience": "Erfahrung",
+    "education": "Ausbildung",
+    "skills": "Skills",
+    "tools": "Wichtige Werkzeuge",
+    "politech-title": "Bachelorabschluss, Computersysteme und Netzwerke",
+    "politech-school": "Nationale Technische Universitaet Winnyzja",
+    "pedagogic-title": "Masterabschluss, Englische Sprache und Literatur",
+    "pedagogic-school": "Nationale Paedagogische Universitaet Winnyzja",
+    "economic-title": "Masterabschluss, Logistik, Materialversorgung und Supply-Chain-Management",
+    "economic-school": "Nationale Wirtschaftsuniversitaet Kiew",
+    "btn-contact": "Kontakt aufnehmen",
+    "btn-cv": "CV herunterladen",
+    "quote-4": {
+      "text": "Vor nicht allzu langer Zeit erfolgreich gestartet und bisher sieht alles sehr gut aus",
+      "author": "Ich",
+      "position": "Senior Developer"
+    },
+    "quote-3": {
+      "text": "Er zeigte nicht nur ein hohes Mass an Auffassungsgabe bei allen ihm zugewiesenen Aufgaben, sondern betreute Projekte und Aufgaben auch mit sehr grosser Verantwortung und herausragender Expertise.",
+      "author": "Rene Pratsch",
+      "position": "Platform Architect"
+    },
+    "quote-2": {
+      "text": "Er kann sich erforderliches technisches, fachliches oder domaenenspezifisches Wissen in sehr kurzer Zeit aneignen. Und dabei spreche ich noch gar nicht von seiner menschlichen Qualitaet. Er ist wirklich verlaesslich und einfach ein netter Mensch!",
+      "author": "Vadim Pospelov",
+      "position": "Head of Ukrainian Branch"
+    },
+    "quote-1": {
+      "text": "Als ich etwa zwei Jahre lang mit Pavel bei der ITREX Group als Tech Lead an einem Projekt arbeitete, kann ich mich an niemanden mit einer so aussergewoehnlichen Ausdauer, Verantwortung und Arbeitsbereitschaft erinnern. Ich habe beobachtet, wie Pavel jeden Tag enorme Fortschritte in seinen technischen und sozialen Faehigkeiten machte.",
+      "author": "Oleksandr Buchek",
+      "position": "Technical Lead"
+    }
+  },
+  "portfolio": {
+    "title": "Neueste Projekte",
+    "subtitle": "Portfolio",
+    "see-more": "Mehr anzeigen",
+    "no-projects": "Das ist vorerst alles",
+    "code": "Code",
+    "live-project": "Live-Projekt",
+    "project-13": {
+      "title": "Sharky's Fit",
+      "desc": "Website zur Verwaltung des Trainerteams eines Fitnessstudios."
+    },
+    "project-12": {
+      "title": "Guided Journey",
+      "desc": "Website fuer den Kundensupport eines Versicherungsunternehmens. Entwickelt auf Basis dynamischer Formularerzeugung durch Integration eines Camunda-Services und interner Bibliotheken des Unternehmens."
+    },
+    "project-11": {
+      "title": "Panda Marketplace",
+      "desc": "Eine von mehreren Fassaden fuer Marktplaetze fuer Kryptomuenzen."
+    },
+    "project-10": {
+      "title": "Admiral United Kingdom",
+      "desc": "Online-Casino mit einer Vielzahl von Gaming-Anbietern fuer den britischen Markt. Verfuegbar im Web und im App Store."
+    },
+    "project-9": {
+      "title": "AdmiralBET Spain",
+      "desc": "Eines der groessten Online-Casinos in Spanien mit tausenden Spielern taeglich. Verfuegbar im Web und im App Store."
+    },
+    "project-8": {
+      "title": "Stargames Germany",
+      "desc": "Glucksspielseite, angepasst an den lokalen Markt und die Gesetzgebung. Verfuegbar im Web und im App Store."
+    },
+    "project-7": {
+      "title": "Starvegas Italy",
+      "desc": "Glucksspielseite, angepasst an den lokalen Markt und die Gesetzgebung. Verfuegbar im Web und im App Store."
+    },
+    "project-6": {
+      "title": "Fenixbet Estonia",
+      "desc": "Glucksspielseite, angepasst an den lokalen Markt und die Gesetzgebung. Verfuegbar im Web und im App Store."
+    },
+    "project-5": {
+      "title": "Massage Therapy",
+      "desc": "Persoenliche Website fuer ein Massagestudio. Enthalten sind persoenlicher Account, Blog, Buchungen und weitere Funktionen."
+    },
+    "project-4": {
+      "title": "Diamond Swap",
+      "desc": "Proprietaerer Marktplatz mit Loesungen fuer Unternehmen sowie Kreative und Kuenstler, um Blockchain-Technologie fuer sich zu nutzen."
+    },
+    "project-3": {
+      "title": "UPtracker v.2",
+      "desc": "Light-Version eines Lagerverwaltungssystems fuer kieferorthopaedische Praxen. Bietet Bestell- und Reporting-Funktionen und unterstuetzt ein papierloses Buero."
+    },
+    "project-2": {
+      "title": "UPtracker v.1",
+      "desc": "Erweiterte Version eines Lagerverwaltungssystems fuer kieferorthopaedische Praxen und Einzelhaendler. Ermoeglicht die Verwaltung vorhandener Bestaende, automatische Bestellungen bei niedrigen Lagerstaenden sowie weitere Funktionen."
+    },
+    "project-1": {
+      "title": "Dress Me Now",
+      "desc": "Marktplatz fuer kleine Haendler von Kleidern und verwandten Produkten. Enthalten sind persoenlicher Account, Autorisierung, Bestellung und mehr."
+    },
+    "project-0": {
+      "title": "Staff management system",
+      "desc": "Kombiniert mehrere notwendige HR-Funktionen: Speicherung von Mitarbeiterdaten, Recruiting, Performance Management, Kompetenzverfolgung und mehr."
+    }
+  },
+  "footer": {
+    "contact": "Kontakt",
+    "me": "mit mir",
+    "desc": "Ich bin in fast allen sozialen Netzwerken vertreten, aber am sichersten erreichst du mich auf LinkedIn und Telegram oder ueber das Feedbackformular.",
+    "bottom-line-title": "Lass uns gemeinsam etwas schaffen!",
+    "anchor-about": "Ueber mich",
+    "anchor-resume": "Lebenslauf",
+    "anchor-portfolio": "Portfolio",
+    "form-header": "Kontakt aufnehmen",
+    "form-button": "Jetzt absenden",
+    "form-name": "Dein Name",
+    "form-email": "Deine E-Mail",
+    "form-message": "Nachricht"
+  }
+}
